@@ -1,0 +1,99 @@
+@import "tailwindcss";
+
+@theme {
+  --color-supreme-navy: #0f2942;
+  --color-supreme-navy-dark: #0b1b2b;
+  --color-supreme-slate: #334e68;
+  --color-supreme-orange: #f36f21;
+  --color-supreme-red: #d92b20;
+  --color-supreme-red-dark: #b91f17;
+  --color-supreme-light: #f8fafc;
+  --color-supreme-border: #e2e8f0;
+  --color-supreme-text: #0f172a;
+  --color-supreme-muted: #64748b;
+}
+
+:root {
+  --primary: #0f2942;
+  --primary-dark: #0b1b2b;
+  --accent-orange: #f36f21;
+  --accent-red: #d92b20;
+  --white: #ffffff;
+  --light-gray: #f8fafc;
+  --border: #e2e8f0;
+  --text: #0f172a;
+  --muted: #64748b;
+
+  /* Navbar Dimensions */
+  --navbar-top-height: 40px;
+  --navbar-main-height: 80px;
+  --navbar-total-height: calc(var(--navbar-top-height) + var(--navbar-main-height));
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --navbar-top-height: 44px;
+    --navbar-main-height: 90px;
+  }
+}
+
+@layer base {
+  *, ::before, ::after {
+    box-sizing: border-box;
+  }
+
+  html,
+  body,
+  #root {
+    width: 100%;
+    max-width: 100%;
+    min-height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    color: var(--text);
+    background-color: var(--white);
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+}
+
+/* Kinetic Horizontal Marquee Animations */
+@keyframes marqueeLeft {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-33.3333%, 0, 0);
+  }
+}
+
+@keyframes marqueeRight {
+  0% {
+    transform: translate3d(-33.3333%, 0, 0);
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.animate-marquee-left {
+  animation: marqueeLeft 34s linear infinite;
+  will-change: transform;
+}
+
+.animate-marquee-left-slow {
+  animation: marqueeLeft 42s linear infinite;
+  will-change: transform;
+}
+
+.animate-marquee-right {
+  animation: marqueeRight 28s linear infinite;
+  will-change: transform;
+}
+
+.animate-marquee-right-fast {
+  animation: marqueeRight 31s linear infinite;
+  will-change: transform;
+}
+
