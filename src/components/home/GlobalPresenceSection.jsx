@@ -1,456 +1,298 @@
 import React, { useState, useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import {
-  Ship,
-  Plane,
-  Anchor,
-  ShieldCheck,
-  PackageCheck,
-  FileCheck2,
-  Globe2,
-  CheckCircle2,
-  ArrowUpRight,
-  Boxes
-} from "lucide-react";
+import { Globe2, Search, Sparkles } from "lucide-react";
 
 gsap.registerPlugin(ScrollTrigger);
 
-// Complete List of 15 Active Global Export Destinations
+// Comprehensive list of 45 major export countries matching user specification
 const exportCountries = [
-  {
-    id: "UAE",
-    name: "United Arab Emirates",
-    code: "ae",
-    region: "Middle East",
-    hub: "Jebel Ali / Dubai Port",
-    transit: "Sea & Air Freight",
-    keySupply: "High-Pressure Piping & Forged Flanges",
-    terms: "FOB / CIF / CFR"
-  },
-  {
-    id: "SAU",
-    name: "Saudi Arabia",
-    code: "sa",
-    region: "Middle East",
-    hub: "Dammam / Jeddah Port",
-    transit: "Ocean Container & Breakbulk",
-    keySupply: "Refinery & Petrochemical Alloys",
-    terms: "FOB / CIF / CFR"
-  },
-  {
-    id: "QAT",
-    name: "Qatar",
-    code: "qa",
-    region: "Middle East",
-    hub: "Hamad Port / Doha",
-    transit: "Direct Port Dispatch",
-    keySupply: "LNG & Gas Pipeline Materials",
-    terms: "CIF / CFR"
-  },
-  {
-    id: "OMN",
-    name: "Oman",
-    code: "om",
-    region: "Middle East",
-    hub: "Sohar / Muscat Port",
-    transit: "Sea Freight Transit",
-    keySupply: "Desalination & Energy Piping",
-    terms: "FOB / CIF"
-  },
-  {
-    id: "KWT",
-    name: "Kuwait",
-    code: "kw",
-    region: "Middle East",
-    hub: "Shuwaikh / Shuaiba Port",
-    transit: "Container Line Supply",
-    keySupply: "Heavy Process Industry Flanges",
-    terms: "CIF / CFR"
-  },
-  {
-    id: "USA",
-    name: "United States",
-    code: "us",
-    region: "Americas",
-    hub: "Houston / New York Port",
-    transit: "Ocean Freight & Express Air",
-    keySupply: "Nickel Alloys & High-Nickel Piping",
-    terms: "FOB / CIF / DDP"
-  },
-  {
-    id: "GBR",
-    name: "United Kingdom",
-    code: "gb",
-    region: "Europe",
-    hub: "Felixstowe / Southampton",
-    transit: "Scheduled Vessel Cargo",
-    keySupply: "Offshore Marine & Chemical Alloys",
-    terms: "CIF / CFR"
-  },
-  {
-    id: "DEU",
-    name: "Germany",
-    code: "de",
-    region: "Europe",
-    hub: "Hamburg / Bremen Port",
-    transit: "Intermodal European Cargo",
-    keySupply: "Precision Tubes & Forged Components",
-    terms: "FOB / CIF / DAP"
-  },
-  {
-    id: "NLD",
-    name: "Netherlands",
-    code: "nl",
-    region: "Europe",
-    hub: "Port of Rotterdam",
-    transit: "Gateway Distribution",
-    keySupply: "Duplex / Super Duplex Piping",
-    terms: "CIF / CFR / Ex-Works"
-  },
-  {
-    id: "ITA",
-    name: "Italy",
-    code: "it",
-    region: "Europe",
-    hub: "Genoa / Trieste Port",
-    transit: "Mediterranean Freight",
-    keySupply: "Boiler Quality Plates & Fittings",
-    terms: "FOB / CIF"
-  },
-  {
-    id: "SGP",
-    name: "Singapore",
-    code: "sg",
-    region: "Asia Pacific",
-    hub: "Port of Singapore",
-    transit: "Express Maritime Corridor",
-    keySupply: "Shipbuilding & Marine Fasteners",
-    terms: "FOB / CIF / CFR"
-  },
-  {
-    id: "AUS",
-    name: "Australia",
-    code: "au",
-    region: "Asia Pacific",
-    hub: "Sydney / Melbourne / Fremantle",
-    transit: "Direct Ocean Line",
-    keySupply: "Mining & Heavy Processing Piping",
-    terms: "CIF / CFR / DDP"
-  },
-  {
-    id: "KOR",
-    name: "South Korea",
-    code: "kr",
-    region: "Asia Pacific",
-    hub: "Busan / Incheon Port",
-    transit: "Direct Sea Cargo",
-    keySupply: "Shipyard & Cryogenic Grade Steels",
-    terms: "FOB / CIF"
-  },
-  {
-    id: "JPN",
-    name: "Japan",
-    code: "jp",
-    region: "Asia Pacific",
-    hub: "Yokohama / Kobe Port",
-    transit: "Dedicated Freight Line",
-    keySupply: "Aerospace & Thermal Power Alloys",
-    terms: "CIF / CFR"
-  },
-  {
-    id: "ZAF",
-    name: "South Africa",
-    code: "za",
-    region: "Africa",
-    hub: "Durban / Cape Town Port",
-    transit: "Direct Maritime Dispatch",
-    keySupply: "Heavy Industry & Mining Alloys",
-    terms: "FOB / CIF"
-  }
+  // North & South America
+  { id: "USA", name: "United States", code: "us", region: "Americas" },
+  { id: "CAN", name: "Canada", code: "ca", region: "Americas" },
+  { id: "MEX", name: "Mexico", code: "mx", region: "Americas" },
+  { id: "BRA", name: "Brazil", code: "br", region: "Americas" },
+  { id: "ARG", name: "Argentina", code: "ar", region: "Americas" },
+  { id: "CHL", name: "Chile", code: "cl", region: "Americas" },
+
+  // Europe
+  { id: "GBR", name: "United Kingdom", code: "gb", region: "Europe" },
+  { id: "DEU", name: "Germany", code: "de", region: "Europe" },
+  { id: "FRA", name: "France", code: "fr", region: "Europe" },
+  { id: "ITA", name: "Italy", code: "it", region: "Europe" },
+  { id: "ESP", name: "Spain", code: "es", region: "Europe" },
+  { id: "PRT", name: "Portugal", code: "pt", region: "Europe" },
+  { id: "NLD", name: "Netherlands", code: "nl", region: "Europe" },
+  { id: "BEL", name: "Belgium", code: "be", region: "Europe" },
+  { id: "CHE", name: "Switzerland", code: "ch", region: "Europe" },
+  { id: "AUT", name: "Austria", code: "at", region: "Europe" },
+  { id: "SWE", name: "Sweden", code: "se", region: "Europe" },
+  { id: "NOR", name: "Norway", code: "no", region: "Europe" },
+  { id: "DNK", name: "Denmark", code: "dk", region: "Europe" },
+  { id: "FIN", name: "Finland", code: "fi", region: "Europe" },
+  { id: "IRL", name: "Ireland", code: "ie", region: "Europe" },
+  { id: "POL", name: "Poland", code: "pl", region: "Europe" },
+  { id: "CZE", name: "Czech Republic", code: "cz", region: "Europe" },
+  { id: "UKR", name: "Ukraine", code: "ua", region: "Europe" },
+
+  // Middle East
+  { id: "UAE", name: "UAE", code: "ae", region: "Middle East" },
+  { id: "SAU", name: "Saudi Arabia", code: "sa", region: "Middle East" },
+  { id: "QAT", name: "Qatar", code: "qa", region: "Middle East" },
+  { id: "KWT", name: "Kuwait", code: "kw", region: "Middle East" },
+  { id: "OMN", name: "Oman", code: "om", region: "Middle East" },
+  { id: "BHR", name: "Bahrain", code: "bh", region: "Middle East" },
+  { id: "TUR", name: "Turkey", code: "tr", region: "Middle East" },
+
+  // Asia Pacific
+  { id: "SGP", name: "Singapore", code: "sg", region: "Asia Pacific" },
+  { id: "JPN", name: "Japan", code: "jp", region: "Asia Pacific" },
+  { id: "CHN", name: "China", code: "cn", region: "Asia Pacific" },
+  { id: "KOR", name: "South Korea", code: "kr", region: "Asia Pacific" },
+  { id: "MYS", name: "Malaysia", code: "my", region: "Asia Pacific" },
+  { id: "IDN", name: "Indonesia", code: "id", region: "Asia Pacific" },
+  { id: "THA", name: "Thailand", code: "th", region: "Asia Pacific" },
+  { id: "VNM", name: "Vietnam", code: "vn", region: "Asia Pacific" },
+  { id: "PHL", name: "Philippines", code: "ph", region: "Asia Pacific" },
+  { id: "AUS", name: "Australia", code: "au", region: "Asia Pacific" },
+  { id: "NZL", name: "New Zealand", code: "nz", region: "Asia Pacific" },
+
+  // Africa
+  { id: "ZAF", name: "South Africa", code: "za", region: "Africa" },
+  { id: "EGY", name: "Egypt", code: "eg", region: "Africa" },
+  { id: "NGA", name: "Nigeria", code: "ng", region: "Africa" }
 ];
 
 const regions = [
-  { id: "all", label: "All Destinations", count: 15 },
-  { id: "Middle East", label: "Middle East", count: 5 },
-  { id: "Europe", label: "Europe", count: 4 },
-  { id: "Asia Pacific", label: "Asia Pacific", count: 4 },
-  { id: "Americas", label: "Americas", count: 1 },
-  { id: "Africa", label: "Africa", count: 1 }
-];
-
-const exportCredentials = [
-  {
-    icon: PackageCheck,
-    title: "Seaworthy Export Packing",
-    desc: "ISPM-15 heat-treated wood crates, moisture barrier wrapping & pipe end-caps."
-  },
-  {
-    icon: FileCheck2,
-    title: "100% Certified Documentation",
-    desc: "EN 10204 3.1 / 3.2 Mill Test Certificates, NABL labs & raw material traceability."
-  },
-  {
-    icon: ShieldCheck,
-    title: "Third-Party Inspected (TPI)",
-    desc: "Pre-dispatch clearance via TUV, DNV, Lloyd's Register, BV & SGS agencies."
-  },
-  {
-    icon: Ship,
-    title: "Multi-Modal Freight Dispatch",
-    desc: "Seamless handling across JNPT / Nhava Sheva port, Mumbai Airport, FOB & CIF."
-  }
+  { id: "all", label: "All Countries", count: exportCountries.length },
+  { id: "Europe", label: "Europe", count: exportCountries.filter(c => c.region === "Europe").length },
+  { id: "Middle East", label: "Middle East", count: exportCountries.filter(c => c.region === "Middle East").length },
+  { id: "Asia Pacific", label: "Asia Pacific", count: exportCountries.filter(c => c.region === "Asia Pacific").length },
+  { id: "Americas", label: "Americas", count: exportCountries.filter(c => c.region === "Americas").length },
+  { id: "Africa", label: "Africa", count: exportCountries.filter(c => c.region === "Africa").length }
 ];
 
 export default function GlobalPresenceSection() {
   const sectionRef = useRef(null);
-  const cardsContainerRef = useRef(null);
+  const gridRef = useRef(null);
   const [activeRegion, setActiveRegion] = useState("all");
+  const [searchQuery, setSearchQuery] = useState("");
+  const [mousePos, setMousePos] = useState({ x: -1000, y: -1000 });
 
-  const filteredCountries = exportCountries.filter(
-    (country) => activeRegion === "all" || country.region === activeRegion
-  );
+  // Filter countries based on region & search
+  const filteredCountries = exportCountries.filter((c) => {
+    const matchesRegion = activeRegion === "all" || c.region === activeRegion;
+    const matchesSearch =
+      c.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      c.id.toLowerCase().includes(searchQuery.toLowerCase());
+    return matchesRegion && matchesSearch;
+  });
 
-  // Subtle ScrollTrigger Reveal Animation (Header, Cards, and Footer Credentials)
+  // Mouse spotlight coordinates tracking for high-end glow effect
+  const handleMouseMove = (e) => {
+    if (!sectionRef.current) return;
+    const rect = sectionRef.current.getBoundingClientRect();
+    setMousePos({
+      x: e.clientX - rect.left,
+      y: e.clientY - rect.top
+    });
+  };
+
+  // GSAP ScrollTrigger Entrance Animation Sequence
   useEffect(() => {
     if (!sectionRef.current) return;
 
     const ctx = gsap.context(() => {
-      // 1. Header Reveal
+      // Header elements reveal
       gsap.fromTo(
-        ".export-header-item",
-        { opacity: 0, y: 20 },
+        ".export-anim-header",
+        { opacity: 0, y: 30 },
         {
           opacity: 1,
           y: 0,
-          duration: 0.6,
-          stagger: 0.1,
-          ease: "power2.out",
+          duration: 0.7,
+          stagger: 0.12,
+          ease: "power3.out",
           scrollTrigger: {
             trigger: sectionRef.current,
-            start: "top 80%",
+            start: "top 82%",
             toggleActions: "play none none none"
           }
         }
       );
 
-      // 2. Country Cards Staggered Reveal
-      if (cardsContainerRef.current) {
+      // Country cards staggered wave reveal
+      if (gridRef.current) {
         gsap.fromTo(
-          ".export-country-card",
-          { opacity: 0, y: 16, scale: 0.98 },
+          ".country-card-item",
+          { opacity: 0, scale: 0.9, y: 25 },
           {
             opacity: 1,
-            y: 0,
             scale: 1,
+            y: 0,
             duration: 0.45,
-            stagger: 0.04,
+            stagger: {
+              amount: 0.8,
+              grid: "auto",
+              from: "start"
+            },
             ease: "power2.out",
             scrollTrigger: {
-              trigger: cardsContainerRef.current,
-              start: "top 82%",
+              trigger: gridRef.current,
+              start: "top 85%",
               toggleActions: "play none none none"
             }
           }
         );
       }
-
-      // 3. Credentials Bar Reveal
-      gsap.fromTo(
-        ".export-credential-item",
-        { opacity: 0, y: 18 },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.5,
-          stagger: 0.08,
-          ease: "power2.out",
-          scrollTrigger: {
-            trigger: ".export-credentials-grid",
-            start: "top 88%",
-            toggleActions: "play none none none"
-          }
-        }
-      );
     }, sectionRef);
 
     return () => ctx.revert();
-  }, []);
+  }, [activeRegion]);
 
   return (
     <section
       ref={sectionRef}
       id="global-presence"
-      className="relative bg-gradient-to-b from-[#F8FAFC] via-white to-[#F1F5F9] text-slate-800 py-16 sm:py-20 lg:py-24 overflow-hidden border-b border-slate-200/90"
+      onMouseMove={handleMouseMove}
+      className="relative bg-gradient-to-b from-[#F4F7FB] via-[#F8FAFD] to-[#EDF2F7] text-slate-800 py-16 sm:py-20 lg:py-28 overflow-hidden select-none border-b border-slate-200/90"
     >
-      {/* Subtle Precision Grid Background */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden opacity-35">
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#e2e8f0_1px,transparent_1px),linear-gradient(to_bottom,#e2e8f0_1px,transparent_1px)] bg-[size:3.5rem_3.5rem]" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_20%,rgba(255,255,255,0.9)_0%,transparent_85%)]" />
+      {/* Dynamic Cursor Spotlight Layer */}
+      <div
+        className="pointer-events-none absolute inset-0 z-0 transition-opacity duration-300 opacity-60"
+        style={{
+          background: `radial-gradient(700px circle at ${mousePos.x}px ${mousePos.y}px, rgba(217, 74, 31, 0.09), transparent 60%)`
+        }}
+      />
+
+      {/* Modern Engineering Dot Grid Background */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden opacity-40 z-0">
+        <div className="absolute inset-0 bg-[radial-gradient(#cbd5e1_1.2px,transparent_1.2px)] [background-size:24px_24px]" />
       </div>
+
+      {/* Ambient Glow Blobs */}
+      <div className="absolute top-1/4 left-10 w-96 h-96 bg-blue-400/10 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-1/4 right-10 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl pointer-events-none" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* SECTION HEADER */}
-        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-12">
-          <div className="export-header-item inline-flex items-center gap-2 px-3.5 py-1.5 rounded-md bg-amber-50 border border-amber-200 text-[#D94A1F] font-mono text-xs font-bold uppercase tracking-widest mb-3 shadow-2xs">
-            <Globe2 className="w-3.5 h-3.5 text-[#D94A1F]" />
-            <span>[GLOBAL EXPORT CAPABILITY]</span>
+        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-14">
+          <div className="export-anim-header inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-slate-200 text-[#D94A1F] font-mono text-xs font-bold uppercase tracking-widest mb-4 shadow-xs">
+            <Globe2 className="w-4 h-4 text-[#D94A1F] animate-spin" style={{ animationDuration: "20s" }} />
+            <span>GLOBAL EXPORT NETWORK</span>
+            <Sparkles className="w-3.5 h-3.5 text-amber-500" />
           </div>
 
-          <h2 className="export-header-item text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#0E2A3A] tracking-tight leading-tight mb-3">
-            <span>GLOBAL PRESENCE &amp; </span>
-            <span className="text-[#D94A1F]">COUNTRIES WE EXPORT TO</span>
+          <h2 className="export-anim-header text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#0E2A3A] tracking-tight leading-tight mb-3">
+            <span>COUNTRIES WE </span>
+            <span className="text-[#D94A1F]">EXPORT TO</span>
           </h2>
 
-          <p className="export-header-item text-slate-600 text-sm sm:text-base lg:text-lg leading-relaxed font-medium max-w-2xl mx-auto">
-            Direct mill dispatch, certified high-nickel alloys, stainless steel piping, and forged fittings delivered across major worldwide industrial ports.
+          <p className="export-anim-header text-slate-600 text-sm sm:text-base lg:text-lg leading-relaxed font-medium">
+            Supplying premium industrial piping, forged flanges, and high-nickel alloys across 45+ international export destinations.
           </p>
 
-          {/* REGION FILTER TABS */}
-          <div className="export-header-item flex flex-wrap items-center justify-center gap-2 mt-7">
-            {regions.map((region) => {
-              const isActive = activeRegion === region.id;
-              return (
-                <button
-                  key={region.id}
-                  onClick={() => setActiveRegion(region.id)}
-                  className={`inline-flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-bold transition-all duration-200 cursor-pointer ${
-                    isActive
-                      ? "bg-[#0E2A3A] text-white shadow-sm border border-[#0E2A3A]"
-                      : "bg-white text-slate-700 border border-slate-200 hover:border-slate-300 hover:bg-slate-50"
-                  }`}
-                >
-                  <span>{region.label}</span>
-                  <span
-                    className={`inline-flex items-center justify-center px-1.5 py-0.5 rounded-full text-[10px] font-mono font-bold ${
+          {/* CONTROLS: REGION TABS & SEARCH BAR */}
+          <div className="export-anim-header mt-8 flex flex-col sm:flex-row items-center justify-center gap-3.5">
+            {/* Region Filter Buttons */}
+            <div className="flex flex-wrap items-center justify-center gap-2">
+              {regions.map((region) => {
+                const isActive = activeRegion === region.id;
+                return (
+                  <button
+                    key={region.id}
+                    onClick={() => setActiveRegion(region.id)}
+                    className={`inline-flex items-center gap-1.5 px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-xl text-xs font-bold transition-all duration-300 cursor-pointer ${
                       isActive
-                        ? "bg-[#D94A1F] text-white"
-                        : "bg-slate-100 text-slate-600"
+                        ? "bg-[#0E2A3A] text-white shadow-md border border-[#0E2A3A] scale-105"
+                        : "bg-white text-slate-700 border border-slate-200/90 hover:border-slate-300 hover:bg-slate-50 hover:shadow-2xs"
                     }`}
                   >
-                    {region.count}
-                  </span>
-                </button>
-              );
-            })}
+                    <span>{region.label}</span>
+                    <span
+                      className={`inline-flex items-center justify-center px-1.5 py-0.5 rounded-full text-[10px] font-mono font-bold ${
+                        isActive
+                          ? "bg-[#D94A1F] text-white"
+                          : "bg-slate-100 text-slate-500"
+                      }`}
+                    >
+                      {region.count}
+                    </span>
+                  </button>
+                );
+              })}
+            </div>
+
+            {/* Quick Country Search Bar */}
+            <div className="relative w-full sm:w-56">
+              <Search className="w-4 h-4 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2 pointer-events-none" />
+              <input
+                type="text"
+                placeholder="Search country..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className="w-full pl-9 pr-3 py-1.5 sm:py-2 text-xs rounded-xl bg-white border border-slate-200/90 text-slate-800 placeholder-slate-400 focus:outline-none focus:border-[#D94A1F] focus:ring-2 focus:ring-[#D94A1F]/15 transition-all shadow-2xs font-medium"
+              />
+            </div>
           </div>
         </div>
 
-        {/* COUNTRIES CARDS GRID */}
+        {/* 5-COLUMN COUNTRY CARDS GRID (EXACT LAYOUT FROM USER REFERENCE IMAGES) */}
         <div
-          ref={cardsContainerRef}
-          className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3.5 sm:gap-4"
+          ref={gridRef}
+          className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3.5 sm:gap-4 lg:gap-5"
         >
           {filteredCountries.map((country) => (
             <div
               key={country.id}
-              className="export-country-card group bg-white border border-slate-200/90 hover:border-[#0E2A3A]/40 rounded-xl p-4 sm:p-4.5 shadow-2xs hover:shadow-md transition-all duration-200 relative flex flex-col justify-between overflow-hidden"
+              className="country-card-item group relative bg-white border border-slate-200/90 rounded-2xl p-4 sm:p-5 flex flex-col items-center justify-center text-center shadow-[0_4px_20px_rgba(0,0,0,0.04)] hover:shadow-[0_16px_35px_rgba(14,42,58,0.22)] hover:-translate-y-2 hover:scale-[1.03] transition-all duration-300 ease-out cursor-pointer overflow-hidden select-none"
             >
-              {/* Subtle top corporate accent border indicator on hover */}
-              <div className="absolute top-0 left-0 right-0 h-0.5 bg-transparent group-hover:bg-[#D94A1F] transition-colors duration-200" />
+              {/* Dynamic Corporate Glowing Gradient on Hover (Matching User Netherlands Reference) */}
+              <div className="absolute inset-0 bg-gradient-to-br from-[#8B1A1A] via-[#241738] to-[#0E2A3A] opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-0" />
 
-              <div>
-                {/* Top Row: Official Flag + ISO Code + Active Status */}
-                <div className="flex items-center justify-between gap-2 mb-3">
-                  <div className="flex items-center gap-2.5">
-                    {/* Official Country Flag */}
-                    <div className="w-8 h-5.5 rounded-xs overflow-hidden border border-slate-200 shadow-2xs bg-slate-100 shrink-0 flex items-center justify-center">
-                      <img
-                        src={`https://flagcdn.com/w80/${country.code}.png`}
-                        srcSet={`https://flagcdn.com/w80/${country.code}.png 1x, https://flagcdn.com/w160/${country.code}.png 2x`}
-                        alt={`Flag of ${country.name}`}
-                        className="w-full h-full object-cover"
-                        loading="lazy"
-                        width="32"
-                        height="22"
-                      />
-                    </div>
-                    {/* ISO Code Badge */}
-                    <span className="font-mono text-[11px] font-bold text-slate-500 bg-slate-100 px-1.5 py-0.5 rounded border border-slate-200/60">
-                      {country.id}
-                    </span>
-                  </div>
+              {/* Shimmer Border Light Effect on Hover */}
+              <div className="absolute inset-0 rounded-2xl border-2 border-transparent group-hover:border-amber-400/40 transition-colors duration-300 z-10 pointer-events-none" />
 
-                  {/* Active Corridor Indicator */}
-                  <div className="inline-flex items-center gap-1 text-[10px] font-mono text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-200/60">
-                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
-                    <span>ACTIVE</span>
-                  </div>
+              {/* Card Content Container */}
+              <div className="relative z-20 flex flex-col items-center justify-center w-full">
+                {/* Official Circular Flag Logo */}
+                <div className="relative w-12 h-12 sm:w-14 sm:h-14 rounded-full overflow-hidden shadow-md border-2 border-slate-100 group-hover:border-white group-hover:shadow-[0_0_15px_rgba(255,255,255,0.6)] group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 shrink-0 mb-3 bg-slate-100 flex items-center justify-center">
+                  <img
+                    src={`https://flagcdn.com/w160/${country.code}.png`}
+                    srcSet={`https://flagcdn.com/w160/${country.code}.png 1x, https://flagcdn.com/w320/${country.code}.png 2x`}
+                    alt={country.name}
+                    className="w-full h-full object-cover"
+                    loading="lazy"
+                    width="56"
+                    height="56"
+                  />
                 </div>
 
                 {/* Country Name */}
-                <h3 className="text-[15px] font-bold text-[#0E2A3A] tracking-tight group-hover:text-[#D94A1F] transition-colors leading-snug mb-1">
+                <span className="text-[12px] sm:text-[13px] font-extrabold tracking-wider text-slate-800 uppercase group-hover:text-white transition-colors duration-300 leading-snug line-clamp-1">
                   {country.name}
-                </h3>
-
-                {/* Region Tag */}
-                <span className="inline-block text-[11px] font-semibold text-slate-500 uppercase tracking-wider mb-3">
-                  {country.region}
                 </span>
-
-                {/* Logistics & Supply Detail */}
-                <div className="space-y-1.5 pt-2.5 border-t border-slate-100 text-xs">
-                  <div className="flex items-start gap-1.5 text-slate-600">
-                    <Anchor className="w-3.5 h-3.5 text-[#D94A1F] mt-0.5 shrink-0" />
-                    <span className="font-medium text-slate-700 leading-tight">
-                      {country.hub}
-                    </span>
-                  </div>
-                  <div className="flex items-start gap-1.5 text-slate-500 text-[11px]">
-                    <Ship className="w-3.5 h-3.5 text-slate-400 mt-0.5 shrink-0" />
-                    <span className="leading-tight">{country.transit}</span>
-                  </div>
-                </div>
-              </div>
-
-              {/* Bottom Industrial Supply Tag */}
-              <div className="mt-3 pt-2.5 border-t border-slate-100 flex items-center justify-between text-[10px] font-mono text-slate-500">
-                <span className="text-slate-400">INCOTERMS:</span>
-                <span className="font-semibold text-slate-700">{country.terms}</span>
               </div>
             </div>
           ))}
         </div>
 
-        {/* EXPORT CREDENTIALS & COMPLIANCE BAR */}
-        <div className="export-credentials-grid mt-12 sm:mt-16 bg-white border border-slate-200/90 rounded-2xl p-6 sm:p-8 shadow-xs">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
-            {exportCredentials.map((cred, idx) => {
-              const IconComp = cred.icon;
-              return (
-                <div key={idx} className="export-credential-item flex items-start gap-3.5">
-                  <div className="w-10 h-10 rounded-xl bg-slate-50 border border-slate-200 flex items-center justify-center shrink-0 text-[#0E2A3A]">
-                    <IconComp className="w-5 h-5 text-[#D94A1F]" />
-                  </div>
-                  <div>
-                    <h4 className="text-sm font-bold text-[#0E2A3A] tracking-tight mb-1">
-                      {cred.title}
-                    </h4>
-                    <p className="text-xs text-slate-600 leading-relaxed">
-                      {cred.desc}
-                    </p>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-
-          {/* Bottom Dispatch Summary Notice */}
-          <div className="mt-6 pt-5 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-slate-600">
-            <div className="flex items-center gap-2">
-              <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
-              <span>Full compliance with International Shipping Regulations, HS Codes &amp; Certificate of Origin.</span>
-            </div>
-            <a
-              href="#contact"
-              className="inline-flex items-center gap-1 font-bold text-[#D94A1F] hover:text-[#0E2A3A] transition-colors"
+        {/* Empty Search Fallback */}
+        {filteredCountries.length === 0 && (
+          <div className="text-center py-12 text-slate-500">
+            <p className="text-sm font-semibold">No countries found matching "{searchQuery}"</p>
+            <button
+              onClick={() => {
+                setSearchQuery("");
+                setActiveRegion("all");
+              }}
+              className="mt-3 px-4 py-1.5 text-xs font-bold text-[#D94A1F] hover:underline cursor-pointer"
             >
-              <span>Request Global Export Quote</span>
-              <ArrowUpRight className="w-3.5 h-3.5" />
-            </a>
+              Reset Filters
+            </button>
           </div>
-        </div>
+        )}
 
       </div>
     </section>
