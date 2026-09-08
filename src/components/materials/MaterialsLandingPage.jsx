@@ -1,43 +1,18 @@
-import React, { useEffect, useRef, useMemo } from "react";
+import React, { useEffect, useRef } from "react";
 import {
   ChevronRight,
   ArrowRight,
   ShieldCheck,
-  Package,
   Layers,
-  Sparkles,
-  Zap,
-  Flame,
-  Globe,
-  Factory,
-  Wrench,
-  Anchor,
-  CheckCircle2,
-  Filter
+  CheckCircle2
 } from "lucide-react";
 import gsap from "gsap";
 import {
-  MATERIALS,
-  getMaterialProductCounts
+  MATERIALS
 } from "../../data/productCatalog";
 
-const iconMap = {
-  "01": ShieldCheck,
-  "02": Flame,
-  "03": Sparkles,
-  "04": Zap,
-  "05": Anchor,
-  "06": Globe,
-  "07": Layers,
-  "08": Factory,
-  "09": Wrench
-};
-
-export default function MaterialsLandingPage({ onSelectMaterial, onBackToHome }) {
+export default function MaterialsLandingPage({ onSelectMaterial }) {
   const containerRef = useRef(null);
-
-  // Live genuine product counts dynamically indexed from catalog
-  const materialCounts = useMemo(() => getMaterialProductCounts(), []);
 
   // Update SEO Document Title and scroll to top
   useEffect(() => {
@@ -181,112 +156,66 @@ export default function MaterialsLandingPage({ onSelectMaterial, onBackToHome })
           </div>
         </div>
 
-        {/* 9 Material Cards (3x3 Grid) */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-          {MATERIALS.map((material) => {
-            const count = materialCounts[material.slug] || 0;
-            const IconComponent = iconMap[material.number] || ShieldCheck;
-
-            return (
+        {/* 9 Material Cards (3x3 Grid) - Compact with Images */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-6">
+          {MATERIALS.map((material) => (
+            <div
+              key={material.id}
+              role="button"
+              tabIndex={0}
+              onClick={() => handleCardClick(material.slug)}
+              onKeyDown={(e) => {
+                if (e.key === "Enter" || e.key === " ") {
+                  e.preventDefault();
+                  handleCardClick(material.slug);
+                }
+              }}
+              className="gsap-material-card group bg-white rounded-2xl border border-slate-200/90 hover:border-[#F36F21] shadow-xs hover:shadow-xl overflow-hidden flex flex-col justify-between cursor-pointer transition-all duration-300 transform hover:-translate-y-1 relative text-left"
+            >
+              {/* Top Accent Strip with Material Color */}
               <div
-                key={material.id}
-                onClick={() => handleCardClick(material.slug)}
-                className="gsap-material-card group bg-white rounded-2xl border border-slate-200/90 shadow-md hover:shadow-2xl hover:border-[#F36F21]/60 overflow-hidden flex flex-col justify-between cursor-pointer transition-all duration-300 transform hover:-translate-y-1.5"
-              >
-                {/* Top Accent Strip with Material Color */}
-                <div
-                  className="h-1.5 w-full transition-all duration-300 group-hover:h-2"
-                  style={{ backgroundColor: material.accentColor || "#F36F21" }}
-                />
+                className="h-1.5 w-full transition-all duration-300 group-hover:h-2"
+                style={{ backgroundColor: material.accentColor || "#F36F21" }}
+              />
 
-                <div className="p-6 flex flex-col flex-1">
-                  
-                  {/* Card Header: Number Badge, Family, Count */}
-                  <div className="flex items-center justify-between gap-2 mb-4">
-                    <div className="flex items-center gap-2.5">
-                      <span className="w-8 h-8 rounded-lg bg-[#0E2A3A] text-white text-xs font-mono font-black flex items-center justify-center">
-                        {material.number}
-                      </span>
-                      <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-[#F36F21] bg-orange-50 px-2.5 py-0.5 rounded border border-orange-200">
-                        {material.name}
-                      </span>
-                    </div>
-
-                    <span className="text-xs font-mono font-bold text-slate-700 bg-slate-100 px-2.5 py-1 rounded-full border border-slate-200">
-                      {count} Products
-                    </span>
+              {/* Compact Material Image Preview */}
+              <div className="relative h-40 sm:h-44 w-full bg-slate-100 overflow-hidden">
+                {material.image ? (
+                  <img
+                    src={material.image}
+                    alt={`${material.name} Alloy Showcase`}
+                    className="w-full h-full object-cover filter contrast-[1.02] group-hover:scale-105 transition-transform duration-500"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                ) : (
+                  <div className="w-full h-full flex items-center justify-center text-slate-300">
+                    <ShieldCheck className="w-10 h-10" />
                   </div>
+                )}
+                <span className="absolute top-2.5 left-2.5 text-[10px] font-mono font-bold text-white bg-[#0E2A3A]/85 backdrop-blur-xs px-2 py-0.5 rounded border border-white/10 shadow-xs">
+                  [{material.number}]
+                </span>
+              </div>
 
-                  {/* Material Representative Showcase Image */}
-                  <div className="relative h-56 sm:h-60 rounded-xl bg-gradient-to-b from-slate-50 via-white to-slate-100/50 border border-slate-200/70 mb-4 overflow-hidden shadow-inner">
-                    {material.image ? (
-                      <img
-                        src={material.image}
-                        alt={`${material.name} Alloy Showcase`}
-                        className="w-full h-full object-cover filter drop-shadow-md group-hover:scale-105 transition-transform duration-500"
-                        loading="lazy"
-                        decoding="async"
-                      />
-                    ) : (
-                      <Package className="w-16 h-16 text-slate-300" />
-                    )}
-
-                    {/* Corner Density & Yield Metric */}
-                    <div className="absolute bottom-2 left-2 right-2 flex items-center justify-between text-[10px] font-mono text-slate-600 bg-white/90 backdrop-blur-xs px-2 py-1 rounded border border-slate-200/80 shadow-xs">
-                      <span>ρ: {material.density}</span>
-                      <span>σy: {material.yieldStrength}</span>
+              {/* Card Content: Title & Short Clean Description */}
+              <div className="p-4 sm:p-5 flex flex-col flex-1 justify-between">
+                <div>
+                  <div className="flex items-center justify-between gap-2 mb-1.5">
+                    <h3 className="text-base sm:text-lg font-extrabold text-[#0E2A3A] group-hover:text-[#F36F21] transition-colors leading-tight">
+                      {material.name}
+                    </h3>
+                    <div className="w-7 h-7 rounded-full bg-slate-100 group-hover:bg-[#F36F21] flex items-center justify-center text-slate-400 group-hover:text-white transition-all shrink-0">
+                      <ArrowRight className="w-3.5 h-3.5 transform group-hover:translate-x-0.5 transition-transform" />
                     </div>
                   </div>
-
-                  {/* Material Title & Tagline */}
-                  <h3 className="text-xl font-black text-[#0E2A3A] mb-1.5 group-hover:text-[#F36F21] transition-colors leading-snug">
-                    {material.name}
-                  </h3>
-                  <p className="text-xs font-semibold text-slate-500 mb-3 line-clamp-1">
-                    {material.tagline}
+                  <p className="text-xs text-slate-500 group-hover:text-slate-600 leading-relaxed line-clamp-2">
+                    {material.tagline || material.description}
                   </p>
-
-                  {/* Concise Description */}
-                  <p className="text-xs text-slate-600 leading-relaxed line-clamp-3 mb-4 flex-1">
-                    {material.description}
-                  </p>
-
-                  {/* Top Key Grades Chip Pills */}
-                  <div className="space-y-1.5 pt-3 border-t border-slate-100">
-                    <span className="text-[10px] font-mono font-bold text-slate-400 uppercase tracking-wider block">
-                      Supported Key Grades:
-                    </span>
-                    <div className="flex flex-wrap gap-1.5">
-                      {material.grades.slice(0, 4).map((grade, idx) => (
-                        <span
-                          key={idx}
-                          className="px-2 py-0.5 rounded text-[11px] font-mono font-medium bg-slate-50 text-slate-700 border border-slate-200/80"
-                        >
-                          {grade}
-                        </span>
-                      ))}
-                      {material.grades.length > 4 && (
-                        <span className="px-1.5 py-0.5 rounded text-[10px] font-mono font-bold text-slate-500 bg-slate-100">
-                          +{material.grades.length - 4} more
-                        </span>
-                      )}
-                    </div>
-                  </div>
-
-                </div>
-
-                {/* Bottom CTA Action Bar */}
-                <div className="px-6 py-4 bg-slate-50 border-t border-slate-100 flex items-center justify-between group-hover:bg-[#0E2A3A] transition-colors duration-300">
-                  <span className="text-xs font-mono font-bold text-[#0E2A3A] group-hover:text-white transition-colors">
-                    EXPLORE {material.name.toUpperCase()} PRODUCTS ({count})
-                  </span>
-                  <div className="w-7 h-7 rounded-full bg-white group-hover:bg-[#F36F21] flex items-center justify-center text-slate-600 group-hover:text-white transition-all shadow-xs group-hover:translate-x-1">
-                    <ArrowRight className="w-3.5 h-3.5" />
-                  </div>
                 </div>
               </div>
-            );
-          })}
+            </div>
+          ))}
         </div>
 
       </section>

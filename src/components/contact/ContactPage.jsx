@@ -337,12 +337,12 @@ export default function ContactPage({
 
   return (
     <div ref={containerRef} className="w-full bg-[#FAFBFD] font-sans text-slate-800 relative">
-      
+
       {/* ========================================================================= */}
       {/* 01 — HERO SECTION: CLEAR BACKGROUND IMAGE, COMPACT MOBILE, GET IN TOUCH */}
       {/* ========================================================================= */}
       <section className="relative w-full bg-[#0B1B2B] text-white pt-8 pb-10 sm:pt-24 sm:pb-20 lg:pt-28 lg:pb-24 min-h-[300px] sm:min-h-[400px] lg:min-h-auto overflow-hidden border-b border-slate-800">
-        
+
         {/* Crisp Background Image Layer — Clear, Sharp, No Blur */}
         <div className="absolute inset-0 z-0 overflow-hidden">
           <img
@@ -356,7 +356,7 @@ export default function ContactPage({
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          
+
           {/* Breadcrumb Navigation (Desktop/Tablet) */}
           <div className="hidden sm:flex gsap-hero-el items-center gap-2 text-xs font-mono tracking-widest text-slate-300 mb-6 drop-shadow-sm">
             <a
@@ -376,13 +376,13 @@ export default function ContactPage({
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-            
+
             {/* Left Column (5 cols): Left open so the customer support specialist is fully clear and unobstructed */}
             <div className="hidden lg:block lg:col-span-5 min-h-[320px] pointer-events-none" />
 
             {/* Right Column (7 cols): Heading, Supporting Statement, CTAs & Accreditations */}
             <div className="lg:col-span-7 space-y-3 sm:space-y-5 bg-[#07131F]/60 sm:bg-[#07131F]/80 lg:bg-[#07131F]/65 p-4 sm:p-8 rounded-xl sm:rounded-2xl border border-white/10 shadow-2xl backdrop-blur-xs sm:backdrop-blur-none">
-              
+
               {/* Technical Indicator Badge (Hidden on mobile for clean hierarchy) */}
               <div className="hidden sm:inline-flex gsap-hero-el items-center gap-2.5 px-3.5 py-1.5 rounded-md text-xs font-mono font-bold bg-[#F36F21]/20 text-[#F36F21] border border-[#F36F21]/40 uppercase tracking-widest">
                 <span className="w-2 h-2 rounded-full bg-[#F36F21] animate-pulse" />
@@ -502,7 +502,7 @@ export default function ContactPage({
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#e2e8f0_1px,transparent_1px),linear-gradient(to_bottom,#e2e8f0_1px,transparent_1px)] bg-[size:4rem_4rem] opacity-30 pointer-events-none" />
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          
+
           {/* Section Header */}
           <div className="text-center max-w-2xl mx-auto mb-10 sm:mb-14">
             <span className="text-[#F36F21] font-mono font-bold text-xs uppercase tracking-widest bg-[#F36F21]/10 px-3.5 py-1.5 rounded-md border border-[#F36F21]/25 inline-block mb-2">
@@ -518,7 +518,7 @@ export default function ContactPage({
 
           {/* Cards Grid: 3 Differentiated Modules with Breathing Room */}
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8">
-            
+
             {/* MODULE 1: REGISTERED OFFICE */}
             <div className="gsap-contact-card relative bg-white rounded-2xl border border-slate-200/90 hover:border-[#F36F21]/60 p-7 sm:p-8 transition-all duration-300 shadow-md hover:shadow-2xl flex flex-col justify-between group overflow-hidden">
               <div className="absolute top-0 left-0 right-0 h-1.5 bg-[#0E2A3A] group-hover:bg-[#F36F21] transition-colors" />
@@ -598,10 +598,10 @@ export default function ContactPage({
                 </div>
 
                 <div className="space-y-2.5 mb-5">
-                  {/* Group 1: Mr. M. M. Desai */}
+                  {/* Group 1: Mr. MN Desai */}
                   <div className="bg-slate-50/80 rounded-xl p-3.5 border border-slate-200/70">
                     <span className="text-[11px] font-bold text-slate-700 uppercase tracking-wider block mb-2 font-mono">
-                      Mr. M. M. Desai
+                      Mr. MN Desai
                     </span>
                     <div className="space-y-2">
                       {[
@@ -780,13 +780,13 @@ export default function ContactPage({
       {/* 04 — LOCATION + RFQ: INTEGRATED BUSINESS INTERACTION AREA */}
       {/* ========================================================================= */}
       <section id="map-section" className="gsap-biz-area relative py-14 sm:py-18 bg-[#0F2942] text-white overflow-hidden border-y border-slate-800">
-        
+
         {/* Background Radial Glow */}
         <div className="absolute top-0 right-1/4 w-96 h-96 bg-[#F36F21]/10 rounded-full filter blur-3xl pointer-events-none" />
         <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-blue-500/10 rounded-full filter blur-3xl pointer-events-none" />
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          
+
           {/* Integrated Area Header */}
           <div className="max-w-3xl mb-10 sm:mb-12">
             <span className="text-[#F36F21] font-mono font-bold text-xs uppercase tracking-widest bg-[#F36F21]/15 px-3.5 py-1.5 rounded-md border border-[#F36F21]/30 inline-block mb-3">
@@ -802,10 +802,10 @@ export default function ContactPage({
 
           {/* Unified Two-Column Grid: Map (5 Cols) + RFQ Form (7 Cols) */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-stretch">
-            
+
             {/* LEFT COLUMN: FIND OUR REGISTERED OFFICE & MAP (5 Cols) */}
             <div className="lg:col-span-5 bg-slate-900/90 rounded-2xl border border-slate-700/80 p-6 sm:p-7 shadow-2xl flex flex-col justify-between">
-              
+
               <div>
                 <div className="flex items-center justify-between text-[11px] font-mono text-slate-400 mb-4 pb-3 border-b border-slate-800">
                   <span className="text-[#F36F21] font-bold">[LOCATION-01]</span>
@@ -857,7 +857,7 @@ export default function ContactPage({
 
             {/* RIGHT COLUMN: REQUEST A QUICK QUOTE (RFQ) FORM (7 Cols) */}
             <div id="quote" className="lg:col-span-7 bg-white text-slate-800 rounded-2xl border border-slate-200 p-6 sm:p-8 lg:p-10 shadow-2xl relative">
-              
+
               <div className="flex items-center justify-between text-[11px] font-mono text-slate-400 mb-4 pb-3 border-b border-slate-100">
                 <span className="text-[#F36F21] font-bold">[ENQUIRY-FORM]</span>
                 <span className="uppercase tracking-wider font-semibold text-slate-500">SAME-DAY ESTIMATION GATEWAY</span>
@@ -921,7 +921,7 @@ export default function ContactPage({
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} noValidate className="space-y-4">
-                  
+
                   {/* Row 1: Name & Company */}
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
@@ -936,11 +936,10 @@ export default function ContactPage({
                         onChange={handleChange}
                         onBlur={() => handleBlur("name")}
                         placeholder="e.g. Rajesh Sharma"
-                        className={`w-full px-4 py-3 rounded-xl border text-sm text-slate-800 bg-white placeholder-slate-400 focus:outline-none focus:ring-2 transition-all ${
-                          touched.name && errors.name
+                        className={`w-full px-4 py-3 rounded-xl border text-sm text-slate-800 bg-white placeholder-slate-400 focus:outline-none focus:ring-2 transition-all ${touched.name && errors.name
                             ? "border-red-500 focus:ring-red-500/20"
                             : "border-slate-200 focus:border-[#F36F21] focus:ring-[#F36F21]/20"
-                        }`}
+                          }`}
                       />
                       {touched.name && errors.name && (
                         <span className="text-[11px] text-red-600 font-medium mt-1 flex items-center gap-1">
@@ -979,11 +978,10 @@ export default function ContactPage({
                         onChange={handleChange}
                         onBlur={() => handleBlur("email")}
                         placeholder="name@company.com"
-                        className={`w-full px-4 py-3 rounded-xl border text-sm text-slate-800 bg-white placeholder-slate-400 focus:outline-none focus:ring-2 transition-all ${
-                          touched.email && errors.email
+                        className={`w-full px-4 py-3 rounded-xl border text-sm text-slate-800 bg-white placeholder-slate-400 focus:outline-none focus:ring-2 transition-all ${touched.email && errors.email
                             ? "border-red-500 focus:ring-red-500/20"
                             : "border-slate-200 focus:border-[#F36F21] focus:ring-[#F36F21]/20"
-                        }`}
+                          }`}
                       />
                       {touched.email && errors.email && (
                         <span className="text-[11px] text-red-600 font-medium mt-1 flex items-center gap-1">
@@ -1004,11 +1002,10 @@ export default function ContactPage({
                         onChange={handleChange}
                         onBlur={() => handleBlur("phone")}
                         placeholder="+91 98765 43210"
-                        className={`w-full px-4 py-3 rounded-xl border text-sm text-slate-800 bg-white placeholder-slate-400 focus:outline-none focus:ring-2 transition-all ${
-                          touched.phone && errors.phone
+                        className={`w-full px-4 py-3 rounded-xl border text-sm text-slate-800 bg-white placeholder-slate-400 focus:outline-none focus:ring-2 transition-all ${touched.phone && errors.phone
                             ? "border-red-500 focus:ring-red-500/20"
                             : "border-slate-200 focus:border-[#F36F21] focus:ring-[#F36F21]/20"
-                        }`}
+                          }`}
                       />
                       {touched.phone && errors.phone && (
                         <span className="text-[11px] text-red-600 font-medium mt-1 flex items-center gap-1">
@@ -1032,11 +1029,10 @@ export default function ContactPage({
                       onBlur={() => handleBlur("requirement")}
                       placeholder="e.g. SS 316L Weld Neck Flanges Class 150 or Inconel 625 Round Bars"
                       list="taxonomy-suggestions"
-                      className={`w-full px-4 py-3 rounded-xl border text-sm text-slate-800 bg-white placeholder-slate-400 focus:outline-none focus:ring-2 transition-all ${
-                        touched.requirement && errors.requirement
+                      className={`w-full px-4 py-3 rounded-xl border text-sm text-slate-800 bg-white placeholder-slate-400 focus:outline-none focus:ring-2 transition-all ${touched.requirement && errors.requirement
                           ? "border-red-500 focus:ring-red-500/20"
                           : "border-slate-200 focus:border-[#F36F21] focus:ring-[#F36F21]/20"
-                      }`}
+                        }`}
                     />
                     <datalist id="taxonomy-suggestions">
                       {CATEGORIES.map((c) => (
@@ -1106,7 +1102,7 @@ export default function ContactPage({
       {/* ========================================================================= */}
       <section className="relative py-14 sm:py-18 lg:py-20 bg-[#FAFBFD] border-b border-slate-200/80">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          
+
           <div className="text-center mb-10 sm:mb-12">
             <span className="text-[#F36F21] font-mono font-bold text-xs uppercase tracking-widest bg-[#F36F21]/10 px-3.5 py-1.5 rounded-md border border-[#F36F21]/25 inline-block mb-2">
               [TECHNICAL & COMMERCIAL FAQS]
@@ -1125,11 +1121,10 @@ export default function ContactPage({
               return (
                 <div
                   key={item.id}
-                  className={`gsap-faq-item rounded-2xl border transition-all duration-300 overflow-hidden ${
-                    isOpen
+                  className={`gsap-faq-item rounded-2xl border transition-all duration-300 overflow-hidden ${isOpen
                       ? "bg-white border-[#F36F21]/50 shadow-md ring-2 ring-[#F36F21]/10"
                       : "bg-white/80 border-slate-200/90 hover:border-slate-300 shadow-xs"
-                  }`}
+                    }`}
                 >
                   <button
                     type="button"
@@ -1142,9 +1137,8 @@ export default function ContactPage({
                       <span>{item.question}</span>
                     </span>
                     <div
-                      className={`w-8 h-8 rounded-lg flex items-center justify-center shrink-0 transition-all duration-300 ${
-                        isOpen ? "bg-[#F36F21] text-white rotate-180" : "bg-slate-100 text-slate-500"
-                      }`}
+                      className={`w-8 h-8 rounded-lg flex items-center justify-center shrink-0 transition-all duration-300 ${isOpen ? "bg-[#F36F21] text-white rotate-180" : "bg-slate-100 text-slate-500"
+                        }`}
                     >
                       <ChevronDown className="w-4 h-4" />
                     </div>

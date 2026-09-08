@@ -60,6 +60,7 @@ import flangeExoticImg from "../assets/All Products/Flanges/exotic alloy.png";
 import fastenerSsImg from "../assets/All Products/Fasteners/stainless-steel.webp";
 import fastenerCsImg from "../assets/All Products/Fasteners/carbon.jpeg";
 import fastenerAlloySteelImg from "../assets/All Products/Fasteners/alloy steel.avif";
+const fastenerAsImg = fastenerAlloySteelImg;
 import fastenerNickelImg from "../assets/All Products/Fasteners/nikle.jpeg";
 import fastenerHighAlloyImg from "../assets/All Products/Fasteners/high alloy.webp";
 import fastenerDuplexImg from "../assets/All Products/Fasteners/duplex.jpg";
