@@ -158,7 +158,7 @@ export default function IndustriesLandingPage({ onSelectIndustry, onBackToHome }
         {/* ========================================================================= */}
         {/* 6 INDUSTRY EDITORIAL SHOWCASE CARDS (EXACT HOMEPAGE ASSETS) */}
         {/* ========================================================================= */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-16 sm:mb-20">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 mb-12 sm:mb-16">
           {industries.map((ind) => {
             const IconComp = ind.icon;
 
@@ -166,73 +166,57 @@ export default function IndustriesLandingPage({ onSelectIndustry, onBackToHome }
               <div
                 key={ind.slug}
                 onClick={() => handleCardClick(ind.slug)}
-                className="gsap-ind-card group relative bg-[#0E2A3A] rounded-2xl overflow-hidden border border-slate-800 shadow-lg hover:shadow-2xl transition-all duration-500 flex flex-col justify-between cursor-pointer"
+                className="gsap-ind-card group relative bg-[#0E2A3A] rounded-xl overflow-hidden border border-slate-800 shadow-md hover:shadow-xl transition-all duration-300 flex flex-col justify-between cursor-pointer"
               >
-                {/* Image Showcase Container */}
-                <div className="relative h-60 sm:h-64 w-full overflow-hidden bg-slate-900">
+                {/* Image Showcase Container - Compact */}
+                <div className="relative h-40 sm:h-44 w-full overflow-hidden bg-slate-900">
                   <img
                     src={ind.image}
                     alt={ind.title}
-                    className="w-full h-full object-cover object-center filter brightness-[1.05] contrast-[1.05] transform transition-transform duration-700 group-hover:scale-110"
+                    className="w-full h-full object-cover object-center filter brightness-[1.05] contrast-[1.05] transform transition-transform duration-700 group-hover:scale-105"
                     loading="lazy"
                   />
                   {/* Cinematic Gradient Overlays */}
                   <div className="absolute inset-0 bg-gradient-to-t from-[#0E2A3A] via-[#0E2A3A]/40 to-transparent opacity-90 transition-opacity duration-300 group-hover:opacity-95" />
                   
                   {/* Top Sector Number & Badge */}
-                  <div className="absolute top-4 left-4 right-4 flex items-center justify-between z-10">
-                    <span className="text-xs font-mono font-bold text-amber-300 bg-[#0E2A3A]/90 px-2.5 py-1 rounded-md border border-amber-400/40 backdrop-blur-xs">
+                  <div className="absolute top-3 left-3 right-3 flex items-center justify-between z-10">
+                    <span className="text-[10px] font-mono font-bold text-amber-300 bg-[#0E2A3A]/90 px-2 py-0.5 rounded border border-amber-400/40 backdrop-blur-xs">
                       SECTOR {ind.number} OF 06
                     </span>
-                    <div className="w-8 h-8 rounded-lg bg-[#0E2A3A]/90 border border-slate-700 flex items-center justify-center text-[#F36F21] group-hover:bg-[#F36F21] group-hover:text-white transition-colors">
-                      <IconComp className="w-4 h-4" />
+                    <div className="w-7 h-7 rounded-md bg-[#0E2A3A]/90 border border-slate-700 flex items-center justify-center text-[#F36F21] group-hover:bg-[#F36F21] group-hover:text-white transition-colors">
+                      <IconComp className="w-3.5 h-3.5" />
                     </div>
                   </div>
 
                   {/* Operational Temperature Badge */}
-                  <div className="absolute bottom-3 left-4 right-4 z-10">
+                  <div className="absolute bottom-2.5 left-3 right-3 z-10">
                     <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-amber-400 bg-black/50 px-2 py-0.5 rounded border border-amber-500/30">
                       {ind.technicalHighlights?.temperatureRange}
                     </span>
                   </div>
                 </div>
 
-                {/* Content Section */}
-                <div className="p-6 flex-1 flex flex-col justify-between relative z-10">
+                {/* Content Section - Compact with One-Line Description */}
+                <div className="p-3.5 sm:p-4 flex-1 flex flex-col justify-between relative z-10">
                   <div>
-                    <h3 className="text-xl sm:text-2xl font-black text-white group-hover:text-amber-300 transition-colors leading-snug mb-2">
+                    <h3 className="text-base sm:text-lg font-extrabold text-white group-hover:text-amber-300 transition-colors leading-snug mb-1">
                       {ind.title}
                     </h3>
 
-                    <p className="text-xs font-mono text-slate-300 font-bold tracking-wide uppercase mb-3 text-[#F36F21]">
-                      {ind.tagline}
-                    </p>
-
-                    <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-normal mb-5 line-clamp-3">
+                    {/* Very minimal short one-line description */}
+                    <p className="text-xs text-slate-300 leading-relaxed font-normal mb-3 line-clamp-1">
                       {ind.overview}
                     </p>
-
-                    {/* Operational Demands Bullet Highlights */}
-                    <div className="space-y-1.5 mb-6 pt-4 border-t border-slate-800">
-                      <span className="text-[10px] font-mono text-slate-400 uppercase tracking-wider block font-bold">
-                        KEY ENVIRONMENT DEMANDS:
-                      </span>
-                      {ind.operatingConditions.slice(0, 2).map((demand, dIdx) => (
-                        <div key={dIdx} className="flex items-start gap-1.5 text-xs text-slate-300">
-                          <div className="w-1.5 h-1.5 rounded-full bg-[#F36F21] shrink-0 mt-1.5" />
-                          <span className="line-clamp-1">{demand}</span>
-                        </div>
-                      ))}
-                    </div>
                   </div>
 
                   {/* Bottom Action Strip */}
-                  <div className="pt-4 border-t border-slate-800 flex items-center justify-between">
+                  <div className="pt-2.5 border-t border-slate-800 flex items-center justify-between">
                     <span className="text-xs font-mono font-bold text-amber-400 group-hover:text-white transition-colors">
                       EXPLORE SPECIFICATIONS
                     </span>
-                    <div className="w-8 h-8 rounded-lg bg-slate-800 border border-slate-700 flex items-center justify-center text-white group-hover:bg-[#F36F21] group-hover:border-[#F36F21] transition-all transform group-hover:translate-x-1">
-                      <ArrowRight className="w-4 h-4" />
+                    <div className="w-7 h-7 rounded-md bg-slate-800 border border-slate-700 flex items-center justify-center text-white group-hover:bg-[#F36F21] group-hover:border-[#F36F21] transition-all transform group-hover:translate-x-1">
+                      <ArrowRight className="w-3.5 h-3.5" />
                     </div>
                   </div>
                 </div>

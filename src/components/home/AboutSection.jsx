@@ -10,7 +10,7 @@ import {
   Factory
 } from "lucide-react";
 import companyConfig from "../../config/company";
-import heavyPlatesImg from "../../assets/heavy_plates_coils_bars.jpg";
+import heavyPlatesImg from "../../assets/Product images/HEAVY ENGINEERING PLATES, COILS & ROUND BARS.png";
 import { useGsapReveal } from "../../utils/useGsapReveal";
 
 // Enhanced Catalogue Genuine Statistics (Exact content preserved)

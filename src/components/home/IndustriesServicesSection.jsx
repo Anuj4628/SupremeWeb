@@ -153,7 +153,7 @@ export default function IndustriesServicesSection() {
           >
             <div
               ref={sliderTrackRef}
-              className="flex items-center gap-5 sm:gap-6 w-max will-change-transform"
+              className="flex items-center gap-4 sm:gap-5 w-max will-change-transform"
             >
               {[...keyIndustries, ...keyIndustries].map((ind, index) => (
                 <div
@@ -161,23 +161,23 @@ export default function IndustriesServicesSection() {
                   onClick={() => {
                     window.location.hash = `#industries/${ind.slug}`;
                   }}
-                  className="industry-card-item group relative h-[260px] sm:h-[290px] w-[260px] sm:w-[310px] lg:w-[330px] shrink-0 rounded-2xl overflow-hidden border border-slate-200/90 bg-[#0E2A3A] shadow-md hover:shadow-2xl transition-all duration-300 flex flex-col justify-end cursor-pointer select-none"
+                  className="industry-card-item group relative h-[210px] sm:h-[230px] w-[230px] sm:w-[270px] lg:w-[290px] shrink-0 rounded-xl overflow-hidden border border-slate-200/90 bg-[#0E2A3A] shadow-md hover:shadow-xl transition-all duration-300 flex flex-col justify-end cursor-pointer select-none"
                 >
                   {/* High-Resolution Industrial Sector Image */}
                   <img
                     src={ind.image}
                     alt={ind.title}
-                    className="absolute inset-0 w-full h-full object-cover object-center filter brightness-[1.05] contrast-[1.05] transform transition-transform duration-700 group-hover:scale-110"
+                    className="absolute inset-0 w-full h-full object-cover object-center filter brightness-[1.05] contrast-[1.05] transform transition-transform duration-700 group-hover:scale-105"
                     loading="lazy"
                   />
                   
                   {/* Subtle Dark Gradient Overlay */}
                   <div className="absolute inset-0 bg-gradient-to-t from-[#0E2A3A]/95 via-[#0E2A3A]/40 to-transparent transition-opacity duration-500 group-hover:from-[#0E2A3A]/98 group-hover:via-[#0E2A3A]/50" />
 
-                  {/* Minimal Bottom Title & Orange Accent Line */}
-                  <div className="relative z-10 p-5 space-y-2 transform transition-transform duration-500 group-hover:-translate-y-1">
+                  {/* Compact Bottom Title, 1-Line Description & Orange Accent Line */}
+                  <div className="relative z-10 p-3.5 sm:p-4 space-y-1.5 transform transition-transform duration-500 group-hover:-translate-y-0.5">
                     <div className="flex items-center justify-between">
-                      <span className="text-[10px] font-mono text-amber-300 font-bold tracking-widest uppercase">
+                      <span className="text-[10px] font-mono text-amber-300 font-bold tracking-wider uppercase">
                         [{ind.number || `0${(index % 6) + 1}`}]
                       </span>
                       <span className="text-[10px] font-mono font-bold text-slate-300 group-hover:text-amber-300 flex items-center gap-1">
@@ -185,12 +185,17 @@ export default function IndustriesServicesSection() {
                       </span>
                     </div>
 
-                    <h3 className="text-base sm:text-lg font-extrabold text-white leading-snug tracking-tight group-hover:text-amber-200 transition-colors">
+                    <h3 className="text-sm sm:text-base font-extrabold text-white leading-snug tracking-tight group-hover:text-amber-200 transition-colors line-clamp-1">
                       {ind.title}
                     </h3>
 
+                    {/* Short one-line description */}
+                    <p className="text-[11px] text-slate-300/90 font-normal line-clamp-1 leading-normal">
+                      {ind.tagline || ind.overview}
+                    </p>
+
                     {/* Expanding Orange Underline */}
-                    <div className="h-0.5 bg-[#D94A1F] w-8 group-hover:w-16 transition-all duration-500 rounded-full" />
+                    <div className="h-0.5 bg-[#D94A1F] w-7 group-hover:w-14 transition-all duration-500 rounded-full mt-1" />
                   </div>
                 </div>
               ))}
