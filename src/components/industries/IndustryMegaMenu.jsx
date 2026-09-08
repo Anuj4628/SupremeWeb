@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import { ArrowRight, Globe, ShieldCheck, Sparkles, ChevronRight } from "lucide-react";
+import { ArrowRight, ChevronRight } from "lucide-react";
 import { getAllIndustries } from "../../data/industryData";
 
-export default function IndustryMegaMenu({ onClose, onItemClick }) {
-  const industries = getAllIndustries();
-  const [hoveredIndustry, setHoveredIndustry] = useState(industries[0]);
+export function IndustryMegaMenu({ onClose, onItemClick }) {
+  const industries = getAllIndustries() || [];
+  const [hoveredIndustry, setHoveredIndustry] = useState(() => industries[0] || null);
 
   const handleLinkClick = (slug) => {
     if (onItemClick) onItemClick(slug);
@@ -63,7 +63,7 @@ export default function IndustryMegaMenu({ onClose, onItemClick }) {
                       : "bg-[#0F2942]/5 text-[#0F2942] group-hover:bg-[#F36F21] group-hover:text-white"
                   }`}
                 >
-                  <IconComp className="w-4 h-4" />
+                  {IconComp ? <IconComp className="w-4 h-4" /> : null}
                 </div>
 
                 <div className="flex-1 min-w-0">
@@ -155,3 +155,5 @@ export default function IndustryMegaMenu({ onClose, onItemClick }) {
     </div>
   );
 }
+
+export default IndustryMegaMenu;
