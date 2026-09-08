@@ -73,7 +73,7 @@ export default function ProductHeroSection({
   return (
     <section
       ref={heroRef}
-      className="relative min-h-[480px] sm:min-h-[520px] lg:min-h-[560px] flex items-center bg-[#071722] text-white py-8 sm:py-12 lg:py-16 overflow-hidden border-b border-slate-700/80 gsap-category-hero"
+      className="relative min-h-[280px] sm:min-h-[440px] lg:min-h-[560px] flex items-center bg-[#071722] text-white py-6 sm:py-12 lg:py-16 overflow-hidden border-b border-slate-700/80 gsap-category-hero"
     >
       {/* ========================================================================= */}
       {/* 1. HERO BACKGROUND IMAGE — PURE, CRISP & CLEAR */}
@@ -95,12 +95,12 @@ export default function ProductHeroSection({
       {/* ========================================================================= */}
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10 w-full">
         <div className="max-w-xl lg:max-w-2xl gsap-hero-details-card">
-          <div className="relative rounded-2xl sm:rounded-3xl bg-[#0E2A3A]/75 backdrop-blur-md border border-white/20 shadow-[0_16px_48px_rgba(0,0,0,0.5)] p-5 sm:p-7 lg:p-8 overflow-hidden">
+          <div className="relative rounded-xl sm:rounded-3xl bg-[#0E2A3A]/75 backdrop-blur-md border border-white/20 shadow-[0_16px_48px_rgba(0,0,0,0.5)] p-4 sm:p-7 lg:p-8 overflow-hidden">
             {/* Subtle top edge highlight line */}
             <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-white/40 to-transparent pointer-events-none" />
 
-            {/* Breadcrumb Navigation */}
-            <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-xs text-slate-300 font-mono mb-3.5 gsap-cat-text">
+            {/* Breadcrumb Navigation (Desktop/Tablet) */}
+            <nav aria-label="Breadcrumb" className="hidden sm:flex items-center gap-2 text-xs text-slate-300 font-mono mb-3.5 gsap-cat-text">
               <a href="#home" className="hover:text-[#F36F21] transition-colors">Home</a>
               <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
               <button
@@ -116,23 +116,23 @@ export default function ProductHeroSection({
             </nav>
 
             {/* Division Pill */}
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-[#F36F21]/20 border border-[#F36F21]/40 text-[#F36F21] text-xs font-mono font-bold tracking-widest uppercase mb-3 gsap-cat-text">
+            <div className="hidden sm:inline-flex items-center gap-2 px-3 py-1 rounded-md bg-[#F36F21]/20 border border-[#F36F21]/40 text-[#F36F21] text-xs font-mono font-bold tracking-widest uppercase mb-3 gsap-cat-text">
               <Factory className="w-3.5 h-3.5" />
               <span>[{category.division || "MANUFACTURER"} DIVISION — CATEGORY LANDING]</span>
             </div>
 
             {/* Category Title */}
-            <h1 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-tight mb-3 gsap-cat-text">
+            <h1 className="text-xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-tight mb-2 sm:mb-3 gsap-cat-text">
               {category.name}
             </h1>
 
             {/* Description */}
-            <p className="text-slate-200 text-sm sm:text-base leading-relaxed mb-5 font-normal gsap-cat-text drop-shadow-sm">
+            <p className="text-slate-200 text-xs sm:text-base leading-relaxed mb-3 sm:mb-5 font-normal gsap-cat-text drop-shadow-sm line-clamp-2 sm:line-clamp-none">
               {category.fullDesc || category.shortDesc}
             </p>
 
-            {/* Stats Highlights */}
-            <div className="flex flex-wrap gap-3 text-xs font-mono mb-5 gsap-cat-text">
+            {/* Stats Highlights (Hidden on mobile for compact hero) */}
+            <div className="hidden sm:flex flex-wrap gap-3 text-xs font-mono mb-5 gsap-cat-text">
               <div className="px-3.5 py-2 bg-slate-900/80 rounded-xl border border-white/10 flex items-center gap-2 shadow-sm">
                 <Package className="w-4 h-4 text-[#F36F21]" />
                 <span>Total Products: <strong className="text-white">{totalProducts} Items</strong></span>
@@ -144,8 +144,8 @@ export default function ProductHeroSection({
             </div>
 
             {/* Search Box inside the Details Glass Panel */}
-            <div className="pt-4 border-t border-white/15 gsap-cat-text">
-              <label className="block text-[11px] font-mono font-bold text-amber-400 uppercase mb-2">
+            <div className="pt-2 sm:pt-4 border-t border-white/15 gsap-cat-text">
+              <label className="hidden sm:block text-[11px] font-mono font-bold text-amber-400 uppercase mb-2">
                 Search Within {category.name}
               </label>
               <div className="relative flex items-center">
@@ -154,8 +154,8 @@ export default function ProductHeroSection({
                   type="text"
                   value={searchQuery}
                   onChange={(e) => onSearchChange && onSearchChange(e.target.value)}
-                  placeholder="Search by grade (316L, 2205, Inconel, Monel, WPB)..."
-                  className="w-full pl-10 pr-8 py-2.5 bg-slate-900/90 text-xs sm:text-sm text-white rounded-xl border border-white/20 focus:outline-none focus:border-[#F36F21] focus:ring-1 focus:ring-[#F36F21]/30 transition-all placeholder:text-slate-400"
+                  placeholder="Search by grade (316L, 2205, Inconel)..."
+                  className="w-full pl-10 pr-8 py-2 sm:py-2.5 bg-slate-900/90 text-xs sm:text-sm text-white rounded-xl border border-white/20 focus:outline-none focus:border-[#F36F21] focus:ring-1 focus:ring-[#F36F21]/30 transition-all placeholder:text-slate-400"
                 />
                 {searchQuery && (
                   <button

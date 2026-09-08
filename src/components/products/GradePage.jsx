@@ -157,13 +157,13 @@ export default function GradePage({ gradeSlug, onSelectProduct, onBackToProducts
     <div ref={containerRef} className="min-h-screen bg-slate-50 text-slate-800 font-sans antialiased pb-24">
       
       {/* Grade Hero Header */}
-      <section className="bg-[#0E2A3A] text-white pt-8 pb-14 sm:pt-12 sm:pb-16 border-b border-slate-700/80 relative overflow-hidden">
+      <section className="bg-[#0E2A3A] text-white pt-5 pb-6 sm:pt-12 sm:pb-16 border-b border-slate-700/80 relative overflow-hidden">
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#1e3a4c_1px,transparent_1px),linear-gradient(to_bottom,#1e3a4c_1px,transparent_1px)] bg-[size:4rem_4rem] opacity-25 pointer-events-none" />
         
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
-          {/* Breadcrumb */}
-          <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-xs text-slate-300 font-mono mb-4 gsap-grade-fade">
+          {/* Breadcrumb (Desktop/Tablet) */}
+          <nav aria-label="Breadcrumb" className="hidden sm:flex items-center gap-2 text-xs text-slate-300 font-mono mb-4 gsap-grade-fade">
             <a href="#home" className="hover:text-[#F36F21]">Home</a>
             <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
             <button onClick={onBackToProducts} className="hover:text-[#F36F21]">Products</button>
@@ -177,21 +177,21 @@ export default function GradePage({ gradeSlug, onSelectProduct, onBackToProducts
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             <div className="lg:col-span-8 gsap-grade-fade">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-[#F36F21]/15 border border-[#F36F21]/30 text-[#F36F21] text-xs font-mono font-bold tracking-widest uppercase mb-3">
+              <div className="hidden sm:inline-flex items-center gap-2 px-3 py-1 rounded-md bg-[#F36F21]/15 border border-[#F36F21]/30 text-[#F36F21] text-xs font-mono font-bold tracking-widest uppercase mb-3">
                 <Sparkles className="w-3.5 h-3.5 text-amber-400" />
                 <span>[{gradeInfo.uns}]</span>
               </div>
 
-              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-tight mb-3">
+              <h1 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-tight mb-2 sm:mb-3">
                 {gradeInfo.name}
               </h1>
 
-              <p className="text-slate-300 text-sm sm:text-base leading-relaxed font-normal mb-6 max-w-2xl">
+              <p className="text-slate-300 text-xs sm:text-base leading-relaxed font-normal mb-3 sm:mb-6 max-w-2xl line-clamp-2 sm:line-clamp-none">
                 {gradeInfo.overview}
               </p>
 
-              {/* Supported Forms Chips */}
-              <div className="flex flex-wrap items-center gap-2 text-xs font-mono">
+              {/* Supported Forms Chips (Desktop/Tablet only) */}
+              <div className="hidden sm:flex flex-wrap items-center gap-2 text-xs font-mono">
                 <span className="text-slate-400 font-bold uppercase">Available Product Forms:</span>
                 {gradeInfo.forms.map((f, idx) => (
                   <span key={idx} className="px-2.5 py-1 bg-slate-800 text-amber-400 rounded-md border border-slate-700 font-bold">
@@ -201,8 +201,8 @@ export default function GradePage({ gradeSlug, onSelectProduct, onBackToProducts
               </div>
             </div>
 
-            {/* Quick Specification Box */}
-            <div className="lg:col-span-4 gsap-grade-fade">
+            {/* Quick Specification Box (Desktop/Tablet only) */}
+            <div className="hidden sm:block lg:col-span-4 gsap-grade-fade">
               <div className="bg-slate-900/90 p-5 rounded-2xl border border-slate-700/90 shadow-xl space-y-3">
                 <h3 className="text-xs font-mono font-bold text-amber-400 uppercase tracking-wider flex items-center gap-1.5">
                   <ShieldCheck className="w-4 h-4 text-[#F36F21]" />

@@ -76,13 +76,13 @@ export default function IndustriesLandingPage({ onSelectIndustry, onBackToHome }
   };
 
   return (
-    <div ref={containerRef} className="w-full bg-[#FAFBFD] font-sans text-slate-800 pt-24 sm:pt-28 lg:pt-32 pb-20">
+    <div ref={containerRef} className="w-full bg-[#FAFBFD] font-sans text-slate-800 pt-8 sm:pt-28 lg:pt-32 pb-14 sm:pb-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* ========================================================================= */}
-        {/* BREADCRUMBS & SECTION IDENTIFIER */}
+        {/* BREADCRUMBS & SECTION IDENTIFIER (Desktop/Tablet) */}
         {/* ========================================================================= */}
-        <div className="flex items-center gap-2 text-xs font-mono text-slate-500 mb-6 sm:mb-8">
+        <div className="hidden sm:flex items-center gap-2 text-xs font-mono text-slate-500 mb-6 sm:mb-8">
           <button
             onClick={() => (onBackToHome ? onBackToHome() : (window.location.hash = "#home"))}
             className="hover:text-[#F36F21] transition-colors"
@@ -96,19 +96,19 @@ export default function IndustriesLandingPage({ onSelectIndustry, onBackToHome }
         {/* ========================================================================= */}
         {/* HERO HEADER */}
         {/* ========================================================================= */}
-        <div className="gsap-ind-header text-center max-w-4xl mx-auto mb-12 sm:mb-16">
-          <span className="inline-block text-[#D94A1F] font-bold text-xs uppercase tracking-widest bg-amber-50 px-3.5 py-1.5 rounded-md border border-amber-200 mb-3 font-mono">
+        <div className="gsap-ind-header text-center max-w-4xl mx-auto mb-8 sm:mb-16">
+          <span className="inline-block text-[#D94A1F] font-bold text-xs uppercase tracking-widest bg-amber-50 px-3.5 py-1.5 rounded-md border border-amber-200 mb-2 sm:mb-3 font-mono">
             [MISSION-CRITICAL APPLICATION DOMAINS]
           </span>
-          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black text-[#0E2A3A] tracking-tight leading-[1.1] mb-5">
+          <h1 className="text-2xl sm:text-5xl lg:text-6xl font-black text-[#0E2A3A] tracking-tight leading-[1.1] mb-2.5 sm:mb-5">
             Serving Global <span className="text-[#D94A1F]">Mission-Critical Sectors</span>
           </h1>
-          <p className="text-slate-600 text-base sm:text-lg leading-relaxed font-medium max-w-3xl mx-auto">
+          <p className="text-slate-600 text-xs sm:text-base lg:text-lg leading-relaxed font-medium max-w-3xl mx-auto line-clamp-2 sm:line-clamp-none">
             High-integrity metallurgical supplies engineered to endure extreme thermal cycling, severe cryogenic stresses, aggressive sour gas environments, and deepsea chloride pitting.
           </p>
 
-          {/* Technical Credentials Metric Bar */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 mt-8 pt-8 border-t border-slate-200/90 max-w-4xl mx-auto text-left">
+          {/* Technical Credentials Metric Bar (Desktop/Tablet only) */}
+          <div className="hidden sm:grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 mt-8 pt-8 border-t border-slate-200/90 max-w-4xl mx-auto text-left">
             <div className="gsap-ind-badge p-3.5 bg-white rounded-xl border border-slate-200 shadow-xs">
               <div className="flex items-center gap-2 text-[#F36F21] mb-1">
                 <ShieldCheck className="w-4 h-4" />

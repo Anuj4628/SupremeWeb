@@ -339,26 +339,26 @@ export default function ContactPage({
     <div ref={containerRef} className="w-full bg-[#FAFBFD] font-sans text-slate-800 relative">
       
       {/* ========================================================================= */}
-      {/* 01 — HERO SECTION: CLEAR BACKGROUND IMAGE, NO BLUR, GET IN TOUCH */}
+      {/* 01 — HERO SECTION: CLEAR BACKGROUND IMAGE, COMPACT MOBILE, GET IN TOUCH */}
       {/* ========================================================================= */}
-      <section className="relative w-full bg-[#0B1B2B] text-white pt-24 sm:pt-28 pb-16 sm:pb-20 lg:pb-24 overflow-hidden border-b border-slate-800">
+      <section className="relative w-full bg-[#0B1B2B] text-white pt-8 pb-10 sm:pt-24 sm:pb-20 lg:pt-28 lg:pb-24 min-h-[300px] sm:min-h-[400px] lg:min-h-auto overflow-hidden border-b border-slate-800">
         
         {/* Crisp Background Image Layer — Clear, Sharp, No Blur */}
         <div className="absolute inset-0 z-0 overflow-hidden">
           <img
             src={heroImage}
             alt="Supreme Metal and Alloys Customer Support Representative"
-            className="w-full h-full object-cover object-[left_center] md:object-[25%_center] select-none pointer-events-none"
+            className="w-full h-full object-cover object-[right_center] sm:object-[left_center] md:object-[25%_center] select-none pointer-events-none filter brightness-100 contrast-100"
           />
           {/* Directional scrim: completely transparent on the left where the specialist is, gently dark on the right for crisp text contrast */}
           <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#07131F]/50 to-[#07131F]/90 hidden md:block" />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#07131F] via-[#07131F]/80 to-transparent md:hidden" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#07131F]/85 via-[#07131F]/40 to-transparent md:hidden" />
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
-          {/* Breadcrumb Navigation */}
-          <div className="gsap-hero-el flex items-center gap-2 text-xs font-mono tracking-widest text-slate-300 mb-6 drop-shadow-sm">
+          {/* Breadcrumb Navigation (Desktop/Tablet) */}
+          <div className="hidden sm:flex gsap-hero-el items-center gap-2 text-xs font-mono tracking-widest text-slate-300 mb-6 drop-shadow-sm">
             <a
               href="#home"
               onClick={(e) => {
@@ -381,29 +381,29 @@ export default function ContactPage({
             <div className="hidden lg:block lg:col-span-5 min-h-[320px] pointer-events-none" />
 
             {/* Right Column (7 cols): Heading, Supporting Statement, CTAs & Accreditations */}
-            <div className="lg:col-span-7 space-y-5 bg-[#07131F]/80 lg:bg-[#07131F]/65 p-6 sm:p-8 rounded-2xl border border-white/10 shadow-2xl">
+            <div className="lg:col-span-7 space-y-3 sm:space-y-5 bg-[#07131F]/60 sm:bg-[#07131F]/80 lg:bg-[#07131F]/65 p-4 sm:p-8 rounded-xl sm:rounded-2xl border border-white/10 shadow-2xl backdrop-blur-xs sm:backdrop-blur-none">
               
-              {/* Technical Indicator Badge */}
-              <div className="gsap-hero-el inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-md text-xs font-mono font-bold bg-[#F36F21]/20 text-[#F36F21] border border-[#F36F21]/40 uppercase tracking-widest">
+              {/* Technical Indicator Badge (Hidden on mobile for clean hierarchy) */}
+              <div className="hidden sm:inline-flex gsap-hero-el items-center gap-2.5 px-3.5 py-1.5 rounded-md text-xs font-mono font-bold bg-[#F36F21]/20 text-[#F36F21] border border-[#F36F21]/40 uppercase tracking-widest">
                 <span className="w-2 h-2 rounded-full bg-[#F36F21] animate-pulse" />
                 <span>[OFFICIAL CATALOGUE CONTACT SPECIFICATION]</span>
               </div>
 
               {/* Main Headline */}
-              <h1 className="gsap-hero-el text-4xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight leading-[1.08] drop-shadow-md">
+              <h1 className="gsap-hero-el text-2xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight leading-[1.1] drop-shadow-md">
                 Get in <span className="text-[#F36F21]">Touch</span>
               </h1>
 
               {/* Strong Supporting Statement */}
-              <p className="gsap-hero-el text-base sm:text-lg text-slate-200 font-medium leading-relaxed">
-                Premier Indian stockist, dealers, and suppliers of Ferrous & Non-Ferrous Metals — Stainless Steel & Carbon Steel, Rods, Sheets, Pipes & Pipe Fittings. Serving critical engineering sectors across India and global export missions with certified mill documentation.
+              <p className="gsap-hero-el text-xs sm:text-base lg:text-lg text-slate-200 font-medium leading-relaxed line-clamp-2 sm:line-clamp-none">
+                Premier Indian stockist, dealers, and suppliers of Ferrous &amp; Non-Ferrous Metals — Stainless Steel &amp; Carbon Steel, Rods, Sheets, Pipes &amp; Pipe Fittings.
               </p>
 
-              {/* Action Buttons */}
-              <div className="gsap-hero-el pt-2 flex flex-wrap items-center gap-3.5 sm:gap-4">
+              {/* Action Buttons: Primary CTA visible, secondary hidden on mobile */}
+              <div className="gsap-hero-el pt-1 sm:pt-2 flex flex-wrap items-center gap-3 sm:gap-4">
                 <a
                   href="#quote"
-                  className="inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-[#F36F21] hover:bg-[#d94a1f] text-white text-xs sm:text-sm font-mono font-bold uppercase tracking-wider rounded-xl shadow-lg shadow-[#F36F21]/25 transition-all transform hover:-translate-y-0.5"
+                  className="inline-flex items-center justify-center gap-2 px-5 py-2.5 sm:px-6 sm:py-3.5 bg-[#F36F21] hover:bg-[#d94a1f] text-white text-xs sm:text-sm font-mono font-bold uppercase tracking-wider rounded-xl shadow-lg shadow-[#F36F21]/25 transition-all transform hover:-translate-y-0.5"
                 >
                   <Send className="w-4 h-4" />
                   <span>Request Instant RFQ</span>
@@ -411,15 +411,15 @@ export default function ContactPage({
 
                 <a
                   href="tel:+919869610976"
-                  className="inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-white/10 hover:bg-white/20 text-white text-xs sm:text-sm font-mono font-bold uppercase tracking-wider rounded-xl border border-white/20 transition-all"
+                  className="hidden sm:inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-white/10 hover:bg-white/20 text-white text-xs sm:text-sm font-mono font-bold uppercase tracking-wider rounded-xl border border-white/20 transition-all"
                 >
                   <PhoneCall className="w-4 h-4 text-[#F36F21]" />
                   <span>Direct Call Desk</span>
                 </a>
               </div>
 
-              {/* Accreditation Quick Pill Bar */}
-              <div className="gsap-hero-el pt-3 border-t border-white/10 flex flex-wrap items-center gap-2 text-xs font-mono">
+              {/* Accreditation Quick Pill Bar (Hidden on mobile for clean compact hero) */}
+              <div className="hidden sm:flex gsap-hero-el pt-3 border-t border-white/10 flex-wrap items-center gap-2 text-xs font-mono">
                 <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 text-slate-300">
                   <Award className="w-3.5 h-3.5 text-[#F36F21]" />
                   <span>ISO 9001:2015</span>
@@ -430,7 +430,7 @@ export default function ContactPage({
                 </span>
                 <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 text-slate-300">
                   <FileCheck2 className="w-3.5 h-3.5 text-emerald-400" />
-                  <span>EGAC & IAF (CAB #118005)</span>
+                  <span>EGAC &amp; IAF (CAB #118005)</span>
                 </span>
               </div>
 

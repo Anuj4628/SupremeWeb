@@ -184,7 +184,7 @@ export default function MaterialDetailPage({
       {/* ========================================================================= */}
       {/* 1. HERO HEADER AREA */}
       {/* ========================================================================= */}
-      <section className="relative bg-[#0E2A3A] text-white pt-8 pb-14 sm:pt-12 sm:pb-18 overflow-hidden border-b border-slate-700/80">
+      <section className="relative bg-[#0E2A3A] text-white pt-5 pb-8 sm:pt-12 sm:pb-18 overflow-hidden border-b border-slate-700/80">
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#1e3a4c_1px,transparent_1px),linear-gradient(to_bottom,#1e3a4c_1px,transparent_1px)] bg-[size:4rem_4rem] opacity-30 pointer-events-none" />
         <div
           className="absolute top-0 right-0 w-96 h-96 rounded-full filter blur-3xl opacity-15 pointer-events-none"
@@ -193,8 +193,8 @@ export default function MaterialDetailPage({
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
-          {/* Breadcrumbs */}
-          <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-xs text-slate-300 font-mono mb-4 gsap-mat-anim">
+          {/* Breadcrumbs (Desktop/Tablet) */}
+          <nav aria-label="Breadcrumb" className="hidden sm:flex items-center gap-2 text-xs text-slate-300 font-mono mb-4 gsap-mat-anim">
             <a href="#home" className="hover:text-[#F36F21] transition-colors">Home</a>
             <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
             <button onClick={handleBack} className="hover:text-[#F36F21] transition-colors">Materials</button>
@@ -203,18 +203,18 @@ export default function MaterialDetailPage({
           </nav>
 
           {/* Back Action & Family Tag */}
-          <div className="flex flex-wrap items-center justify-between gap-4 mb-6 gsap-mat-anim">
+          <div className="flex items-center justify-between gap-3 mb-3 sm:mb-6 gsap-mat-anim">
             <button
               onClick={handleBack}
               className="inline-flex items-center gap-2 text-xs font-mono font-bold text-slate-300 hover:text-[#F36F21] transition-colors"
             >
               <ArrowLeft className="w-4 h-4" />
-              <span>Back to All Materials</span>
+              <span>Back to Materials</span>
             </button>
 
-            <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-[#F36F21] bg-[#F36F21]/15 px-3 py-1 rounded border border-[#F36F21]/30 flex items-center gap-1.5">
+            <span className="text-[10px] sm:text-[11px] font-mono font-bold uppercase tracking-wider text-[#F36F21] bg-[#F36F21]/15 px-2.5 sm:px-3 py-1 rounded border border-[#F36F21]/30 flex items-center gap-1.5">
               <ShieldCheck className="w-3.5 h-3.5" />
-              <span>[ METALLURGICAL FAMILY {material.number} ]</span>
+              <span>[ FAMILY {material.number} ]</span>
             </span>
           </div>
 
@@ -222,25 +222,25 @@ export default function MaterialDetailPage({
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             
             <div className="lg:col-span-8">
-              <div className="flex items-center gap-3 mb-2 gsap-mat-anim">
-                <span className="text-2xl sm:text-3xl font-mono font-black text-[#F36F21]">
+              <div className="flex items-center gap-2.5 sm:gap-3 mb-1 sm:mb-2 gsap-mat-anim">
+                <span className="text-xl sm:text-3xl font-mono font-black text-[#F36F21]">
                   {material.number}.
                 </span>
-                <h1 className="text-3xl sm:text-5xl font-black text-white tracking-tight">
+                <h1 className="text-2xl sm:text-5xl font-black text-white tracking-tight">
                   {material.name}
                 </h1>
               </div>
 
-              <p className="text-amber-400 font-mono text-xs sm:text-sm font-bold uppercase tracking-wider mb-4 gsap-mat-anim">
+              <p className="text-amber-400 font-mono text-[11px] sm:text-sm font-bold uppercase tracking-wider mb-2 sm:mb-4 gsap-mat-anim">
                 {material.tagline}
               </p>
 
-              <p className="text-slate-300 text-xs sm:text-sm lg:text-base leading-relaxed font-normal mb-6 max-w-2xl gsap-mat-anim">
+              <p className="text-slate-300 text-xs sm:text-base leading-relaxed font-normal mb-3 sm:mb-6 max-w-2xl gsap-mat-anim line-clamp-2 sm:line-clamp-none">
                 {material.description}
               </p>
 
-              {/* Supported Key Grades Quick Filter Bar */}
-              <div className="pt-3 border-t border-slate-700/80 gsap-mat-anim">
+              {/* Supported Key Grades Quick Filter Bar (Desktop/Tablet only) */}
+              <div className="hidden sm:block pt-3 border-t border-slate-700/80 gsap-mat-anim">
                 <span className="text-[11px] font-mono font-bold text-slate-400 uppercase tracking-wider block mb-2">
                   Select Grade Specification to Filter:
                 </span>

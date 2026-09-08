@@ -108,14 +108,14 @@ export default function SupplierFamilySection({
       {/* ========================================================================= */}
       {/* 1. HERO & BREADCRUMB HEADER */}
       {/* ========================================================================= */}
-      <section className="relative bg-[#0E2A3A] text-white pt-8 pb-14 sm:pt-12 sm:pb-20 overflow-hidden border-b border-slate-700/80">
+      <section className="relative bg-[#0E2A3A] text-white pt-5 pb-8 sm:pt-12 sm:pb-20 overflow-hidden border-b border-slate-700/80">
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#1e3a4c_1px,transparent_1px),linear-gradient(to_bottom,#1e3a4c_1px,transparent_1px)] bg-[size:4rem_4rem] opacity-30 pointer-events-none" />
         <div className="absolute top-0 right-0 w-96 h-96 bg-blue-500/10 rounded-full filter blur-3xl pointer-events-none" />
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
-          {/* Breadcrumbs */}
-          <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-xs text-slate-300 font-mono mb-4 gsap-sup-anim">
+          {/* Breadcrumbs (Desktop/Tablet) */}
+          <nav aria-label="Breadcrumb" className="hidden sm:flex items-center gap-2 text-xs text-slate-300 font-mono mb-4 gsap-sup-anim">
             <a href="#home" className="hover:text-blue-400 transition-colors">Home</a>
             <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
             <button onClick={onBackToProducts} className="hover:text-blue-400 transition-colors">Products</button>
@@ -126,51 +126,51 @@ export default function SupplierFamilySection({
           </nav>
 
           {/* Back Button & Division Tag */}
-          <div className="flex flex-wrap items-center justify-between gap-4 mb-6 gsap-sup-anim">
+          <div className="flex items-center justify-between gap-3 mb-3 sm:mb-6 gsap-sup-anim">
             <button
               onClick={onBackToProducts}
               className="inline-flex items-center gap-2 text-xs font-mono font-bold text-slate-300 hover:text-blue-400 transition-colors"
             >
               <ArrowLeft className="w-4 h-4" />
-              <span>Back to All Products</span>
+              <span>Back to Products</span>
             </button>
 
-            <span className="text-blue-400 font-mono text-xs font-bold uppercase tracking-widest bg-blue-500/15 px-3 py-1 rounded border border-blue-400/30 flex items-center gap-1.5">
+            <span className="text-blue-400 font-mono text-[10px] sm:text-xs font-bold uppercase tracking-widest bg-blue-500/15 px-2.5 sm:px-3 py-1 rounded border border-blue-400/30 flex items-center gap-1.5">
               <Globe className="w-3.5 h-3.5" />
-              <span>[ GLOBAL SUPPLIER & STOCKIST DIVISION ]</span>
+              <span>[ SUPPLIER DIVISION ]</span>
             </span>
           </div>
 
           {/* Hero Content */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             <div className="lg:col-span-8 gsap-sup-anim">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-white/10 border border-white/20 text-white text-xs font-mono font-bold uppercase mb-3">
+              <div className="hidden sm:inline-flex items-center gap-2 px-3 py-1 rounded-md bg-white/10 border border-white/20 text-white text-xs font-mono font-bold uppercase mb-3">
                 <span>{family.name}</span>
                 <span>•</span>
                 <span>{familyProducts.length} METALLURGICAL ALLOY CATEGORIES</span>
               </div>
               
-              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-tight mb-4">
+              <h1 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-tight mb-2 sm:mb-4">
                 {family.name}
               </h1>
 
-              <p className="text-slate-300 text-sm sm:text-base leading-relaxed max-w-2xl font-normal mb-6">
-                Supreme Metal & Alloys is a global supplier and stockist of high-integrity {family.name.toLowerCase()} in Stainless Steel, Carbon Steel, Alloy Steel, Nickel Alloys, Duplex, Super Duplex, and Titanium. Sourced from world-class ISO 9001 certified mills with complete EN 10204 3.1 & 3.2 mill test certifications.
+              <p className="text-slate-300 text-xs sm:text-base leading-relaxed max-w-2xl font-normal mb-3 sm:mb-6 line-clamp-2 sm:line-clamp-none">
+                Supreme Metal &amp; Alloys is a global supplier and stockist of high-integrity {family.name.toLowerCase()} in Stainless Steel, Carbon Steel, Alloy Steel, Nickel Alloys, Duplex, Super Duplex, and Titanium. Sourced from ISO 9001 certified mills with complete EN 10204 3.1 &amp; 3.2 certifications.
               </p>
 
-              {/* Key Capabilities Badges */}
-              <div className="flex flex-wrap items-center gap-4 text-xs font-mono text-slate-300">
+              {/* Key Capabilities Badges (Desktop/Tablet only) */}
+              <div className="hidden sm:flex flex-wrap items-center gap-4 text-xs font-mono text-slate-300">
                 <div className="flex items-center gap-2">
                   <ShieldCheck className="w-4 h-4 text-blue-400" />
-                  <span>100% PMI & Mill Certified</span>
+                  <span>100% PMI &amp; Mill Certified</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <Package className="w-4 h-4 text-blue-400" />
-                  <span>Ready Stock & Custom Cut-to-Size</span>
+                  <span>Ready Stock &amp; Custom Cut-to-Size</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <Zap className="w-4 h-4 text-blue-400" />
-                  <span>Global Export & Fast Dispatch</span>
+                  <span>Global Export &amp; Fast Dispatch</span>
                 </div>
               </div>
             </div>

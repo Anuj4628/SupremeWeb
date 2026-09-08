@@ -51,10 +51,11 @@ export default function MaterialPage({ materialSlug, categorySlug, onSelectProdu
     <div className="min-h-screen bg-slate-50 text-slate-800 font-sans antialiased pb-24">
       
       {/* Hero Header */}
-      <section className="bg-[#0E2A3A] text-white py-10 sm:py-16 border-b border-slate-700/80">
+      <section className="bg-[#0E2A3A] text-white py-5 sm:py-16 border-b border-slate-700/80">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
-          <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-xs text-slate-300 font-mono mb-4">
+          {/* Breadcrumbs (Desktop/Tablet) */}
+          <nav aria-label="Breadcrumb" className="hidden sm:flex items-center gap-2 text-xs text-slate-300 font-mono mb-4">
             <a href="#home" className="hover:text-[#F36F21]">Home</a>
             <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
             <button onClick={onBackToProducts} className="hover:text-[#F36F21]">Products</button>
@@ -63,18 +64,18 @@ export default function MaterialPage({ materialSlug, categorySlug, onSelectProdu
           </nav>
 
           <div className="max-w-3xl">
-            <span className="text-[#F36F21] font-mono text-xs font-bold uppercase tracking-widest bg-[#F36F21]/15 px-3 py-1 rounded border border-[#F36F21]/30 inline-block mb-3">
+            <span className="hidden sm:inline-block text-[#F36F21] font-mono text-xs font-bold uppercase tracking-widest bg-[#F36F21]/15 px-3 py-1 rounded border border-[#F36F21]/30 mb-3">
               [ METALLURGICAL MATERIAL SPECIFICATION ]
             </span>
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-tight mb-3">
-              {material.name} Products & Components
+            <h1 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-tight mb-2 sm:mb-3">
+              {material.name} Products &amp; Components
             </h1>
-            <p className="text-slate-300 text-sm sm:text-base leading-relaxed font-normal mb-6">
+            <p className="text-slate-300 text-xs sm:text-base leading-relaxed font-normal mb-3 sm:mb-6 line-clamp-2 sm:line-clamp-none">
               {material.description}
             </p>
 
-            {/* Available Grades Pill Chips */}
-            <div className="flex flex-wrap items-center gap-2 text-xs font-mono">
+            {/* Available Grades Pill Chips (Desktop/Tablet only) */}
+            <div className="hidden sm:flex flex-wrap items-center gap-2 text-xs font-mono">
               <span className="text-slate-400 font-bold uppercase">Supported Grades:</span>
               {material.grades.map((g, idx) => (
                 <button

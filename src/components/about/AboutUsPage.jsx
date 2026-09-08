@@ -479,14 +479,14 @@ export default function AboutUsPage() {
       {/* ========================================================================= */}
       {/* 1. HERO BANNER — CINEMATIC INDUSTRIAL DARK THEME */}
       {/* ========================================================================= */}
-      <section className="relative w-full min-h-[85vh] lg:min-h-[90vh] flex items-center justify-center bg-[#0E2A3A] overflow-hidden pt-28 pb-16 border-b border-slate-800">
+      <section className="relative w-full h-[52vh] min-h-[360px] max-h-[460px] sm:min-h-[85vh] sm:max-h-none sm:h-auto lg:min-h-[90vh] flex items-center justify-center bg-[#0E2A3A] overflow-hidden pt-10 pb-8 sm:pt-28 sm:pb-16 border-b border-slate-800">
         
         {/* Background Industrial Image Showcase */}
         <div className="absolute inset-0 z-0">
           <img
             src={heavyPlatesImg}
             alt="Steel Metallurgy Production"
-            className="w-full h-full object-cover object-center filter brightness-[0.75] contrast-[1.05] transform scale-105"
+            className="w-full h-full object-cover object-center filter brightness-[0.82] contrast-[1.05]"
           />
           {/* Subtle Vignette Overlay for High Clarity & Text Readability */}
           <div className="absolute inset-0 bg-gradient-to-r from-[#0B1E2B]/70 via-[#0B1E2B]/40 to-[#0B1E2B]/70" />
@@ -494,8 +494,8 @@ export default function AboutUsPage() {
           <div className="absolute inset-0 bg-[linear-gradient(to_right,#1e293b_1px,transparent_1px),linear-gradient(to_bottom,#1e293b_1px,transparent_1px)] bg-[size:4rem_4rem] opacity-15" />
         </div>
 
-        {/* Floating Particle Sparks Effect */}
-        <div className="absolute inset-0 pointer-events-none z-10 overflow-hidden">
+        {/* Floating Particle Sparks Effect (Desktop/Tablet) */}
+        <div className="hidden sm:block absolute inset-0 pointer-events-none z-10 overflow-hidden">
           {[...Array(12)].map((_, i) => (
             <div
               key={i}
@@ -509,16 +509,16 @@ export default function AboutUsPage() {
         </div>
 
         {/* Hero Content Container */}
-        <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
+        <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-3 sm:space-y-6">
           
-          {/* Eyebrow Pill */}
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#0E2A3A]/90 border border-[#F36F21]/50 text-amber-400 font-mono text-xs font-bold uppercase tracking-widest backdrop-blur-md shadow-lg">
+          {/* Eyebrow Pill (Desktop/Tablet) */}
+          <div className="hidden sm:inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#0E2A3A]/90 border border-[#F36F21]/50 text-amber-400 font-mono text-xs font-bold uppercase tracking-widest backdrop-blur-md shadow-lg">
             <Award className="w-4 h-4 text-[#F36F21] animate-pulse" />
             <span>ISO 9001:2015 CERTIFIED • MSME REGISTERED ENTERPRISE</span>
           </div>
 
           {/* Main Cinematic Headline */}
-          <h1 className="text-4xl sm:text-6xl lg:text-7xl font-black text-white tracking-tight leading-[1.1] uppercase max-w-5xl mx-auto">
+          <h1 className="text-2xl sm:text-6xl lg:text-7xl font-black text-white tracking-tight leading-[1.1] uppercase max-w-5xl mx-auto">
             FORGED IN TRUST. <br />
             <span className="bg-gradient-to-r from-white via-amber-200 to-[#F36F21] bg-clip-text text-transparent">
               BUILT TO LAST.
@@ -526,12 +526,22 @@ export default function AboutUsPage() {
           </h1>
 
           {/* Subtext */}
-          <p className="text-slate-300 text-base sm:text-xl max-w-3xl mx-auto leading-relaxed font-medium">
+          <p className="text-slate-300 text-xs sm:text-xl max-w-3xl mx-auto leading-relaxed font-medium line-clamp-2 sm:line-clamp-none">
             For over a decade, <strong className="text-white">Supreme Metal and Alloys</strong> has been the backbone of India's heavy industries — supplying the certified ferrous and non-ferrous metals that power refineries, ships, power plants, and pharma lines across the country.
           </p>
 
-          {/* Key Stat Highlights */}
-          <div className="pt-6 grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-4xl mx-auto">
+          {/* Primary CTA Button */}
+          <div className="pt-1 sm:pt-2">
+            <a
+              href="#products"
+              className="inline-flex items-center gap-2 px-5 py-2.5 sm:px-7 sm:py-3.5 bg-[#D94A1F] hover:bg-[#c23e17] text-white text-xs sm:text-sm font-bold uppercase tracking-wider rounded-xl shadow-lg transition-all"
+            >
+              <span>Explore Products</span>
+            </a>
+          </div>
+
+          {/* Key Stat Highlights (Desktop/Tablet only) */}
+          <div className="hidden sm:grid pt-6 grid-cols-2 sm:grid-cols-4 gap-4 max-w-4xl mx-auto">
             <div className="p-4 rounded-2xl bg-[#0E2A3A]/80 border border-slate-700/80 backdrop-blur-md">
               <div className="text-2xl sm:text-3xl font-black text-[#F36F21]">10+ YEARS</div>
               <div className="text-xs font-mono text-slate-300 uppercase tracking-wider mt-1">Market Leadership</div>

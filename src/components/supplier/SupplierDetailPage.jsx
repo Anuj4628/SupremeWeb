@@ -160,11 +160,11 @@ export default function SupplierDetailPage({
       {/* ========================================================================= */}
       {/* 1. HERO & BREADCRUMB HEADER */}
       {/* ========================================================================= */}
-      <section className="bg-[#0E2A3A] text-white pt-8 pb-12 sm:pt-10 sm:pb-16 border-b border-slate-700/80">
+      <section className="bg-[#0E2A3A] text-white pt-5 pb-6 sm:pt-10 sm:pb-16 border-b border-slate-700/80">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
-          {/* Breadcrumb Navigation */}
-          <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-xs text-slate-300 font-mono mb-6 gsap-detail-anim">
+          {/* Breadcrumb Navigation (Desktop/Tablet) */}
+          <nav aria-label="Breadcrumb" className="hidden sm:flex items-center gap-2 text-xs text-slate-300 font-mono mb-6 gsap-detail-anim">
             <a href="#home" className="hover:text-blue-400 transition-colors">Home</a>
             <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
             <a href="#products" className="hover:text-blue-400 transition-colors">Products</a>
@@ -177,7 +177,7 @@ export default function SupplierDetailPage({
           </nav>
 
           {/* Back Button & Division Tag */}
-          <div className="flex flex-wrap items-center justify-between gap-4 mb-6 gsap-detail-anim">
+          <div className="flex items-center justify-between gap-3 mb-3 sm:mb-6 gsap-detail-anim">
             <button
               onClick={onBackToCategory}
               className="inline-flex items-center gap-2 text-xs font-mono font-bold text-slate-300 hover:text-blue-400 transition-colors"
@@ -186,18 +186,18 @@ export default function SupplierDetailPage({
               <span>Back to {family.name}</span>
             </button>
 
-            <span className="text-blue-400 font-mono text-xs font-bold uppercase tracking-widest bg-blue-500/15 px-3 py-1 rounded border border-blue-400/30 flex items-center gap-1.5">
+            <span className="text-blue-400 font-mono text-[10px] sm:text-xs font-bold uppercase tracking-widest bg-blue-500/15 px-2.5 sm:px-3 py-1 rounded border border-blue-400/30 flex items-center gap-1.5">
               <Globe className="w-3.5 h-3.5" />
-              <span>[ SUPPLIER DIVISION — VERIFIED METALLURGICAL ASSET ]</span>
+              <span>[ SUPPLIER DIVISION ]</span>
             </span>
           </div>
 
           {/* Title Header */}
           <div className="max-w-4xl gsap-detail-anim">
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-tight mb-4">
+            <h1 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-tight mb-2 sm:mb-4">
               {product.name}
             </h1>
-            <p className="text-slate-300 text-sm sm:text-base leading-relaxed font-normal">
+            <p className="text-slate-300 text-xs sm:text-base leading-relaxed font-normal line-clamp-2 sm:line-clamp-none">
               {product.shortDescription}
             </p>
           </div>

@@ -171,7 +171,7 @@ export const Hero = () => {
     <section
       id="home"
       aria-label="Hero Section"
-      className="relative w-full min-h-[calc(100vh-64px)] sm:min-h-[calc(100vh-80px)] lg:h-[calc(100vh-128px)] overflow-hidden bg-[#0E2A3A] text-white select-none"
+      className="relative w-full h-[52vh] min-h-[380px] max-h-[460px] sm:min-h-[calc(100vh-80px)] sm:max-h-none sm:h-auto lg:h-[calc(100vh-128px)] overflow-hidden bg-[#0E2A3A] text-white select-none"
     >
       {/* Background Image Slider with FULL CLEAR SHARP METALLIC IMAGE EDGE-TO-EDGE */}
       <div className="absolute inset-0 w-full h-full">
@@ -195,19 +195,19 @@ export const Hero = () => {
       <div className="absolute inset-0 bg-[#0E2A3A]/25 pointer-events-none" />
 
       {/* Main Content Container - Balanced Responsive Hierarchy */}
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-6 lg:py-8 flex flex-col justify-between min-h-full space-y-4 lg:space-y-0">
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 sm:py-6 lg:py-8 flex flex-col justify-center sm:justify-between h-full space-y-3 sm:space-y-4 lg:space-y-0">
         
         {/* Top Section - Headline, Description Directly Over Image & Clean CTAs */}
-        <div className="max-w-4xl pt-1 sm:pt-2 space-y-2.5 sm:space-y-3.5 lg:space-y-4">
+        <div className="max-w-4xl pt-0 sm:pt-2 space-y-2 sm:space-y-3.5 lg:space-y-4">
           
-          {/* ISO & Brand Tag Badge */}
+          {/* ISO & Brand Tag Badge (Hidden on mobile for clean half-screen hierarchy) */}
           <motion.div
             key={`badge-${slide.id}`}
             custom={0}
             variants={contentVariants}
             initial="hidden"
             animate="visible"
-            className="inline-flex items-center gap-1.5 sm:gap-2 px-3.5 py-1.5 rounded-xl bg-[#0E2A3A]/70 border border-white/15 shadow-lg backdrop-blur-md"
+            className="hidden sm:inline-flex items-center gap-1.5 sm:gap-2 px-3.5 py-1.5 rounded-xl bg-[#0E2A3A]/70 border border-white/15 shadow-lg backdrop-blur-md"
           >
             <ShieldCheck className="w-3.5 h-3.5 text-[#D94A1F]" />
             <span className="text-[11px] sm:text-xs lg:text-sm font-bold uppercase tracking-wider text-white">
@@ -226,10 +226,10 @@ export const Hero = () => {
             variants={contentVariants}
             initial="hidden"
             animate="visible"
-            className="p-3.5 sm:p-5 lg:p-6 rounded-2xl sm:rounded-3xl bg-[#0E2A3A]/55 border border-white/15 shadow-xl backdrop-blur-md max-w-4xl space-y-2 sm:space-y-3"
+            className="p-3 sm:p-5 lg:p-6 rounded-xl sm:rounded-3xl bg-[#0E2A3A]/60 sm:bg-[#0E2A3A]/55 border border-white/15 shadow-xl backdrop-blur-md max-w-4xl space-y-1.5 sm:space-y-3"
           >
             {/* Main Industrial Headline */}
-            <h1 className="text-xl sm:text-3xl md:text-4xl lg:text-5xl font-black tracking-tight text-white uppercase leading-[1.15] lg:leading-[1.12]">
+            <h1 className="text-lg sm:text-3xl md:text-4xl lg:text-5xl font-black tracking-tight text-white uppercase leading-[1.15] lg:leading-[1.12]">
               {slide.title.split(" ").map((word, i) => (
                 <span key={i} className="inline-block mr-1.5 sm:mr-2.5 lg:mr-3">
                   {word === "HIGH-PERFORMANCE" || word === "FLANGES" || word === "HEAVY" || word === "CORROSION-RESISTANT" ? (
@@ -244,7 +244,7 @@ export const Hero = () => {
             </h1>
 
             {/* Description Text */}
-            <p className="text-xs sm:text-sm md:text-base lg:text-lg text-slate-100 max-w-3xl leading-relaxed font-normal">
+            <p className="text-xs sm:text-sm md:text-base lg:text-lg text-slate-100 max-w-3xl leading-relaxed font-normal line-clamp-2 sm:line-clamp-none">
               {slide.subtitle}
             </p>
           </motion.div>
@@ -256,21 +256,21 @@ export const Hero = () => {
             variants={contentVariants}
             initial="hidden"
             animate="visible"
-            className="pt-1 flex flex-wrap items-center gap-2.5 sm:gap-3.5 lg:gap-4"
+            className="pt-0.5 sm:pt-1 flex flex-wrap items-center gap-2.5 sm:gap-3.5 lg:gap-4"
           >
             {/* Primary CTA: Get a Quote */}
             <a
               href="#contact#quote"
-              className="group relative inline-flex items-center gap-2 sm:gap-2.5 bg-[#D94A1F] hover:bg-[#c23e17] text-white font-bold text-xs sm:text-sm px-5 sm:px-7 py-2.5 sm:py-3 lg:py-3.5 rounded-xl border border-white/20 shadow-lg transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0 overflow-hidden"
+              className="group relative inline-flex items-center gap-2 sm:gap-2.5 bg-[#D94A1F] hover:bg-[#c23e17] text-white font-bold text-xs sm:text-sm px-4.5 sm:px-7 py-2 sm:py-3 lg:py-3.5 rounded-xl border border-white/20 shadow-lg transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0 overflow-hidden"
             >
               <span className="relative z-10 uppercase tracking-wider">Get a Quote</span>
               <ArrowRight className="relative z-10 w-3.5 h-3.5 sm:w-4 sm:h-4 group-hover:translate-x-1 transition-transform duration-200" />
             </a>
 
-            {/* Secondary CTA: Explore Products */}
+            {/* Secondary CTA: Explore Products (Hidden on mobile for clean compact hero) */}
             <a
               href="#products"
-              className="group inline-flex items-center gap-2 bg-[#0E2A3A]/70 hover:bg-[#0E2A3A]/90 text-white font-semibold text-xs sm:text-sm px-4.5 sm:px-6 py-2.5 sm:py-3 lg:py-3.5 rounded-xl border border-white/15 hover:border-white/30 backdrop-blur-md transition-all duration-200 hover:-translate-y-0.5 shadow-md"
+              className="hidden sm:inline-flex group items-center gap-2 bg-[#0E2A3A]/70 hover:bg-[#0E2A3A]/90 text-white font-semibold text-xs sm:text-sm px-4.5 sm:px-6 py-2.5 sm:py-3 lg:py-3.5 rounded-xl border border-white/15 hover:border-white/30 backdrop-blur-md transition-all duration-200 hover:-translate-y-0.5 shadow-md"
             >
               <Layers className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-slate-300 group-hover:text-[#D94A1F] transition-colors" />
               <span className="uppercase tracking-wider">Explore Products</span>
@@ -290,14 +290,14 @@ export const Hero = () => {
             </div>
           </motion.div>
 
-          {/* Clean & Minimal Stat Cards (Glassmorphism design matching Image 2) */}
+          {/* Clean & Minimal Stat Cards (Hidden on mobile for compact hero) */}
           <motion.div
             key={`stats-${slide.id}`}
             custom={4}
             variants={contentVariants}
             initial="hidden"
             animate="visible"
-            className="pt-1 grid grid-cols-2 sm:grid-cols-3 gap-2 sm:gap-3 max-w-2xl"
+            className="hidden sm:grid pt-1 grid-cols-2 sm:grid-cols-3 gap-2 sm:gap-3 max-w-2xl"
           >
             {slide.highlightStats.map((stat, idx) => (
               <div
@@ -316,8 +316,8 @@ export const Hero = () => {
 
         </div>
 
-        {/* Bottom Section - Integrated Cohesive Spec Strip & Controls */}
-        <div className="mt-3 sm:mt-4 lg:mt-6 pt-2.5 sm:pt-3 lg:pt-3.5 border-t border-slate-700/40 space-y-2 sm:space-y-2.5">
+        {/* Bottom Section - Integrated Cohesive Spec Strip & Controls (Desktop/Tablet only) */}
+        <div className="hidden sm:block mt-3 sm:mt-4 lg:mt-6 pt-2.5 sm:pt-3 lg:pt-3.5 border-t border-slate-700/40 space-y-2 sm:space-y-2.5">
           
           {/* Category Labels Row */}
           <div className="flex flex-wrap items-center justify-between gap-2 text-xs">

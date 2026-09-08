@@ -98,39 +98,39 @@ export default function MaterialsLandingPage({ onSelectMaterial, onBackToHome })
       {/* ========================================================================= */}
       {/* 1. HERO & BREADCRUMB HEADER */}
       {/* ========================================================================= */}
-      <section className="relative bg-[#0E2A3A] text-white pt-10 pb-16 sm:pt-14 sm:pb-20 overflow-hidden border-b border-slate-700/80">
+      <section className="relative bg-[#0E2A3A] text-white pt-6 pb-8 sm:pt-14 sm:pb-20 overflow-hidden border-b border-slate-700/80">
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#1e3a4c_1px,transparent_1px),linear-gradient(to_bottom,#1e3a4c_1px,transparent_1px)] bg-[size:4rem_4rem] opacity-30 pointer-events-none" />
         <div className="absolute top-0 right-0 w-96 h-96 bg-[#F36F21]/10 rounded-full filter blur-3xl pointer-events-none" />
         <div className="absolute bottom-0 left-1/3 w-80 h-80 bg-blue-500/10 rounded-full filter blur-3xl pointer-events-none" />
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
-          {/* Breadcrumbs */}
-          <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-xs text-slate-300 font-mono mb-4 gsap-mat-hero">
+          {/* Breadcrumbs (Desktop/Tablet) */}
+          <nav aria-label="Breadcrumb" className="hidden sm:flex items-center gap-2 text-xs text-slate-300 font-mono mb-4 gsap-mat-hero">
             <a href="#home" className="hover:text-[#F36F21] transition-colors">Home</a>
             <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
             <span className="text-[#F36F21] font-semibold">Materials</span>
           </nav>
 
           <div className="max-w-4xl">
-            <span className="text-[#F36F21] font-mono text-xs font-bold uppercase tracking-widest bg-[#F36F21]/15 px-3 py-1 rounded border border-[#F36F21]/30 inline-flex items-center gap-2 mb-4 gsap-mat-hero">
+            <span className="hidden sm:inline-flex text-[#F36F21] font-mono text-xs font-bold uppercase tracking-widest bg-[#F36F21]/15 px-3 py-1 rounded border border-[#F36F21]/30 items-center gap-2 mb-4 gsap-mat-hero">
               <Layers className="w-3.5 h-3.5" />
               <span>METALLURGICAL ALLOY SPECIFICATIONS</span>
             </span>
 
-            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight leading-tight mb-4 gsap-mat-hero">
-              Advanced Alloys & <br className="hidden sm:inline" />
+            <h1 className="text-2xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight leading-tight mb-2 sm:mb-4 gsap-mat-hero">
+              Advanced Alloys &amp; <br className="hidden sm:inline" />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-[#F36F21] to-orange-500">
                 Engineered Metallurgy
               </span>
             </h1>
 
-            <p className="text-slate-300 text-sm sm:text-base lg:text-lg leading-relaxed font-normal mb-8 max-w-3xl gsap-mat-hero">
-              Explore Supreme Metal & Alloys' comprehensive metallurgical inventory spanning 9 independent alloy families. From cryogenic austenitic stainless steels and high-yield super duplex to high-nickel superalloys and aerospace titanium, all grades conform strictly to international ASTM, ASME, EN, and NORSOC specifications.
+            <p className="text-slate-300 text-xs sm:text-base lg:text-lg leading-relaxed font-normal mb-3 sm:mb-8 max-w-3xl gsap-mat-hero line-clamp-2 sm:line-clamp-none">
+              Explore Supreme Metal &amp; Alloys' comprehensive metallurgical inventory spanning 9 independent alloy families across international ASTM, ASME, EN, and NORSOC specifications.
             </p>
 
-            {/* Live Certified Metrics Bar */}
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 pt-2 border-t border-slate-700/70">
+            {/* Live Certified Metrics Bar (Desktop/Tablet only) */}
+            <div className="hidden sm:grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 pt-2 border-t border-slate-700/70">
               <div className="bg-slate-800/60 backdrop-blur-xs p-3 rounded-xl border border-slate-700/60 gsap-stat-pill">
                 <span className="block text-2xl font-black text-white font-mono">09</span>
                 <span className="text-[11px] font-mono text-slate-300 uppercase tracking-wider">Independent Materials</span>

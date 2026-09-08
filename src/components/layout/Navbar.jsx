@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import companyConfig from "../../config/company";
 import navItems from "../../data/navigation";
 import logoImage from "../../assets/logo2.png";
+import logoMark from "../../assets/logo1.png";
 import ProductMegaMenu from "../products/ProductMegaMenu";
 import IndustryMegaMenu from "../industries/IndustryMegaMenu";
 import MaterialMegaMenu from "../materials/MaterialMegaMenu";
@@ -139,11 +140,28 @@ const Navbar = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 h-16 sm:h-20 lg:h-24 flex items-center justify-between py-1.5">
           {/* Logo Section */}
           <a href="#home" className="flex items-center shrink-0 group h-full py-0.5">
+            {/* Desktop / Tablet Logo Image */}
             <img
               src={logoImage}
               alt="Supreme Metal and Alloys"
-              className="h-14 sm:h-18 lg:h-[88px] w-auto max-w-[320px] sm:max-w-[480px] lg:max-w-[620px] object-contain transition-transform duration-300 group-hover:scale-[1.03]"
+              className="hidden sm:block sm:h-18 lg:h-[88px] w-auto sm:max-w-[480px] lg:max-w-[620px] object-contain transition-transform duration-300 group-hover:scale-[1.03]"
             />
+            {/* Mobile Logo: Crisp Emblem + Sharp readable typography */}
+            <div className="flex sm:hidden items-center gap-2">
+              <img
+                src={logoMark}
+                alt="SMA Logo"
+                className="h-10 w-10 object-contain shrink-0"
+              />
+              <div className="flex flex-col">
+                <span className="font-black text-[13.5px] text-[#0E2A3A] tracking-tight leading-tight">
+                  SUPREME
+                </span>
+                <span className="font-extrabold text-[8.5px] text-[#D94A1F] tracking-wider leading-none uppercase">
+                  METAL &amp; ALLOYS
+                </span>
+              </div>
+            </div>
           </a>
 
           {/* Desktop Navigation Links */}

@@ -191,13 +191,13 @@ export default function IndustryDetailPage({
   const IconComp = industry.icon;
 
   return (
-    <div ref={containerRef} className="w-full bg-[#FAFBFD] font-sans text-slate-800 pt-24 sm:pt-28 lg:pt-32 pb-20">
+    <div ref={containerRef} className="w-full bg-[#FAFBFD] font-sans text-slate-800 pt-6 sm:pt-28 lg:pt-32 pb-14 sm:pb-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* ========================================================================= */}
-        {/* BREADCRUMBS */}
+        {/* BREADCRUMBS (Desktop/Tablet) */}
         {/* ========================================================================= */}
-        <div className="flex items-center gap-2 text-xs font-mono text-slate-500 mb-6 sm:mb-8">
+        <div className="hidden sm:flex items-center gap-2 text-xs font-mono text-slate-500 mb-6 sm:mb-8">
           <a href="#home" className="hover:text-[#F36F21] transition-colors">
             HOME
           </a>
@@ -218,15 +218,15 @@ export default function IndustryDetailPage({
         {/* ========================================================================= */}
         {/* CINEMATIC HERO SECTION */}
         {/* ========================================================================= */}
-        <div className="relative rounded-3xl overflow-hidden bg-[#0E2A3A] border border-slate-800 shadow-2xl mb-12 sm:mb-16">
+        <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden bg-[#0E2A3A] border border-slate-800 shadow-2xl mb-8 sm:mb-16">
           {/* Top Decorative Gradient Accent Bar */}
           <div className="h-1.5 w-full bg-gradient-to-r from-[#F36F21] via-amber-400 to-cyan-500" />
 
-          <div className="grid grid-cols-1 lg:grid-cols-12 min-h-[460px]">
+          <div className="grid grid-cols-1 lg:grid-cols-12 min-h-0 sm:min-h-[460px]">
             {/* Left Side: Editorial Typography & Metadata */}
-            <div className="lg:col-span-7 p-6 sm:p-10 lg:p-12 flex flex-col justify-between relative z-10">
+            <div className="lg:col-span-7 p-4 sm:p-10 lg:p-12 flex flex-col justify-between relative z-10">
               <div>
-                <div className="gsap-hero-text flex items-center gap-3 mb-4">
+                <div className="hidden sm:flex gsap-hero-text items-center gap-3 mb-4">
                   <span className="text-xs font-mono font-extrabold text-amber-300 bg-amber-400/15 border border-amber-400/30 px-3 py-1 rounded-md">
                     SECTOR {industry.number} OF 06
                   </span>
@@ -235,21 +235,21 @@ export default function IndustryDetailPage({
                   </span>
                 </div>
 
-                <h1 className="gsap-hero-text text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight leading-[1.15] mb-4">
+                <h1 className="gsap-hero-text text-xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight leading-[1.15] mb-2 sm:mb-4">
                   {industry.title}
                 </h1>
 
-                <p className="gsap-hero-text text-sm sm:text-base font-mono font-bold text-[#F36F21] uppercase tracking-wide mb-5">
+                <p className="gsap-hero-text text-xs sm:text-base font-mono font-bold text-[#F36F21] uppercase tracking-wide mb-2 sm:mb-5">
                   {industry.tagline}
                 </p>
 
-                <p className="gsap-hero-text text-slate-300 text-sm sm:text-base leading-relaxed font-normal mb-8 max-w-2xl">
+                <p className="gsap-hero-text text-slate-300 text-xs sm:text-base leading-relaxed font-normal mb-3 sm:mb-8 max-w-2xl line-clamp-2 sm:line-clamp-none">
                   {industry.overview}
                 </p>
               </div>
 
-              {/* Bottom Quick Spec Strip */}
-              <div className="gsap-hero-text pt-6 border-t border-slate-700/80 grid grid-cols-2 sm:grid-cols-3 gap-4 text-xs font-mono">
+              {/* Bottom Quick Spec Strip (Desktop/Tablet only) */}
+              <div className="hidden sm:grid gsap-hero-text pt-6 border-t border-slate-700/80 grid-cols-2 sm:grid-cols-3 gap-4 text-xs font-mono">
                 <div>
                   <span className="text-slate-400 block text-[10px] uppercase font-bold">TEMPERATURE</span>
                   <span className="text-amber-300 font-bold text-xs">{industry.technicalHighlights?.temperatureRange}</span>
@@ -260,13 +260,13 @@ export default function IndustryDetailPage({
                 </div>
                 <div className="col-span-2 sm:col-span-1">
                   <span className="text-slate-400 block text-[10px] uppercase font-bold">INSPECTION</span>
-                  <span className="text-emerald-400 font-bold text-xs">EN 10204 3.1 & 3.2</span>
+                  <span className="text-emerald-400 font-bold text-xs">EN 10204 3.1 &amp; 3.2</span>
                 </div>
               </div>
             </div>
 
             {/* Right Side: Exact Authoritative Image with Mask Reveal */}
-            <div className="lg:col-span-5 relative h-72 sm:h-96 lg:h-auto overflow-hidden bg-slate-900">
+            <div className="lg:col-span-5 relative h-40 sm:h-96 lg:h-auto overflow-hidden bg-slate-900">
               <div className="gsap-hero-image-box w-full h-full relative">
                 <img
                   ref={heroImageRef}

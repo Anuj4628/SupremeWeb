@@ -150,7 +150,7 @@ export default function ProductLandingPage({ onSelectProduct, filterState }) {
       {/* ========================================================================= */}
       {/* 1. HERO SECTION — PURE CRISP BACKGROUND & BLUR BORDER ON DETAILS */}
       {/* ========================================================================= */}
-      <section className="relative min-h-[480px] sm:min-h-[520px] lg:min-h-[560px] flex items-center bg-[#071722] text-white py-8 sm:py-12 lg:py-16 overflow-hidden border-b border-slate-700/80">
+      <section className="relative min-h-[300px] sm:min-h-[440px] lg:min-h-[560px] flex items-center bg-[#071722] text-white py-6 sm:py-12 lg:py-16 overflow-hidden border-b border-slate-700/80">
         {/* HERO BACKGROUND IMAGE — PURE, CRISP & CLEAR */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <img
@@ -167,40 +167,40 @@ export default function ProductLandingPage({ onSelectProduct, filterState }) {
         {/* BLUR BORDER ONLY ON THE DETAILS CONTAINER */}
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10 w-full">
           <div className="max-w-xl lg:max-w-2xl">
-            <div className="relative rounded-2xl sm:rounded-3xl bg-[#0E2A3A]/75 backdrop-blur-md border border-white/20 shadow-[0_16px_48px_rgba(0,0,0,0.5)] p-5 sm:p-7 lg:p-8 overflow-hidden">
+            <div className="relative rounded-xl sm:rounded-3xl bg-[#0E2A3A]/75 backdrop-blur-md border border-white/20 shadow-[0_16px_48px_rgba(0,0,0,0.5)] p-4 sm:p-7 lg:p-8 overflow-hidden">
               {/* Subtle top edge highlight line */}
               <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-white/40 to-transparent pointer-events-none" />
 
-              {/* Breadcrumbs */}
-              <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-xs text-slate-300 font-mono mb-3.5 gsap-hero-item">
+              {/* Breadcrumbs (Desktop/Tablet) */}
+              <nav aria-label="Breadcrumb" className="hidden sm:flex items-center gap-2 text-xs text-slate-300 font-mono mb-3.5 gsap-hero-item">
                 <a href="#home" className="hover:text-[#F36F21] transition-colors">Home</a>
                 <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
                 <span className="text-[#F36F21] font-semibold">Products System</span>
               </nav>
 
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-[#F36F21]/20 border border-[#F36F21]/40 text-[#F36F21] text-xs font-mono font-bold tracking-widest uppercase mb-3 gsap-hero-item">
+              <div className="hidden sm:inline-flex items-center gap-2 px-3 py-1 rounded-md bg-[#F36F21]/20 border border-[#F36F21]/40 text-[#F36F21] text-xs font-mono font-bold tracking-widest uppercase mb-3 gsap-hero-item">
                 <Package className="w-3.5 h-3.5" />
-                <span>[ MANUFACTURER & SUPPLIER DIVISIONS ]</span>
+                <span>[ MANUFACTURER &amp; SUPPLIER DIVISIONS ]</span>
               </div>
 
-              <h1 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-tight mb-3 gsap-hero-item">
-                Industrial Metals, Engineered Products & <span className="text-[#F36F21]">Critical Components</span>
+              <h1 className="text-xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-tight mb-2 sm:mb-3 gsap-hero-item">
+                Industrial Metals, Engineered Products &amp; <span className="text-[#F36F21]">Critical Components</span>
               </h1>
 
-              <p className="text-slate-200 text-sm sm:text-base leading-relaxed mb-5 font-normal gsap-hero-item drop-shadow-sm">
-                Supplied globally for mission-critical infrastructure. Select a division below to browse Manufacturer (in-house forged fittings & flanges) or Supplier (mill stockist pipes, plates & bars).
+              <p className="text-slate-200 text-xs sm:text-base leading-relaxed mb-3 sm:mb-5 font-normal gsap-hero-item drop-shadow-sm line-clamp-2 sm:line-clamp-none">
+                Supplied globally for mission-critical infrastructure. Select a division below to browse Manufacturer or Supplier divisions.
               </p>
 
               {/* Search Bar Input */}
-              <div className="pt-2 gsap-hero-item">
+              <div className="pt-1 sm:pt-2 gsap-hero-item">
                 <div className="relative flex items-center">
-                  <Search className="absolute left-4 w-4 h-4 text-slate-400 pointer-events-none" />
+                  <Search className="absolute left-3.5 sm:left-4 w-4 h-4 text-slate-400 pointer-events-none" />
                   <input
                     type="text"
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
-                    placeholder="Search products by grade (316L, Nickel 200, 2205), standard (ASTM A312), or name..."
-                    className="w-full pl-11 pr-10 py-2.5 sm:py-3 text-xs sm:text-sm text-white bg-slate-900/90 rounded-xl border border-white/20 focus:outline-none focus:border-[#F36F21] focus:ring-1 focus:ring-[#F36F21]/30 transition-all placeholder:text-slate-400 font-medium"
+                    placeholder="Search products by grade (316L, 2205), standard, or name..."
+                    className="w-full pl-10 sm:pl-11 pr-10 py-2 sm:py-3 text-xs sm:text-sm text-white bg-slate-900/90 rounded-xl border border-white/20 focus:outline-none focus:border-[#F36F21] focus:ring-1 focus:ring-[#F36F21]/30 transition-all placeholder:text-slate-400 font-medium"
                   />
                   {searchQuery && (
                     <button
