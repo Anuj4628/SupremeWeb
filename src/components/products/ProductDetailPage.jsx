@@ -47,6 +47,7 @@ const DetailIndustrialSvgPlaceholder = ({ title, category, division }) => (
 );
 
 export default function ProductDetailPage({ slug, onBackToProducts, onNavigateToProduct }) {
+  const product = getProductBySlug(slug);
   const [selectedImage, setSelectedImage] = useState(null);
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [isReducedMotion, setIsReducedMotion] = useState(false);
@@ -71,7 +72,7 @@ export default function ProductDetailPage({ slug, onBackToProducts, onNavigateTo
     return catList.length > 0 ? catList : PRODUCTS;
   }, [product?.categorySlug]);
 
-  const productIndex = categoryProducts.findIndex((p) => p.id === product.id || p.slug === product.slug);
+  const productIndex = product ? categoryProducts.findIndex((p) => p.id === product.id || p.slug === product.slug) : -1;
   const safeIndex = productIndex >= 0 ? productIndex : 0;
 
   // Previous & Next navigation controls within the category
@@ -204,7 +205,35 @@ export default function ProductDetailPage({ slug, onBackToProducts, onNavigateTo
     }));
   }, [product]);
 
-  if (!product) return null;
+  if (!product) {
+    return (
+      <div className="min-h-screen bg-slate-50 text-slate-800 font-sans antialiased py-24 flex items-center justify-center px-4">
+        <div className="max-w-lg w-full bg-[#0E2A3A] text-white rounded-2xl p-8 border border-slate-700 shadow-2xl text-center">
+          <div className="w-14 h-14 rounded-2xl bg-amber-500/20 border border-amber-500/40 flex items-center justify-center text-amber-400 mx-auto mb-4">
+            <ShieldCheck className="w-7 h-7" />
+          </div>
+          <span className="text-xs font-mono text-amber-400 font-bold uppercase tracking-widest block mb-2">
+            [ SPECIFICATION NOT FOUND ]
+          </span>
+          <h2 className="text-2xl font-extrabold text-white mb-2">
+            Product Not Found
+          </h2>
+          <p className="text-sm text-slate-300 mb-6 font-mono">
+            No metallurgical specification record exists for &quot;{slug}&quot; in the product catalogue.
+          </p>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
+            <button
+              onClick={onBackToProducts}
+              className="w-full sm:w-auto px-5 py-2.5 bg-blue-600 hover:bg-blue-500 text-white text-xs font-mono font-bold rounded-xl transition-all flex items-center justify-center gap-2 shadow-lg cursor-pointer"
+            >
+              <ArrowLeft className="w-4 h-4" />
+              <span>Back to Products</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   const allImages = [
     product.heroImage,

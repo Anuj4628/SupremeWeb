@@ -22,7 +22,7 @@ export default function RfqFooterSection() {
 
   return (
     <footer
-      id="contact"
+      id="site-footer"
       ref={containerRef}
       className="relative bg-[#0E2A3A] text-white pt-10 sm:pt-14 lg:pt-16 border-t border-slate-800 overflow-hidden"
     >
@@ -75,16 +75,16 @@ export default function RfqFooterSection() {
             {/* Action Buttons */}
             <div className="lg:col-span-4 flex flex-col sm:flex-row lg:flex-col gap-3 justify-center lg:justify-end">
               <a
-                href={`mailto:${companyConfig.email1}?subject=RFQ Inquiry - Supreme Metal & Alloys`}
-                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl text-sm font-extrabold bg-[#D94A1F] hover:bg-[#E0481D] text-white transition-all shadow-lg hover:shadow-amber-950/40 hover:-translate-y-0.5"
+                href="#contact#quote"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl text-sm font-extrabold bg-[#D94A1F] hover:bg-[#E0481D] text-white transition-all shadow-lg hover:shadow-amber-950/40 hover:-translate-y-0.5 cursor-pointer"
               >
                 <span>Request a Quote (RFQ)</span>
                 <ArrowRight className="w-4 h-4" />
               </a>
 
               <a
-                href={`tel:${companyConfig.phone1}`}
-                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl text-sm font-extrabold bg-white/10 hover:bg-white/15 text-white border border-white/20 transition-all"
+                href={`tel:${companyConfig.phone1.replace(/\s+/g, "")}`}
+                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl text-sm font-extrabold bg-white/10 hover:bg-white/15 text-white border border-white/20 transition-all cursor-pointer"
               >
                 <PhoneCall className="w-4 h-4 text-amber-400" />
                 <span>Call Sales: {companyConfig.phone1}</span>
@@ -189,6 +189,12 @@ export default function RfqFooterSection() {
                 <a href="#industries" className="hover:text-amber-400 transition-colors flex items-center gap-1">
                   <ChevronRight className="w-3.5 h-3.5 text-[#D94A1F]" />
                   Industries Served
+                </a>
+              </li>
+              <li>
+                <a href="#contact" className="hover:text-amber-400 transition-colors flex items-center gap-1">
+                  <ChevronRight className="w-3.5 h-3.5 text-[#D94A1F]" />
+                  Contact & RFQ
                 </a>
               </li>
             </ul>

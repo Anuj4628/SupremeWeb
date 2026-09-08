@@ -23,7 +23,8 @@ import {
   MATERIALS,
   PRODUCTS,
   getCategoryBySlug,
-  getProductsByCategory
+  getProductsByCategory,
+  matchProductToCanonicalMaterial
 } from "../../data/productCatalog";
 import buttWeldFitImg from "../../assets/All Products/Butt Weld fit.png";
 import forgedCollageImg from "../../assets/All Products/Forged Fittings/forged_fittings_collage.png";
@@ -56,7 +57,7 @@ const IndustrialSvgPlaceholder = ({ title, category, division }) => (
   </div>
 );
 
-export default function CategoryPage({ categorySlug, onSelectProduct, onSelectMaterial, onBackToProducts }) {
+export default function CategoryPage({ categorySlug, initialMaterialSlug = "all", onSelectProduct, onSelectMaterial, onBackToProducts }) {
   // ALL hooks must be called unconditionally before any conditional return (React Rules of Hooks)
   const [selectedMaterialTab, setSelectedMaterialTab] = useState("all");
   const [searchQuery, setSearchQuery] = useState("");
@@ -133,10 +134,11 @@ export default function CategoryPage({ categorySlug, onSelectProduct, onSelectMa
         const cleanMatSlug = mat.slug.replace(/-alloys$/, "-alloy");
         const cleanProdSlug = (p.materialSlug || "").replace(/-alloys$/, "-alloy");
         return (
+          matchProductToCanonicalMaterial(mat.slug, p) ||
           p.materialSlug === mat.slug ||
           cleanProdSlug === cleanMatSlug ||
-          (pMat && pMat === mat.name.toLowerCase()) ||
-          (pMat && pMat === mat.shortName.toLowerCase())
+          (pMat && mat.name && pMat === mat.name.toLowerCase()) ||
+          (pMat && mat.shortName && pMat === mat.shortName.toLowerCase())
         );
       });
       const categoryMatImage = matProducts[0]?.heroImage || categoryDefaultAsset;
@@ -152,7 +154,7 @@ export default function CategoryPage({ categorySlug, onSelectProduct, onSelectMa
   const filteredProducts = useMemo(() => {
     return allCategoryProducts.filter((product) => {
       const pMat = (product.material || product.materialName || "").toLowerCase();
-      const tabClean = selectedMaterialTab.toLowerCase().replace(/-alloys$/, "-alloy");
+      const tabClean = (selectedMaterialTab || "").toLowerCase().replace(/-alloys$/, "-alloy");
       const prodMatClean = (product.materialSlug || "").toLowerCase().replace(/-alloys$/, "-alloy");
       const matchesMaterial =
         selectedMaterialTab === "all" ||
@@ -160,7 +162,7 @@ export default function CategoryPage({ categorySlug, onSelectProduct, onSelectMa
         prodMatClean === tabClean ||
         (selectedMaterialTab === "duplex"
           ? product.materialSlug === "duplex"
-          : (pMat && pMat === selectedMaterialTab.toLowerCase()));
+          : (pMat && pMat === (selectedMaterialTab || "").toLowerCase()));
 
       const query = searchQuery.toLowerCase().trim();
       if (!query) return matchesMaterial;
@@ -191,16 +193,38 @@ export default function CategoryPage({ categorySlug, onSelectProduct, onSelectMa
   }
 
   // Supplier Division product families render their dedicated isolated section
-  if (
+  const isSupplierCategory =
     cleanCategorySlug === "pipes-tubes" ||
     cleanCategorySlug === "sheets-plates" ||
     cleanCategorySlug === "rods-bars" ||
     cleanCategorySlug === "wires" ||
-    cleanCategorySlug === "wire"
-  ) {
+    cleanCategorySlug === "wire" ||
+    cleanCategorySlug === "circle" ||
+    cleanCategorySlug === "circles" ||
+    cleanCategorySlug === "flat" ||
+    cleanCategorySlug === "flats" ||
+    cleanCategorySlug === "flat-bar" ||
+    cleanCategorySlug === "patapatti" ||
+    cleanCategorySlug === "patta-patti" ||
+    cleanCategorySlug === "coil" ||
+    cleanCategorySlug === "coils" ||
+    cleanCategorySlug === "quile" ||
+    cleanCategorySlug === "ring" ||
+    cleanCategorySlug === "rings";
+
+  if (isSupplierCategory) {
+    let resolvedFamilySlug = cleanCategorySlug;
+    if (cleanCategorySlug === "wire") resolvedFamilySlug = "wires";
+    else if (cleanCategorySlug === "circles") resolvedFamilySlug = "circle";
+    else if (cleanCategorySlug === "flats" || cleanCategorySlug === "flat-bar") resolvedFamilySlug = "flat";
+    else if (cleanCategorySlug === "patta-patti") resolvedFamilySlug = "patapatti";
+    else if (cleanCategorySlug === "coils" || cleanCategorySlug === "quile") resolvedFamilySlug = "coil";
+    else if (cleanCategorySlug === "rings") resolvedFamilySlug = "ring";
+
     return (
       <SupplierFamilySection
-        familySlug={cleanCategorySlug === "wire" ? "wires" : cleanCategorySlug}
+        familySlug={resolvedFamilySlug}
+        initialMaterialSlug={initialMaterialSlug || "all"}
         onSelectProduct={onSelectProduct}
         onBackToProducts={onBackToProducts}
       />
@@ -478,7 +502,7 @@ export default function CategoryPage({ categorySlug, onSelectProduct, onSelectMa
             </div>
           </div>
           <a
-            href="#contact"
+            href={`#contact?product=${encodeURIComponent(category.name)}#quote`}
             className="px-6 py-3 bg-[#F36F21] text-white text-xs font-mono font-bold uppercase tracking-wider rounded-xl hover:bg-[#d94a1f] transition-colors shrink-0 shadow-md"
           >
             Request Category RFQ

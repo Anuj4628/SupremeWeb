@@ -359,7 +359,7 @@ export default function ProductListingPage({ onSelectProduct, activeCategoryFilt
             </div>
           </div>
           <a
-            href="#contact"
+            href="#contact#quote"
             className="px-6 py-3 bg-[#F36F21] text-white text-xs font-mono font-bold uppercase tracking-wider rounded-xl hover:bg-[#d94a1f] transition-colors shrink-0 shadow-md"
           >
             Request Custom Quotation

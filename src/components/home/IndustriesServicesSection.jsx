@@ -10,48 +10,10 @@ import {
   PackageCheck
 } from "lucide-react";
 import { useGsapReveal } from "../../utils/useGsapReveal";
+import { getAllIndustries } from "../../data/industryData";
 
-// High-resolution sector images from Serving Global Mission-Critical Sectors folder
-import nuclearThermalPowerImg from "../../assets/Serving Global Mission-Critical Sectors/nuclear and thermal power.png";
-import petrochemicalImg from "../../assets/Serving Global Mission-Critical Sectors/petrochemical.png";
-import marineImg from "../../assets/Serving Global Mission-Critical Sectors/marine.png";
-import aerospaceDefenceImg from "../../assets/Serving Global Mission-Critical Sectors/aerospace and defence.png";
-import precisionPipingImg from "../../assets/Serving Global Mission-Critical Sectors/precision industrial piping.png";
-import heavyEngineeringImg from "../../assets/Serving Global Mission-Critical Sectors/heavt engineering.png";
-
-// Sector Cards with authentic industrial imagery
-const keyIndustries = [
-  {
-    id: "IND-01",
-    title: "Nuclear & Thermal Power",
-    image: nuclearThermalPowerImg
-  },
-  {
-    id: "IND-02",
-    title: "Petrochemical & Chemical Process",
-    image: petrochemicalImg
-  },
-  {
-    id: "IND-03",
-    title: "Marine & Offshore Rigs",
-    image: marineImg
-  },
-  {
-    id: "IND-04",
-    title: "Defense & Aerospace",
-    image: aerospaceDefenceImg
-  },
-  {
-    id: "IND-05",
-    title: "Precision Industrial Piping & Bio-Pharma",
-    image: precisionPipingImg
-  },
-  {
-    id: "IND-06",
-    title: "Heavy Engineering & Infrastructure",
-    image: heavyEngineeringImg
-  }
-];
+// Authoritative Sector Cards from Centralized Single Source of Truth
+const keyIndustries = getAllIndustries();
 
 // Value-Added Services Data
 const valueAddedServices = [
@@ -196,6 +158,9 @@ export default function IndustriesServicesSection() {
               {[...keyIndustries, ...keyIndustries].map((ind, index) => (
                 <div
                   key={`${ind.id}-${index}`}
+                  onClick={() => {
+                    window.location.hash = `#industries/${ind.slug}`;
+                  }}
                   className="industry-card-item group relative h-[260px] sm:h-[290px] w-[260px] sm:w-[310px] lg:w-[330px] shrink-0 rounded-2xl overflow-hidden border border-slate-200/90 bg-[#0E2A3A] shadow-md hover:shadow-2xl transition-all duration-300 flex flex-col justify-end cursor-pointer select-none"
                 >
                   {/* High-Resolution Industrial Sector Image */}
@@ -211,6 +176,15 @@ export default function IndustriesServicesSection() {
 
                   {/* Minimal Bottom Title & Orange Accent Line */}
                   <div className="relative z-10 p-5 space-y-2 transform transition-transform duration-500 group-hover:-translate-y-1">
+                    <div className="flex items-center justify-between">
+                      <span className="text-[10px] font-mono text-amber-300 font-bold tracking-widest uppercase">
+                        [{ind.number || `0${(index % 6) + 1}`}]
+                      </span>
+                      <span className="text-[10px] font-mono font-bold text-slate-300 group-hover:text-amber-300 flex items-center gap-1">
+                        VIEW SECTOR →
+                      </span>
+                    </div>
+
                     <h3 className="text-base sm:text-lg font-extrabold text-white leading-snug tracking-tight group-hover:text-amber-200 transition-colors">
                       {ind.title}
                     </h3>
@@ -224,24 +198,34 @@ export default function IndustriesServicesSection() {
           </div>
 
           {/* Controls Bar for Manual Navigation & Visual Cue */}
-          <div className="mt-4 flex items-center justify-center gap-3">
-            <button
-              onClick={() => handleNudge("left")}
-              className="p-2 rounded-xl bg-slate-100 hover:bg-[#0E2A3A] text-[#0E2A3A] hover:text-white border border-slate-200/90 shadow-xs transition-all duration-300 hover:scale-105 active:scale-95 flex items-center justify-center"
-              aria-label="Scroll Left"
+          <div className="mt-4 flex flex-wrap items-center justify-between gap-3 max-w-4xl mx-auto px-2">
+            <div className="flex items-center gap-3">
+              <button
+                onClick={() => handleNudge("left")}
+                className="p-2 rounded-xl bg-slate-100 hover:bg-[#0E2A3A] text-[#0E2A3A] hover:text-white border border-slate-200/90 shadow-xs transition-all duration-300 hover:scale-105 active:scale-95 flex items-center justify-center"
+                aria-label="Scroll Left"
+              >
+                <ChevronLeft className="w-4 h-4" />
+              </button>
+              <span className="text-[10px] sm:text-xs font-mono font-bold text-slate-400 uppercase tracking-widest">
+                CONTINUOUS SHOWCASE • HOVER TO PAUSE
+              </span>
+              <button
+                onClick={() => handleNudge("right")}
+                className="p-2 rounded-xl bg-slate-100 hover:bg-[#0E2A3A] text-[#0E2A3A] hover:text-white border border-slate-200/90 shadow-xs transition-all duration-300 hover:scale-105 active:scale-95 flex items-center justify-center"
+                aria-label="Scroll Right"
+              >
+                <ChevronRight className="w-4 h-4" />
+              </button>
+            </div>
+
+            <a
+              href="#industries"
+              className="inline-flex items-center gap-1.5 text-xs font-mono font-bold uppercase tracking-wider text-[#D94A1F] hover:text-[#0E2A3A] transition-colors"
             >
-              <ChevronLeft className="w-4 h-4" />
-            </button>
-            <span className="text-[10px] sm:text-xs font-mono font-bold text-slate-400 uppercase tracking-widest">
-              CONTINUOUS SHOWCASE • HOVER TO PAUSE
-            </span>
-            <button
-              onClick={() => handleNudge("right")}
-              className="p-2 rounded-xl bg-slate-100 hover:bg-[#0E2A3A] text-[#0E2A3A] hover:text-white border border-slate-200/90 shadow-xs transition-all duration-300 hover:scale-105 active:scale-95 flex items-center justify-center"
-              aria-label="Scroll Right"
-            >
-              <ChevronRight className="w-4 h-4" />
-            </button>
+              <span>Explore All 6 Strategic Sectors</span>
+              <ArrowRight className="w-3.5 h-3.5" />
+            </a>
           </div>
         </div>
 

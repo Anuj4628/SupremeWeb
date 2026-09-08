@@ -17,6 +17,7 @@ import {
 } from "lucide-react";
 import gsap from "gsap";
 import { DIVISIONS, CATEGORIES, MATERIALS, PRODUCTS } from "../../data/productCatalog";
+import { normalizeCategorySlug } from "../../utils/mfgRoutes";
 import heroBgImage from "../../assets/All Products/Product BG/Industrial Metals, Engineered Products & Critical Components.png";
 
 // Sleek Industrial SVG Placeholder Component for products pending client asset photos
@@ -106,10 +107,13 @@ export default function ProductLandingPage({ onSelectProduct, filterState }) {
       const matchesDivision =
         selectedDivision === "all" || product.division.toLowerCase() === selectedDivision.toLowerCase();
 
+      const normCat = normalizeCategorySlug(selectedCategory);
       const matchesCategory =
         selectedCategory === "all" ||
         product.categorySlug === selectedCategory ||
-        product.category.toLowerCase().replace(/[^a-z0-9]+/g, "-") === selectedCategory;
+        product.categorySlug === normCat ||
+        product.category.toLowerCase().replace(/[^a-z0-9]+/g, "-") === selectedCategory ||
+        product.category.toLowerCase().replace(/[^a-z0-9]+/g, "-") === normCat;
 
       const pMat = (product.material || product.materialName || "").toLowerCase();
       const matchesMaterial =
@@ -489,7 +493,7 @@ export default function ProductLandingPage({ onSelectProduct, filterState }) {
             </div>
           </div>
           <a
-            href="#contact"
+            href="#contact#quote"
             className="px-5 py-2.5 bg-[#F36F21] text-white text-xs font-mono font-bold uppercase tracking-wider rounded-lg hover:bg-[#d94a1f] transition-colors shrink-0 shadow-sm"
           >
             Request Quotation

@@ -260,7 +260,7 @@ export const Hero = () => {
           >
             {/* Primary CTA: Get a Quote */}
             <a
-              href="#contact"
+              href="#contact#quote"
               className="group relative inline-flex items-center gap-2 sm:gap-2.5 bg-[#D94A1F] hover:bg-[#c23e17] text-white font-bold text-xs sm:text-sm px-5 sm:px-7 py-2.5 sm:py-3 lg:py-3.5 rounded-xl border border-white/20 shadow-lg transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0 overflow-hidden"
             >
               <span className="relative z-10 uppercase tracking-wider">Get a Quote</span>

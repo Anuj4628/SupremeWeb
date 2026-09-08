@@ -13,10 +13,15 @@ import RfqFooterSection from "./components/home/RfqFooterSection";
 import FloatingContactWidget from "./components/common/FloatingContactWidget";
 import AboutUsPage from "./components/about/AboutUsPage";
 
-// Product Section Components (Hierarchical Ecosystem)
+// Product & Material Section Components (Hierarchical Ecosystem)
 import ProductLandingPage from "./components/products/ProductLandingPage";
 import CategoryPage from "./components/products/CategoryPage";
 import MaterialPage from "./components/products/MaterialPage";
+import MaterialsLandingPage from "./components/materials/MaterialsLandingPage";
+import MaterialDetailPage from "./components/materials/MaterialDetailPage";
+import IndustriesLandingPage from "./components/industries/IndustriesLandingPage";
+import IndustryDetailPage from "./components/industries/IndustryDetailPage";
+import ContactPage from "./components/contact/ContactPage";
 import GradePage from "./components/products/GradePage";
 import ProductDetailPage from "./components/products/ProductDetailPage";
 import HosePipesSection from "./components/products/HosePipesSection";
@@ -167,7 +172,7 @@ function App() {
       return { route: "product-landing", filterState: { division: "SUPPLIER" } };
     }
 
-    // 2.5. Supplier Division Dedicated Routes (#supplier/product/*, #supplier/*)
+    // 2.5. Supplier Division Dedicated Routes (#supplier/product/*, #supplier/*, #products/supplier/*)
     if (hash.startsWith("#supplier/product/")) {
       const rawSlug = hash.replace("#supplier/product/", "").trim();
       const cleanSlug = cleanMfgSlug(rawSlug);
@@ -178,7 +183,29 @@ function App() {
       const raw = hash.replace("#supplier/", "").trim();
       const parts = raw.split("/");
       const family = parts[0];
-      return { route: "category-page", categorySlug: family };
+      const material = parts[1] || "all";
+      return { route: "category-page", categorySlug: family, initialMaterialSlug: material };
+    }
+
+    if (
+      hash.startsWith("#products/supplier/") ||
+      path.startsWith("/products/supplier/") ||
+      path.startsWith("/supplier/")
+    ) {
+      let raw = "";
+      if (hash.startsWith("#products/supplier/")) {
+        raw = hash.replace("#products/supplier/", "").trim();
+      } else if (path.startsWith("/products/supplier/")) {
+        raw = path.replace("/products/supplier/", "").trim();
+      } else if (path.startsWith("/supplier/")) {
+        raw = path.replace("/supplier/", "").trim();
+      }
+      const parts = raw.split("/");
+      const family = parts[0];
+      const material = parts[1] || "all";
+      if (family && family !== "manufacturer" && family !== "supplier") {
+        return { route: "category-page", categorySlug: family, initialMaterialSlug: material };
+      }
     }
 
     // 3. Category Landing Page (#products/category/*)
@@ -213,10 +240,74 @@ function App() {
       return { route: "category-page", categorySlug: cleanCat };
     }
 
-    // 4. Material Landing Page (#products/material/stainless-steel)
+    // 4. Materials Main Landing Page (#materials or #products/material or /materials)
+    if (
+      hash === "#materials" ||
+      hash === "#products/material" ||
+      path === "/materials" ||
+      path === "/products/material"
+    ) {
+      return { route: "materials-landing" };
+    }
+
+    // 4.1 Individual Material Page (#materials/:slug or #products/material/:slug)
+    if (hash.startsWith("#materials/")) {
+      const mat = hash.replace("#materials/", "").trim();
+      return { route: "material-page", materialSlug: mat };
+    }
+    if (path.startsWith("/materials/")) {
+      const mat = path.replace("/materials/", "").trim();
+      return { route: "material-page", materialSlug: mat };
+    }
     if (hash.startsWith("#products/material/")) {
       const mat = hash.replace("#products/material/", "").trim();
       return { route: "material-page", materialSlug: mat };
+    }
+    if (path.startsWith("/products/material/")) {
+      const mat = path.replace("/products/material/", "").trim();
+      return { route: "material-page", materialSlug: mat };
+    }
+
+    // 4.5. Industries Main Landing Page (#industries or /industries)
+    if (
+      hash === "#industries" ||
+      path === "/industries"
+    ) {
+      return { route: "industries-landing" };
+    }
+
+    // 4.6. Individual Industry Detail Page (#industries/:slug or /industries/:slug)
+    if (hash.startsWith("#industries/")) {
+      const rawInd = hash.replace("#industries/", "").trim();
+      const cleanInd = cleanMfgSlug(rawInd);
+      return { route: "industry-detail", industrySlug: cleanInd };
+    }
+    if (path.startsWith("/industries/")) {
+      const rawInd = path.replace("/industries/", "").trim();
+      const cleanInd = cleanMfgSlug(rawInd);
+      return { route: "industry-detail", industrySlug: cleanInd };
+    }
+
+    // 4.7. Contact & Get Quote Page (#contact, /contact, #quote)
+    if (
+      hash === "#contact" ||
+      hash.startsWith("#contact?") ||
+      hash.startsWith("#contact#") ||
+      hash === "#quote" ||
+      hash.startsWith("#quote?") ||
+      path === "/contact" ||
+      path.startsWith("/contact/")
+    ) {
+      let prefill = "";
+      if (hash.includes("?")) {
+        const queryStr = hash.split("?")[1];
+        const params = new URLSearchParams(queryStr);
+        prefill = params.get("product") || params.get("requirement") || params.get("material") || params.get("industry") || "";
+      } else if (window.location.search) {
+        const params = new URLSearchParams(window.location.search);
+        prefill = params.get("product") || params.get("requirement") || params.get("material") || params.get("industry") || "";
+      }
+      return { route: "contact-page", prefillProduct: prefill };
     }
 
     // 5. Grade Landing Page (#products/grade/316l)
@@ -244,6 +335,15 @@ function App() {
         cleanSlug.startsWith("rods-bars-") ||
         cleanSlug.startsWith("wires-") ||
         (cleanSlug.startsWith("wire-") && !cleanSlug.startsWith("wire-mesh")) ||
+        cleanSlug.startsWith("circle-") ||
+        cleanSlug.startsWith("circles-") ||
+        cleanSlug.startsWith("flat-") ||
+        cleanSlug.startsWith("flats-") ||
+        cleanSlug.startsWith("patapatti-") ||
+        cleanSlug.startsWith("coil-") ||
+        cleanSlug.startsWith("coils-") ||
+        cleanSlug.startsWith("ring-") ||
+        cleanSlug.startsWith("rings-") ||
         getSupplierProductBySlug(cleanSlug)
       ) {
         return { route: "supplier-detail", productSlug: cleanSlug };
@@ -280,6 +380,25 @@ function App() {
           const mat = cleanSlug.replace(/^hose-pipes-/, "");
           return { route: "hose-pipes-detail", materialSlug: mat };
         }
+        if (
+          cleanSlug.startsWith("pipes-tubes-") ||
+          cleanSlug.startsWith("sheets-plates-") ||
+          cleanSlug.startsWith("rods-bars-") ||
+          cleanSlug.startsWith("wires-") ||
+          (cleanSlug.startsWith("wire-") && !cleanSlug.startsWith("wire-mesh")) ||
+          cleanSlug.startsWith("circle-") ||
+          cleanSlug.startsWith("circles-") ||
+          cleanSlug.startsWith("flat-") ||
+          cleanSlug.startsWith("flats-") ||
+          cleanSlug.startsWith("patapatti-") ||
+          cleanSlug.startsWith("coil-") ||
+          cleanSlug.startsWith("coils-") ||
+          cleanSlug.startsWith("ring-") ||
+          cleanSlug.startsWith("rings-") ||
+          getSupplierProductBySlug(cleanSlug)
+        ) {
+          return { route: "supplier-detail", productSlug: cleanSlug };
+        }
 
         const prod = getProductBySlug(cleanSlug);
         const isMfg = prod ? prod.division === "MANUFACTURER" : isMfgProductSlugPattern(cleanSlug);
@@ -302,7 +421,71 @@ function App() {
         const mat = cleanSlug.replace(/^wire-mesh-/, "");
         return { route: "wire-mesh-detail", materialSlug: mat };
       }
+      if (cleanSlug.startsWith("hose-pipes-")) {
+        const mat = cleanSlug.replace(/^hose-pipes-/, "");
+        return { route: "hose-pipes-detail", materialSlug: mat };
+      }
+      if (
+        cleanSlug.startsWith("pipes-tubes-") ||
+        cleanSlug.startsWith("sheets-plates-") ||
+        cleanSlug.startsWith("rods-bars-") ||
+        cleanSlug.startsWith("wires-") ||
+        (cleanSlug.startsWith("wire-") && !cleanSlug.startsWith("wire-mesh")) ||
+        cleanSlug.startsWith("circle-") ||
+        cleanSlug.startsWith("circles-") ||
+        cleanSlug.startsWith("flat-") ||
+        cleanSlug.startsWith("flats-") ||
+        cleanSlug.startsWith("patapatti-") ||
+        cleanSlug.startsWith("coil-") ||
+        cleanSlug.startsWith("coils-") ||
+        cleanSlug.startsWith("ring-") ||
+        cleanSlug.startsWith("rings-") ||
+        getSupplierProductBySlug(cleanSlug)
+      ) {
+        return { route: "supplier-detail", productSlug: cleanSlug };
+      }
       return { route: "product-detail", slug: cleanSlug };
+    }
+
+    // Quick map for Material shortcuts
+    const quickMaterialMap = {
+      "#ss": "stainless-steel",
+      "#nickel": "nickel",
+      "#high-alloys": "high-alloys",
+      "#duplex": "duplex",
+      "#super-duplex": "super-duplex",
+      "#titanium": "titanium",
+      "#alloys": "alloys",
+      "#carbon": "carbon",
+      "#carbon-steel": "carbon",
+      "#carbon-alloy": "carbon",
+      "#alloy-steel": "alloy-steel"
+    };
+
+    if (quickMaterialMap[hash]) {
+      return { route: "material-page", materialSlug: quickMaterialMap[hash] };
+    }
+
+    // Quick map for Industry shortcuts
+    const quickIndustryMap = {
+      "#defense-aerospace": "defense-aerospace",
+      "#defense": "defense-aerospace",
+      "#aerospace": "defense-aerospace",
+      "#precision-industrial-piping-biopharma": "precision-industrial-piping-biopharma",
+      "#precision-piping": "precision-industrial-piping-biopharma",
+      "#biopharma": "precision-industrial-piping-biopharma",
+      "#heavy-engineering-infrastructures": "heavy-engineering-infrastructures",
+      "#heavy-engineering": "heavy-engineering-infrastructures",
+      "#nuclear-thermal-power": "nuclear-thermal-power",
+      "#nuclear": "nuclear-thermal-power",
+      "#petrochemicals-chemicals": "petrochemicals-chemicals",
+      "#petrochemical": "petrochemicals-chemicals",
+      "#marine-offshore-rigs": "marine-offshore-rigs",
+      "#marine": "marine-offshore-rigs"
+    };
+
+    if (quickIndustryMap[hash]) {
+      return { route: "industry-detail", industrySlug: quickIndustryMap[hash] };
     }
 
     // Quick map for Navbar dropdown items
@@ -310,6 +493,17 @@ function App() {
       "#pipes": "pipes-tubes-stainless-steel",
       "#sheets": "sheets-plates-stainless-steel",
       "#bars": "rods-bars-stainless-steel",
+      "#wires": "wires-stainless-steel",
+      "#wire": "wires-stainless-steel",
+      "#circles": "circle-stainless-steel",
+      "#circle": "circle-stainless-steel",
+      "#flats": "flat-stainless-steel",
+      "#flat": "flat-stainless-steel",
+      "#patapatti": "patapatti-stainless-steel",
+      "#coils": "coil-stainless-steel",
+      "#coil": "coil-stainless-steel",
+      "#rings": "ring-stainless-steel",
+      "#ring": "ring-stainless-steel",
       "#pipes-tubes": "pipes-tubes-stainless-steel",
       "#sheets-plates": "sheets-plates-stainless-steel",
       "#rods-bars": "rods-bars-stainless-steel",
@@ -333,6 +527,12 @@ function App() {
         targetSlug.startsWith("pipes-tubes-") ||
         targetSlug.startsWith("sheets-plates-") ||
         targetSlug.startsWith("rods-bars-") ||
+        targetSlug.startsWith("wires-") ||
+        targetSlug.startsWith("circle-") ||
+        targetSlug.startsWith("flat-") ||
+        targetSlug.startsWith("patapatti-") ||
+        targetSlug.startsWith("coil-") ||
+        targetSlug.startsWith("ring-") ||
         getSupplierProductBySlug(targetSlug)
       ) {
         return { route: "supplier-detail", productSlug: targetSlug };
@@ -359,6 +559,15 @@ function App() {
       clean.startsWith("rods-bars-") ||
       clean.startsWith("wires-") ||
       (clean.startsWith("wire-") && !clean.startsWith("wire-mesh")) ||
+      clean.startsWith("circle-") ||
+      clean.startsWith("circles-") ||
+      clean.startsWith("flat-") ||
+      clean.startsWith("flats-") ||
+      clean.startsWith("patapatti-") ||
+      clean.startsWith("coil-") ||
+      clean.startsWith("coils-") ||
+      clean.startsWith("ring-") ||
+      clean.startsWith("rings-") ||
       getSupplierProductBySlug(clean)
     ) {
       window.location.hash = `#products/detail/${clean}`;
@@ -381,9 +590,24 @@ function App() {
       normalized === "sheets-plates" ||
       normalized === "rods-bars" ||
       normalized === "wires" ||
-      normalized === "wire"
+      normalized === "wire" ||
+      normalized === "circle" ||
+      normalized === "circles" ||
+      normalized === "flat" ||
+      normalized === "flats" ||
+      normalized === "patapatti" ||
+      normalized === "coil" ||
+      normalized === "coils" ||
+      normalized === "ring" ||
+      normalized === "rings"
     ) {
-      window.location.hash = `#products/category/${normalized === "wire" ? "wires" : normalized}`;
+      let resolved = normalized;
+      if (normalized === "wire") resolved = "wires";
+      else if (normalized === "circles") resolved = "circle";
+      else if (normalized === "flats") resolved = "flat";
+      else if (normalized === "coils") resolved = "coil";
+      else if (normalized === "rings") resolved = "ring";
+      window.location.hash = `#products/category/${resolved}`;
     } else {
       window.location.hash = getCategoryUrl(clean);
     }
@@ -410,16 +634,31 @@ function App() {
       normalizedCat === "sheets-plates" ||
       normalizedCat === "rods-bars" ||
       normalizedCat === "wires" ||
-      normalizedCat === "wire"
+      normalizedCat === "wire" ||
+      normalizedCat === "circle" ||
+      normalizedCat === "circles" ||
+      normalizedCat === "flat" ||
+      normalizedCat === "flats" ||
+      normalizedCat === "patapatti" ||
+      normalizedCat === "coil" ||
+      normalizedCat === "coils" ||
+      normalizedCat === "ring" ||
+      normalizedCat === "rings"
     ) {
-      const catKey = normalizedCat === "wire" ? "wires" : normalizedCat;
+      let catKey = normalizedCat;
+      if (normalizedCat === "wire") catKey = "wires";
+      else if (normalizedCat === "circles") catKey = "circle";
+      else if (normalizedCat === "flats") catKey = "flat";
+      else if (normalizedCat === "coils") catKey = "coil";
+      else if (normalizedCat === "rings") catKey = "ring";
+
       if (cleanMat && cleanMat !== "all") {
         window.location.hash = `#supplier/${catKey}/${cleanMat}`;
       } else {
         window.location.hash = `#products/category/${catKey}`;
       }
     } else if (cleanMat) {
-      window.location.hash = `#products/material/${cleanMat}`;
+      window.location.hash = `#materials/${cleanMat}`;
     } else {
       window.location.hash = getCategoryUrl(cleanCat);
     }
@@ -507,23 +746,77 @@ function App() {
 
         {routeState.route === "category-page" && (
           <CategoryPage
+            key={`${routeState.categorySlug}-${routeState.initialMaterialSlug || "all"}`}
             categorySlug={routeState.categorySlug}
+            initialMaterialSlug={routeState.initialMaterialSlug || "all"}
             onSelectProduct={handleSelectProduct}
             onSelectMaterial={handleSelectMaterial}
             onBackToProducts={handleBackToProducts}
           />
         )}
 
+        {routeState.route === "materials-landing" && (
+          <MaterialsLandingPage
+            onSelectMaterial={(matSlug) => {
+              window.location.hash = `#materials/${matSlug}`;
+            }}
+            onBackToHome={() => {
+              window.location.hash = "#home";
+            }}
+          />
+        )}
+
         {routeState.route === "material-page" && (
-          <MaterialPage
+          <MaterialDetailPage
+            key={routeState.materialSlug}
             materialSlug={routeState.materialSlug}
             onSelectProduct={handleSelectProduct}
-            onBackToProducts={handleBackToProducts}
+            onBackToMaterials={() => {
+              window.location.hash = "#materials";
+            }}
+          />
+        )}
+
+        {routeState.route === "industries-landing" && (
+          <IndustriesLandingPage
+            onSelectIndustry={(slug) => {
+              window.location.hash = `#industries/${slug}`;
+            }}
+            onBackToHome={() => {
+              window.location.hash = "#home";
+            }}
+          />
+        )}
+
+        {routeState.route === "industry-detail" && (
+          <IndustryDetailPage
+            key={routeState.industrySlug}
+            industrySlug={routeState.industrySlug}
+            onSelectIndustry={(slug) => {
+              window.location.hash = `#industries/${slug}`;
+            }}
+            onSelectProduct={handleSelectProduct}
+            onSelectMaterial={(matSlug) => {
+              window.location.hash = `#materials/${matSlug}`;
+            }}
+            onBackToIndustries={() => {
+              window.location.hash = "#industries";
+            }}
+          />
+        )}
+
+        {routeState.route === "contact-page" && (
+          <ContactPage
+            initialRequirement={routeState.prefillProduct}
+            onBackToHome={() => {
+              window.location.hash = "#home";
+            }}
           />
         )}
 
         {routeState.route === "grade-page" && (
           <GradePage
+            key={routeState.gradeSlug}
             gradeSlug={routeState.gradeSlug}
             onSelectProduct={handleSelectProduct}
             onBackToProducts={handleBackToProducts}
@@ -532,6 +825,7 @@ function App() {
 
         {routeState.route === "product-detail" && (
           <ProductDetailPage
+            key={routeState.slug}
             slug={routeState.slug}
             onBackToProducts={handleBackToProducts}
             onNavigateToProduct={handleSelectProduct}
@@ -540,11 +834,26 @@ function App() {
 
         {routeState.route === "supplier-detail" && (
           <SupplierDetailPage
+            key={routeState.productSlug}
             productSlug={routeState.productSlug}
             onBackToCategory={() => {
               const prod = getSupplierProductBySlug(routeState.productSlug);
-              const fam = prod ? prod.categorySlug : "pipes-tubes";
-              window.location.hash = `#products/category/${fam}`;
+              if (prod && prod.categorySlug) {
+                window.location.hash = `#products/category/${prod.categorySlug}`;
+              } else {
+                const pSlug = routeState.productSlug || "";
+                let fallbackCat = "products";
+                if (pSlug.startsWith("circle")) fallbackCat = "products/category/circle";
+                else if (pSlug.startsWith("flat")) fallbackCat = "products/category/flat";
+                else if (pSlug.startsWith("patapatti")) fallbackCat = "products/category/patapatti";
+                else if (pSlug.startsWith("coil")) fallbackCat = "products/category/coil";
+                else if (pSlug.startsWith("ring")) fallbackCat = "products/category/ring";
+                else if (pSlug.startsWith("wires") || pSlug.startsWith("wire-")) fallbackCat = "products/category/wires";
+                else if (pSlug.startsWith("rods-bars")) fallbackCat = "products/category/rods-bars";
+                else if (pSlug.startsWith("sheets-plates")) fallbackCat = "products/category/sheets-plates";
+                else if (pSlug.startsWith("pipes-tubes")) fallbackCat = "products/category/pipes-tubes";
+                window.location.hash = `#${fallbackCat}`;
+              }
             }}
             onSelectProduct={(slug) => {
               window.location.hash = `#products/detail/${slug}`;

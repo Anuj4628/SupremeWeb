@@ -17,7 +17,8 @@ import gsap from "gsap";
 import {
   getSupplierFamilyBySlug,
   getSupplierProductsByFamily,
-  getSupplierMaterialsByFamily
+  getSupplierMaterialsByFamily,
+  SUPPLIER_FAMILIES
 } from "../../data/supplierCatalog";
 
 export default function SupplierFamilySection({
@@ -34,14 +35,7 @@ export default function SupplierFamilySection({
   const family = getSupplierFamilyBySlug(familySlug) || {
     id: familySlug,
     slug: familySlug,
-    name:
-      familySlug === "pipes-tubes"
-        ? "Pipes & Tubes"
-        : familySlug === "sheets-plates"
-        ? "Sheets & Plates"
-        : familySlug === "wires" || familySlug === "wire"
-        ? "Wires"
-        : "Rods & Bars",
+    name: familySlug.charAt(0).toUpperCase() + familySlug.slice(1).replace("-", " "),
     division: "SUPPLIER",
     shortDesc: "High-performance industrial alloys sourced from premier global mills."
   };
@@ -408,70 +402,31 @@ export default function SupplierFamilySection({
               </h3>
             </div>
             <span className="text-xs font-mono text-slate-400">
-              3 Authorized Product Lines
+              {SUPPLIER_FAMILIES.length} Authorized Product Lines
             </span>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            <a
-              href="#products/category/pipes-tubes"
-              className={`p-4 rounded-xl border transition-all flex items-center justify-between ${
-                familySlug === "pipes-tubes"
-                  ? "bg-blue-600/20 border-blue-500"
-                  : "bg-slate-800/60 border-slate-700 hover:border-blue-400 hover:bg-slate-800"
-              }`}
-            >
-              <div>
-                <div className="text-xs font-mono text-slate-400 uppercase">Supplier Line 1</div>
-                <div className="text-sm font-bold text-white">Pipes & Tubes (9 Materials)</div>
-              </div>
-              <ArrowRight className="w-4 h-4 text-blue-400" />
-            </a>
-
-            <a
-              href="#products/category/sheets-plates"
-              className={`p-4 rounded-xl border transition-all flex items-center justify-between ${
-                familySlug === "sheets-plates"
-                  ? "bg-blue-600/20 border-blue-500"
-                  : "bg-slate-800/60 border-slate-700 hover:border-blue-400 hover:bg-slate-800"
-              }`}
-            >
-              <div>
-                <div className="text-xs font-mono text-slate-400 uppercase">Supplier Line 2</div>
-                <div className="text-sm font-bold text-white">Sheets & Plates (7 Materials)</div>
-              </div>
-              <ArrowRight className="w-4 h-4 text-blue-400" />
-            </a>
-
-            <a
-              href="#products/category/rods-bars"
-              className={`p-4 rounded-xl border transition-all flex items-center justify-between ${
-                familySlug === "rods-bars"
-                  ? "bg-blue-600/20 border-blue-500"
-                  : "bg-slate-800/60 border-slate-700 hover:border-blue-400 hover:bg-slate-800"
-              }`}
-            >
-              <div>
-                <div className="text-xs font-mono text-slate-400 uppercase">Supplier Line 3</div>
-                <div className="text-sm font-bold text-white">Rods & Bars (9 Materials)</div>
-              </div>
-              <ArrowRight className="w-4 h-4 text-blue-400" />
-            </a>
-
-            <a
-              href="#products/category/wires"
-              className={`p-4 rounded-xl border transition-all flex items-center justify-between ${
-                familySlug === "wires" || familySlug === "wire"
-                  ? "bg-blue-600/20 border-blue-500"
-                  : "bg-slate-800/60 border-slate-700 hover:border-blue-400 hover:bg-slate-800"
-              }`}
-            >
-              <div>
-                <div className="text-xs font-mono text-slate-400 uppercase">Supplier Line 4</div>
-                <div className="text-sm font-bold text-white">Wires (9 Materials)</div>
-              </div>
-              <ArrowRight className="w-4 h-4 text-blue-400" />
-            </a>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {SUPPLIER_FAMILIES.map((fam, idx) => {
+              const isCurrent = family.slug === fam.slug || familySlug === fam.slug;
+              return (
+                <a
+                  key={fam.id}
+                  href={`#products/category/${fam.slug}`}
+                  className={`p-4 rounded-xl border transition-all flex items-center justify-between ${
+                    isCurrent
+                      ? "bg-blue-600/20 border-blue-500 shadow-md"
+                      : "bg-slate-800/60 border-slate-700 hover:border-blue-400 hover:bg-slate-800"
+                  }`}
+                >
+                  <div>
+                    <div className="text-xs font-mono text-slate-400 uppercase">Supplier Line {idx + 1}</div>
+                    <div className="text-sm font-bold text-white">{fam.name} ({fam.materialCount} Materials)</div>
+                  </div>
+                  <ArrowRight className="w-4 h-4 text-blue-400" />
+                </a>
+              );
+            })}
           </div>
         </div>
       </section>

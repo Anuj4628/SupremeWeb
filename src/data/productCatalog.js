@@ -236,8 +236,8 @@ export const CATEGORIES = [
     fullDesc: "Precision drawn stainless steel, nickel alloy, carbon steel, and titanium wires conforming to ASTM A313, A580, and AWS A5.9."
   },
   {
-    id: "circles",
-    slug: "circles",
+    id: "circle",
+    slug: "circle",
     name: "Circle",
     division: "SUPPLIER",
     iconName: "Disc",
@@ -263,8 +263,8 @@ export const CATEGORIES = [
     fullDesc: "Hot rolled and cold rolled stainless steel Patta Patti in customized widths and thickness gauges."
   },
   {
-    id: "coils",
-    slug: "coils",
+    id: "coil",
+    slug: "coil",
     name: "Quile / Coil",
     division: "SUPPLIER",
     iconName: "Layers",
@@ -272,8 +272,8 @@ export const CATEGORIES = [
     fullDesc: "Hot rolled and cold rolled coils in 2B, BA, No.4, and mirror finish with custom width slitting."
   },
   {
-    id: "rings",
-    slug: "rings",
+    id: "ring",
+    slug: "ring",
     name: "Ring",
     division: "SUPPLIER",
     iconName: "Layers",
@@ -289,83 +289,155 @@ export const MATERIALS = [
   {
     id: "stainless-steel",
     slug: "stainless-steel",
-    name: "STAINLESS STEEL",
+    aliases: ["ss", "stainless"],
+    number: "01",
+    name: "Stainless Steel",
     shortName: "Stainless Steel",
-    grades: ["304", "304L", "316", "316L", "321", "321H", "310S", "347", "904L", "316Ti", "410", "420", "17-4PH"],
-    description: "Corrosion-resistant austenitic, ferritic, and martensitic stainless steels.",
-    image: ssButtWeldImg
+    tagline: "Austenitic, Ferritic & Martensitic Corrosion Alloys",
+    description: "Superior corrosion-resistant austenitic, ferritic, and martensitic stainless steels engineered for cryogenic to elevated thermal service.",
+    grades: ["304 / 304L", "316 / 316L", "321 / 321H", "310S", "347 / 347H", "904L", "316Ti", "17-4PH"],
+    standards: ["ASTM A312", "ASTM A240", "ASTM A276", "ASTM A182", "ASTM A403", "ASME B16.5"],
+    applications: ["Chemical Processing", "Oil & Gas Refineries", "Food & Dairy Processing", "Pharmaceutical Piping", "Marine Equipment"],
+    density: "7.93 g/cm³",
+    yieldStrength: "205 - 310 MPa",
+    image: ssButtWeldImg,
+    accentColor: "#F36F21"
   },
   {
-    id: "nickel-alloys",
-    slug: "nickel-alloys",
-    name: "NICKEL ALLOYS",
-    shortName: "Nickel Alloys",
-    grades: ["Nickel 200", "Nickel 201", "Inconel 600", "Inconel 625", "Inconel 718", "Incoloy 800", "Incoloy 825", "Hastelloy C276", "Monel 400", "Monel K500"],
-    description: "High-nickel alloys for severe chemical corrosion and extreme heat exposure.",
-    image: nickelExoticButtWeldImg
+    id: "nickel",
+    slug: "nickel",
+    aliases: ["nickel-alloys", "nickel-alloy"],
+    number: "02",
+    name: "Nickel",
+    shortName: "Nickel",
+    tagline: "High-Nickel Severe Corrosion & Thermal Superalloys",
+    description: "Prime commercially pure nickel and nickel-chromium-molybdenum superalloys engineered for extreme reducing acids and high-stress thermal service.",
+    grades: ["Nickel 200 / 201", "Inconel 600", "Inconel 625", "Inconel 718", "Incoloy 800 / 800H", "Incoloy 825", "Monel 400", "Monel K500", "Hastelloy C276"],
+    standards: ["ASTM B160", "ASTM B162", "ASTM B166", "ASTM B444", "ASTM B564", "ASME SB160"],
+    applications: ["Caustic Evaporators", "Chlorination Systems", "Nuclear Steam Generators", "Offshore Flare Stacks", "Acid Scrubbers"],
+    density: "8.44 - 8.89 g/cm³",
+    yieldStrength: "240 - 550 MPa",
+    image: wireMeshNickelImg,
+    accentColor: "#3B82F6"
   },
   {
     id: "high-alloys",
     slug: "high-alloys",
-    name: "HIGH ALLOYS",
+    aliases: ["high-alloy"],
+    number: "03",
+    name: "High Alloys",
     shortName: "High Alloys",
-    grades: ["Hastelloy C22", "Alloy 20", "Inconel 625", "904L", "SMO 254"],
-    description: "Specialized high-performance alloys for severe pitting and acidic environments.",
-    image: nickelExoticButtWeldImg
+    tagline: "Specialized Pitting & Severe Mixed Acid Metallurgy",
+    description: "Highly specialized super-austenitic and advanced nickel-iron-chromium alloys delivering elite resistance to chloride pitting, crevice corrosion, and stress cracking.",
+    grades: ["Hastelloy C22", "Alloy 20 (Carpenter 20)", "SMO 254 (1.4547)", "AL-6XN", "Sanicro 28"],
+    standards: ["ASTM B574", "ASTM B575", "ASTM B462", "ASTM B688", "ASTM B622", "ASME SB574"],
+    applications: ["Sulfuric Acid Handling", "Flue Gas Desulfurization (FGD)", "Phosphoric Acid Evaporators", "Bleach Plant Scrubbers", "Seawater Heat Exchangers"],
+    density: "8.00 - 8.69 g/cm³",
+    yieldStrength: "300 - 450 MPa",
+    image: wireMeshHighAlloyImg,
+    accentColor: "#8B5CF6"
   },
   {
     id: "duplex",
     slug: "duplex",
-    name: "DUPLEX",
+    aliases: ["duplex-steel"],
+    number: "04",
+    name: "Duplex",
     shortName: "Duplex",
-    grades: ["UNS S31803 (2205)", "UNS S32205", "LDX 2101"],
-    description: "Dual-phase austenitic-ferritic steel with high mechanical yield strength and stress corrosion resistance.",
-    image: duplexSuperDuplexButtWeldImg
+    tagline: "Dual-Phase High Tensile & Chloride SCC Resistant",
+    description: "50/50 dual-phase austenitic-ferritic microstructure delivering twice the mechanical yield strength of standard austenitic grades with exceptional chloride SCC resistance.",
+    grades: ["UNS S31803 (2205)", "UNS S32205", "LDX 2101", "DIN 1.4462", "EN 10088-3 1.4462"],
+    standards: ["ASTM A790", "ASTM A240", "ASTM A276", "ASTM A182 F51", "ASTM A815", "NORSOK M-630"],
+    applications: ["Cargo Tanks & Chemical Tankers", "Pulp & Paper Digesters", "Desalination Piping", "Flue Gas Scrubber Ducts", "Offshore Process Piping"],
+    density: "7.80 g/cm³",
+    yieldStrength: "≥ 450 MPa",
+    image: wireMeshDuplexImg,
+    accentColor: "#0EA5E9"
   },
   {
     id: "super-duplex",
     slug: "super-duplex",
-    name: "SUPER DUPLEX",
+    aliases: ["super-duplex-steel"],
+    number: "05",
+    name: "Super Duplex",
     shortName: "Super Duplex",
-    grades: ["UNS S32750 (2507)", "UNS S32760 (Zeron 100)"],
-    description: "Extreme performance super duplex stainless steel with PREN > 40 for harsh offshore environments.",
-    image: duplexSuperDuplexButtWeldImg
+    tagline: "PREN ≥ 42 Marine & Subsea Extreme Duty Metallurgy",
+    description: "Elite 25% chromium super duplex alloys with PREN ≥ 42 engineered specifically for warm chlorinated seawater, sour hydrocarbon service, and extreme subsea depths.",
+    grades: ["UNS S32750 (2507)", "UNS S32760 (Zeron 100)", "DIN 1.4410", "DIN 1.4501", "ASTM A182 F53 / F55"],
+    standards: ["ASTM A790", "ASTM A240", "ASTM A276", "ASTM A182 F53", "ASTM A815", "NORSOK M-630 MDS D55"],
+    applications: ["Subsea Umbilicals & Flowlines", "Seawater Reverse Osmosis (SWRO)", "Offshore Firewater Deluge", "Subsea Manifolds", "Sour Gas Scrubbers"],
+    density: "7.80 g/cm³",
+    yieldStrength: "≥ 550 MPa",
+    image: wireMeshSuperDuplexImg,
+    accentColor: "#06B6D4"
   },
   {
     id: "titanium",
     slug: "titanium",
-    name: "TITANIUM",
+    aliases: ["titanium-alloys"],
+    number: "06",
+    name: "Titanium",
     shortName: "Titanium",
-    grades: ["Grade 1", "Grade 2", "Grade 5 (Ti-6Al-4V)", "Grade 7"],
-    description: "Ultra lightweight, high strength-to-weight ratio titanium for aerospace, defense, and chlor-alkali.",
-    image: nickelExoticButtWeldImg
+    tagline: "Commercial Purity & Aerospace Strength-to-Weight",
+    description: "Commercially pure and alpha-beta titanium alloys delivering complete immunity to seawater and wet chlorine with an extraordinary 45% weight advantage over steel.",
+    grades: ["Grade 1 (CP4)", "Grade 2 (CP3)", "Grade 5 (Ti-6Al-4V)", "Grade 7 (Ti-0.15Pd)", "Grade 9 (Ti-3Al-2.5V)", "Grade 12"],
+    standards: ["ASTM B338", "ASTM B265", "ASTM B348", "ASTM B381", "ASTM B363", "ASME SB338"],
+    applications: ["Chlor-Alkali Electrolyzers", "Plate Heat Exchangers", "Aerospace Structural Airframes", "Marine Propeller Shafts", "Medical & Surgical Implants"],
+    density: "4.51 g/cm³",
+    yieldStrength: "275 - 880 MPa",
+    image: wireMeshTitaniumImg,
+    accentColor: "#10B981"
   },
   {
-    id: "exotic-alloys",
-    slug: "exotic-alloys",
-    name: "EXOTIC ALLOYS",
-    shortName: "Exotic Alloys",
-    grades: ["Zirconium 702", "Tantalum R05200", "Cupro Nickel 70/30", "Hastelloy B2"],
-    description: "Exotic nuclear and chemical reactor metals immune to extreme mineral acids.",
-    image: nickelExoticButtWeldImg
+    id: "alloys",
+    slug: "alloys",
+    aliases: ["exotic-alloys", "exotic-alloy"],
+    number: "07",
+    name: "Alloys",
+    shortName: "Alloys",
+    tagline: "Reactive & Severe Mineral Acid Reactor Metallurgy",
+    description: "Reactive and rare specialty metals including Zirconium, Tantalum, Hastelloy B2, and Copper-Nickel engineered for boiling mineral acids and nuclear reprocessing.",
+    grades: ["Zirconium 702 (R60702)", "Tantalum R05200", "Cupro Nickel 70/30 (C71500)", "Cupro Nickel 90/10 (C70600)", "Hastelloy B2 / B3"],
+    standards: ["ASTM B523", "ASTM B551", "ASTM B550", "ASTM B466", "ASTM B365", "ASME SB523"],
+    applications: ["Hydrochloric Acid Reboilers", "Nitric Acid Concentrators", "Nuclear Waste Vitrification", "Naval Seawater Condensers", "Pharmaceutical Reactors"],
+    density: "6.51 - 16.65 g/cm³",
+    yieldStrength: "205 - 380 MPa",
+    image: wireMeshExoticImg,
+    accentColor: "#EC4899"
   },
   {
-    id: "carbon-steel",
-    slug: "carbon-steel",
-    name: "CARBON STEEL",
-    shortName: "Carbon Steel",
-    grades: ["ASTM A106 Gr B", "ASTM A105", "ASTM A333 Gr 6", "ASTM A516 Gr 60/70", "IS 2062"],
-    description: "High-strength pressure piping and boiler plate carbon steel.",
-    image: carbonSteelButtWeldImg
+    id: "carbon",
+    slug: "carbon",
+    aliases: ["carbon-steel"],
+    number: "08",
+    name: "Carbon",
+    shortName: "Carbon",
+    tagline: "High-Yield Pressure Vessel & Structural Carbon Steel",
+    description: "High-integrity, fine-grain killed carbon steel and low-temperature carbon steel (LTCS) engineered for critical high-pressure steam, oil, and gas line service.",
+    grades: ["ASTM A106 Gr B / C", "ASTM A105", "ASTM A333 Gr 6 (LTCS)", "ASTM A234 WPB / WPC", "ASTM A516 Gr 60 / 70", "IS 2062"],
+    standards: ["ASTM A106", "ASTM A105", "ASTM A333", "ASTM A234", "ASTM A516", "ASME B16.5"],
+    applications: ["Cross-Country Hydrocarbon Transmission", "High-Pressure Steam Pipelines", "Boiler Mud Drums & Shells", "Heavy Industrial Framing", "Cryogenic Storage"],
+    density: "7.85 g/cm³",
+    yieldStrength: "240 - 415 MPa",
+    image: wireMeshCsImg,
+    accentColor: "#F59E0B"
   },
   {
     id: "alloy-steel",
     slug: "alloy-steel",
-    name: "ALLOY STEEL",
+    aliases: ["chrome-moly"],
+    number: "09",
+    name: "Alloy Steel",
     shortName: "Alloy Steel",
-    grades: ["ASTM A335 P5", "ASTM A335 P11", "ASTM A335 P22", "ASTM A335 P91", "ASTM A182 F11", "ASTM A182 F22", "ASTM A182 F91"],
-    description: "Chromium-molybdenum high temperature boiler and superheater power plant steel.",
-    image: alloySteelButtWeldImg
+    tagline: "Cr-Mo Superheater & Power Boiler High-Temp Steel",
+    description: "High-performance chromium-molybdenum heat-resistant alloy steel engineered to maintain high tensile strength and resist hydrogen attack at temperatures up to 650°C.",
+    grades: ["ASTM A335 P5", "ASTM A335 P9", "ASTM A335 P11", "ASTM A335 P22", "ASTM A335 P91 (Cr-Mo-V)", "ASTM A182 F11 / F22 / F91"],
+    standards: ["ASTM A335", "ASTM A182", "ASTM A234 WP11 / WP22 / WP91", "ASME SA335", "ASME SA182", "DIN 17175"],
+    applications: ["Thermal & Nuclear Superheater Piping", "Reheater & Main Steam Headers", "Petrochemical Hydrocrackers", "Coking Units", "High-Temperature Heat Exchangers"],
+    density: "7.85 g/cm³",
+    yieldStrength: "205 - 415 MPa",
+    image: wireMeshAsImg,
+    accentColor: "#EF4444"
   }
 ];
 
@@ -374,175 +446,9 @@ export const MATERIALS = [
 // ----------------------------------------------------------------------
 export const PRODUCTS = [
   // ----------------------------------------------------------------------
-  // SUPPLIER DIVISION — PIPES & TUBES, SHEETS & PLATES, RODS & BARS
+  // SUPPLIER DIVISION — ALL 9 METALLURGICAL PRODUCT FAMILIES
   // ----------------------------------------------------------------------
   ...ALL_SUPPLIER_PRODUCTS,
-
-  // ----------------------------------------------------------------------
-  // SUPPLIER DIVISION — WIRE, CIRCLES, FLAT, PATAPATTI, COILS, RINGS
-  // ----------------------------------------------------------------------
-  {
-    id: "wire-ss-304-spring",
-    slug: "wire-ss-304-spring",
-    name: "Stainless Steel 304 / 316 Industrial Wire",
-    division: "SUPPLIER",
-    category: "Wire",
-    categorySlug: "wire",
-    material: "STAINLESS STEEL",
-    materialName: "Stainless Steel",
-    materialSlug: "stainless-steel",
-    grade: "304 / 316",
-    gradeSlug: "304",
-    productType: "Spring & Welding Wire",
-    heroImage: fastenersImg,
-    gallery: [fastenersImg],
-    shortDescription: "High-tensile stainless steel spring wire, cold heading wire, and welding filler wire (0.10mm to 16.0mm) conforming to ASTM A313 & ASTM A580.",
-    overview: "Supreme Metal & Alloys stocks and supplies precision-drawn stainless steel wire in bright and matte finishes for mechanical springs, welding electrodes, and wire mesh weaving.",
-    specifications: {
-      standard: "ASTM A313 / ASTM A580 / AWS A5.9",
-      diameter: "0.10 mm to 16.0 mm",
-      tensileStrength: "550 N/mm² to 2100 N/mm²",
-      surfaceFinish: "Bright Annealed / Matte / Soap Coated",
-      packaging: "DIN Spools & Catch Weight Coils"
-    },
-    standards: ["ASTM A313", "ASTM A580", "AWS A5.9"],
-    applications: ["Mechanical Spring Manufacturing", "MIG / TIG Welding", "Wire Mesh Weaving", "Fastener Cold Heading"]
-  },
-  {
-    id: "circle-ss-316l-disc",
-    slug: "circle-ss-316l-disc",
-    name: "Stainless Steel Cut Circles & Forged Discs",
-    division: "SUPPLIER",
-    category: "Circle",
-    categorySlug: "circles",
-    material: "STAINLESS STEEL",
-    materialName: "Stainless Steel",
-    materialSlug: "stainless-steel",
-    grade: "304 / 316L",
-    gradeSlug: "316l",
-    productType: "Rolled Plate Circles & Forged Discs",
-    heroImage: sheetImg,
-    gallery: [coilImg],
-    shortDescription: "Precision laser and plasma cut stainless steel circles and forged heavy disc blanks (75mm to 950mm+ OD) for tank ends and flange blanks.",
-    overview: "Supreme Metal & Alloys supplies stainless steel circles conforming to ASTM A240 and forged discs per ASTM A182, precision cut with smooth edges ready for deep drawing and flange machining.",
-    specifications: {
-      standard: "ASTM A240 / ASTM A182",
-      diameter: "75 mm (3\") to 950 mm+ (38\")",
-      thickness: "1.0 mm to 100.0 mm",
-      cuttingProcess: "CNC Laser / Plasma / Waterjet / Saw Cut",
-      edgeCondition: "Deburred Square Cut / Machine Beveled"
-    },
-    standards: ["ASTM A240", "ASTM A182", "ASME SA240"],
-    applications: ["Flange Manufacturing Blanks", "Pressure Vessel Heads & Tank Ends", "Pharmaceutical Vessels", "Heavy Machining Discs"]
-  },
-  {
-    id: "flat-ss-316l-bar",
-    slug: "flat-ss-316l-bar",
-    name: "Stainless Steel Precision Flat Bars",
-    division: "SUPPLIER",
-    category: "Flat",
-    categorySlug: "flat",
-    material: "STAINLESS STEEL",
-    materialName: "Stainless Steel",
-    materialSlug: "stainless-steel",
-    grade: "304 / 316L",
-    gradeSlug: "316l",
-    productType: "Cold Drawn & Hot Rolled Flat Bar",
-    heroImage: angleChannelFlatImg,
-    gallery: [heavyPlatesBarsImg],
-    shortDescription: "Hot rolled annealed & pickled and cold drawn stainless steel flat bars for architectural framing, structural brackets, and chemical plant equipment.",
-    overview: "Supreme Metal & Alloys supplies stainless steel flat bars in HRAP and bright cold drawn finishes conforming to ASTM A276 and ASTM A479 with sharp square corners and tight dimensional tolerances.",
-    specifications: {
-      standard: "ASTM A276 / ASTM A479 / DIN 1017",
-      width: "12 mm to 150 mm",
-      thickness: "3 mm to 25 mm",
-      length: "3 to 6 Meters Random or Cut to Length",
-      surfaceFinish: "HRAP (Hot Rolled Annealed & Pickled) / Bright Drawn"
-    },
-    standards: ["ASTM A276", "ASTM A479", "EN 10088-3"],
-    applications: ["Structural Fabrication & Brackets", "Marine & Architectural Trim", "Machinery Base Plates", "Chemical Storage Racks"]
-  },
-  {
-    id: "patapatti-ss-304-strip",
-    slug: "patapatti-ss-304-strip",
-    name: "Stainless Steel Patta Patti (Slit Strips)",
-    division: "SUPPLIER",
-    category: "Patapatti",
-    categorySlug: "patapatti",
-    material: "STAINLESS STEEL",
-    materialName: "Stainless Steel",
-    materialSlug: "stainless-steel",
-    grade: "304 / 316L",
-    gradeSlug: "304",
-    productType: "Precision Slit Strips / Patta Patti",
-    heroImage: coilImg,
-    gallery: [sheetImg],
-    shortDescription: "Precision cold rolled and hot rolled stainless steel Patta Patti slit strips (10mm to 600mm width) in 2B and BA surface finishes.",
-    overview: "Supreme Metal & Alloys offers stainless steel Patta Patti narrow coiled strip stock with burr-free deburred or slit edges for fabrication, stamping, cable trays, and ornamental metalwork.",
-    specifications: {
-      standard: "ASTM A240 / ASME SA240",
-      width: "10 mm to 600 mm",
-      thickness: "0.5 mm to 6.0 mm",
-      edgeFinish: "Slit Edge / Deburred Round Edge / Sheared",
-      temper: "Soft Annealed / 1/4 Hard / 1/2 Hard / Full Hard"
-    },
-    standards: ["ASTM A240", "EN 10088-2", "JIS G4305"],
-    applications: ["Stamping & Press Forming", "Cable Trays & Brackets", "Ornamental Trim & Grilles", "Automotive Gaskets & Clamps"]
-  },
-  {
-    id: "coil-ss-304-industrial",
-    slug: "coil-ss-304-industrial",
-    name: "Stainless Steel HR & CR Industrial Coils",
-    division: "SUPPLIER",
-    category: "Quile / Coil",
-    categorySlug: "coils",
-    material: "STAINLESS STEEL",
-    materialName: "Stainless Steel",
-    materialSlug: "stainless-steel",
-    grade: "304 / 316L / 430",
-    gradeSlug: "304",
-    productType: "Hot & Cold Rolled Coils",
-    heroImage: coilImg,
-    gallery: [sheetImg],
-    shortDescription: "Prime quality hot rolled and cold rolled stainless steel coils in 2B, BA, No.4, and mirror finish with custom width precision slitting.",
-    overview: "Supreme Metal & Alloys is an authorized distributor of prime mill stainless steel coils from world-class producers. Offered in master coil weights up to 15 MT and customized baby slit coils for continuous stamping lines.",
-    specifications: {
-      standard: "ASTM A240 / ASME SA240 / EN 10088-2",
-      thickness: "0.3 mm to 12.0 mm",
-      width: "1000 mm, 1250 mm, 1500 mm (Slit down to 20 mm)",
-      coilID: "508 mm / 610 mm",
-      surfaceFinish: "2B, BA, No.1, No.4 Hairline, 8K Mirror"
-    },
-    standards: ["ASTM A240", "EN 10088-2", "ASTM A480"],
-    applications: ["Continuous Roll Forming & Stamping", "Storage Tank Fabrication", "Automotive Exhaust & Trim", "Kitchenware & Sanitary Equipment"]
-  },
-  {
-    id: "ring-forged-ss-flange",
-    slug: "ring-forged-ss-flange",
-    name: "Stainless Steel Forged Rings & Backing Rings",
-    division: "SUPPLIER",
-    category: "Ring",
-    categorySlug: "rings",
-    material: "STAINLESS STEEL",
-    materialName: "Stainless Steel",
-    materialSlug: "stainless-steel",
-    grade: "304L / 316L / Duplex 2205",
-    gradeSlug: "316l",
-    productType: "Seamless Rolled & Forged Rings",
-    heroImage: forgedFlangesImg,
-    gallery: [forgedFittingPng],
-    shortDescription: "Seamless rolled and press forged stainless steel and alloy rings (up to 1500mm OD) for flange machining, lap joint backing, and pressure vessel seals.",
-    overview: "Supreme Metal & Alloys stocks seamless ring-rolled and hot forged rings conforming to ASTM A182 and ASTM A105. Fully heat-treated, ultrasonically inspected, and rough machined with minimal machining allowances.",
-    specifications: {
-      standard: "ASTM A182 / ASTM A105 / ASME B16.5",
-      outerDiameter: "Up to 1500 mm (60\") OD",
-      heightThickness: "25 mm to 300 mm",
-      forgingProcess: "Seamless Ring Rolling & Hydraulic Press Forging",
-      heatTreatment: "Solution Annealed / Quenched & Tempered"
-    },
-    standards: ["ASTM A182", "ASTM A105", "ASME B16.47"],
-    applications: ["Flange & Ring Joint Gasket Blanks", "Lap Joint Loose Backing Rings", "Pressure Vessel Nozzle Reinforcements", "Heavy Bearing & Slewing Rings"]
-  },
 
   // ----------------------------------------------------------------------
   // FERRULE FITTINGS (MANUFACTURER DIVISION)
@@ -3065,15 +2971,137 @@ export const getCategoryBySlug = (slug) => {
   if (normalized === "wire" || normalized === "wires" || clean === "wire" || clean === "wires") {
     return CATEGORIES.find((c) => c.slug === "wires" || c.id === "wires");
   }
+  if (clean === "circle" || clean === "circles" || normalized === "circle" || normalized === "circles") {
+    return CATEGORIES.find((c) => c.slug === "circles" || c.id === "circles" || c.slug === "circle" || c.id === "circle");
+  }
+  if (clean === "coil" || clean === "coils" || normalized === "coil" || normalized === "coils" || clean === "quile") {
+    return CATEGORIES.find((c) => c.slug === "coils" || c.id === "coils" || c.slug === "coil" || c.id === "coil");
+  }
+  if (clean === "ring" || clean === "rings" || normalized === "ring" || normalized === "rings") {
+    return CATEGORIES.find((c) => c.slug === "rings" || c.id === "rings" || c.slug === "ring" || c.id === "ring");
+  }
+  if (clean === "flat" || clean === "flats" || clean === "flat-bar" || clean === "flat-bars") {
+    return CATEGORIES.find((c) => c.slug === "flat" || c.id === "flat");
+  }
+  if (clean === "patapatti" || clean === "patta-patti") {
+    return CATEGORIES.find((c) => c.slug === "patapatti" || c.id === "patapatti");
+  }
   return CATEGORIES.find(
     (c) => c.slug === normalized || c.id === normalized || c.slug === clean || c.id === clean || c.slug === slug || c.id === slug
   );
 };
 
-export const getMaterialBySlug = (slug) => {
-  if (!slug) return undefined;
-  const clean = cleanMfgSlug(slug);
-  return MATERIALS.find((m) => m.slug === clean || m.id === clean || m.slug === slug || m.id === slug);
+// Strictly canonicalize material slug (e.g. nickel-alloys -> nickel, carbon-steel -> carbon)
+export const canonicalizeMaterialSlug = (slug = "") => {
+  if (!slug || typeof slug !== "string") return null;
+  const clean = cleanMfgSlug(slug).toLowerCase().trim();
+  for (const m of MATERIALS) {
+    if (m.slug === clean || m.id === clean) return m.slug;
+    if (Array.isArray(m.aliases) && m.aliases.includes(clean)) return m.slug;
+  }
+  return null;
+};
+
+// Strictly retrieve a Material record by slug or alias (Rule #12: returns null if invalid, NO silent fallback)
+export const getMaterialBySlug = (slug = "") => {
+  if (!slug) return null;
+  const canonical = canonicalizeMaterialSlug(slug);
+  if (!canonical) return null;
+  return MATERIALS.find((m) => m.slug === canonical) || null;
+};
+
+// Strict Metallurgical Product Matcher (Guarantees 100% boundary isolation across all 9 materials)
+export const matchProductToCanonicalMaterial = (canonicalSlug = "", product) => {
+  if (!canonicalSlug || !product) return false;
+  const pSlug = (product.materialSlug || "").toLowerCase().trim();
+  const pName = (product.material || product.materialName || "").toLowerCase().trim();
+
+  switch (canonicalSlug) {
+    case "stainless-steel":
+      return pSlug === "stainless-steel" || pName.includes("stainless");
+
+    case "nickel":
+      // Nickel but strictly NOT high-alloy
+      if (pSlug === "high-alloy" || pSlug === "high-alloys" || pName.includes("high alloy")) return false;
+      return (
+        pSlug === "nickel-alloy" ||
+        pSlug === "nickel-alloys" ||
+        pSlug === "nickel" ||
+        pName.includes("nickel") ||
+        pName.includes("nikle")
+      );
+
+    case "high-alloys":
+      return pSlug === "high-alloy" || pSlug === "high-alloys" || pName.includes("high alloy");
+
+    case "duplex":
+      // Duplex but strictly NOT super-duplex
+      if (pSlug === "super-duplex" || pName.includes("super duplex") || pName.includes("super-duplex")) return false;
+      return pSlug === "duplex" || pName === "duplex";
+
+    case "super-duplex":
+      return pSlug === "super-duplex" || pName.includes("super duplex") || pName.includes("super-duplex");
+
+    case "titanium":
+      return pSlug === "titanium" || pName.includes("titanium") || pName.includes("titainium");
+
+    case "alloys":
+      return (
+        pSlug === "exotic-alloy" ||
+        pSlug === "exotic-alloys" ||
+        pSlug === "alloys" ||
+        pName.includes("exotic")
+      );
+
+    case "carbon":
+      return (
+        pSlug === "carbon-steel" ||
+        pSlug === "carbon" ||
+        pName === "carbon" ||
+        pName === "carbon steel"
+      );
+
+    case "alloy-steel":
+      return pSlug === "alloy-steel" || pName === "alloy steel";
+
+    default:
+      return false;
+  }
+};
+
+// Strictly get all products for a specific material with ZERO cross-material leakage
+export const getProductsByMaterial = (matSlug = "") => {
+  if (!matSlug) return [];
+  const canonical = canonicalizeMaterialSlug(matSlug);
+  if (!canonical) return [];
+  return PRODUCTS.filter((p) => matchProductToCanonicalMaterial(canonical, p));
+};
+
+export const getProductsByMaterialSlug = getProductsByMaterial;
+
+// Get live genuine product counts for all 9 materials
+export const getMaterialProductCounts = () => {
+  const counts = {};
+  for (const m of MATERIALS) {
+    counts[m.slug] = getProductsByMaterial(m.slug).length;
+  }
+  return counts;
+};
+
+// Get distinct categories available for a material (for category filter chips)
+export const getMaterialCategories = (matSlug = "") => {
+  const prods = getProductsByMaterial(matSlug);
+  const seen = new Set();
+  const cats = [];
+  for (const p of prods) {
+    const slug = p.categorySlug || p.category?.toLowerCase().replace(/[^a-z0-9]+/g, "-");
+    const name = p.category || "General";
+    if (slug && !seen.has(slug)) {
+      seen.add(slug);
+      cats.push({ slug, name });
+    }
+  }
+  return cats;
 };
 
 export const getProductsByCategory = (catSlug) => {
@@ -3090,35 +3118,24 @@ export const getProductsByCategory = (catSlug) => {
   });
 };
 
-export const getProductsByMaterial = (matSlug) => {
-  if (!matSlug) return [];
-  const clean = cleanMfgSlug(matSlug);
-  return PRODUCTS.filter((p) => {
-    if (clean === "duplex") return p.materialSlug === "duplex";
-    const pMat = (p.material || p.materialName || "").toLowerCase().replace(/[^a-z0-9]+/g, "-");
-    return p.materialSlug === clean || (pMat && pMat === clean);
-  });
-};
-
 export const getProductsByCategoryAndMaterial = (catSlug, matSlug) => {
   if (!catSlug || !matSlug) return [];
   const cleanCat = cleanMfgSlug(catSlug);
   const normalizedCat = normalizeCategorySlug(cleanCat);
-  const cleanMat = cleanMfgSlug(matSlug);
+  const canonicalMat = canonicalizeMaterialSlug(matSlug);
+  if (!canonicalMat) return [];
+
   return PRODUCTS.filter((p) => {
     const pCat = (p.category || "").toLowerCase().replace(/[^a-z0-9]+/g, "-");
-    const pMat = (p.material || p.materialName || "").toLowerCase().replace(/[^a-z0-9]+/g, "-");
     const matchCat =
       p.categorySlug === normalizedCat ||
       p.categorySlug === cleanCat ||
       (pCat && pCat === normalizedCat) ||
       (pCat && pCat === cleanCat);
-    const matchMat =
-      cleanMat === "duplex"
-        ? p.materialSlug === "duplex"
-        : p.materialSlug === cleanMat || (pMat && pMat === cleanMat);
-    return matchCat && matchMat;
+    return matchCat && matchProductToCanonicalMaterial(canonicalMat, p);
   });
 };
 
-export const getProductsByDivision = (divId) => PRODUCTS.filter((p) => (p.division || "").toLowerCase() === String(divId).toLowerCase());
+export const getProductsByDivision = (divId) =>
+  PRODUCTS.filter((p) => (p.division || "").toLowerCase() === String(divId).toLowerCase());
+

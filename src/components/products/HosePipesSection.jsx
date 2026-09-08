@@ -343,7 +343,7 @@ export default function HosePipesSection({ onSelectMaterial, onBackToProducts })
             </div>
           </div>
           <a
-            href="#rfq"
+            href="#contact?product=Hose%20Pipes#quote"
             className="px-6 py-3 bg-[#F36F21] text-white text-xs font-mono font-bold uppercase tracking-wider rounded-xl hover:bg-[#d94a1f] transition-colors shrink-0 shadow-md"
           >
             Request Hose Pipe RFQ

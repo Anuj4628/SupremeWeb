@@ -50,33 +50,42 @@ export default function SupplierDetailPage({
 
   const pageRef = useRef(null);
 
-  // Load target product record with fallback
-  const product = getSupplierProductBySlug(productSlug) || ALL_SUPPLIER_PRODUCTS[0];
-  const family = getSupplierFamilyBySlug(product.categorySlug) || {
-    id: product.categorySlug,
-    slug: product.categorySlug,
-    name: product.category
-  };
+  // Load target product record (Rule #12: No silent fallback to unrelated products)
+  const product = getSupplierProductBySlug(productSlug);
+  const family = product
+    ? (getSupplierFamilyBySlug(product.categorySlug) || {
+        id: product.categorySlug,
+        slug: product.categorySlug,
+        name: product.category
+      })
+    : null;
 
   // Products within this exact family for circular previous/next pagination
-  const familyProducts = getSupplierProductsByFamily(product.categorySlug);
-  const productIndex = familyProducts.findIndex((p) => p.slug === product.slug);
+  const familyProducts = product ? getSupplierProductsByFamily(product.categorySlug) : [];
+  const productIndex = product ? familyProducts.findIndex((p) => p.slug === product.slug) : -1;
   
-  const prevProduct = familyProducts[(productIndex - 1 + familyProducts.length) % familyProducts.length];
-  const nextProduct = familyProducts[(productIndex + 1) % familyProducts.length];
+  const prevProduct = product && familyProducts.length > 0
+    ? familyProducts[(productIndex - 1 + familyProducts.length) % familyProducts.length]
+    : null;
+  const nextProduct = product && familyProducts.length > 0
+    ? familyProducts[(productIndex + 1) % familyProducts.length]
+    : null;
 
   // Related products strictly within this family
-  const relatedProducts = getSupplierRelatedProducts(product.categorySlug, product.slug);
+  const relatedProducts = product
+    ? getSupplierRelatedProducts(product.categorySlug, product.slug)
+    : [];
 
   // Scroll to top and set document title
   useEffect(() => {
+    if (!product) return;
     document.title = `${product.name} | Supplier Division | Supreme Metal & Alloys`;
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, [product]);
 
   // Entrance animations
   useEffect(() => {
-    if (!pageRef.current) return;
+    if (!pageRef.current || !product) return;
     const ctx = gsap.context(() => {
       gsap.fromTo(
         ".gsap-detail-anim",
@@ -85,7 +94,7 @@ export default function SupplierDetailPage({
       );
     }, pageRef);
     return () => ctx.revert();
-  }, [productSlug]);
+  }, [productSlug, product]);
 
   const handleFormChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -98,6 +107,44 @@ export default function SupplierDetailPage({
       setRfqSubmitted(false);
     }, 6000);
   };
+
+  // Rule #12: Deterministic Not Found screen for invalid product slugs
+  if (!product) {
+    return (
+      <div className="min-h-screen bg-slate-50 text-slate-800 font-sans antialiased py-24 flex items-center justify-center px-4">
+        <div className="max-w-lg w-full bg-[#0E2A3A] text-white rounded-2xl p-8 border border-slate-700 shadow-2xl text-center">
+          <div className="w-14 h-14 rounded-2xl bg-amber-500/20 border border-amber-500/40 flex items-center justify-center text-amber-400 mx-auto mb-4">
+            <ShieldCheck className="w-7 h-7" />
+          </div>
+          <span className="text-xs font-mono text-amber-400 font-bold uppercase tracking-widest block mb-2">
+            [ SPECIFICATION NOT FOUND ]
+          </span>
+          <h2 className="text-2xl font-extrabold text-white mb-2">
+            Product Not Found
+          </h2>
+          <p className="text-sm text-slate-300 mb-6 font-mono">
+            No metallurgical specification record exists for &quot;{productSlug}&quot; in the Supplier Division catalogue.
+          </p>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
+            <button
+              onClick={onBackToCategory}
+              className="w-full sm:w-auto px-5 py-2.5 bg-blue-600 hover:bg-blue-500 text-white text-xs font-mono font-bold rounded-xl transition-all flex items-center justify-center gap-2 shadow-lg cursor-pointer"
+            >
+              <ArrowLeft className="w-4 h-4" />
+              <span>Back to Category</span>
+            </button>
+            <a
+              href="#products/supplier"
+              className="w-full sm:w-auto px-5 py-2.5 bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-mono font-bold rounded-xl border border-slate-600 transition-all flex items-center justify-center gap-2"
+            >
+              <Globe className="w-4 h-4 text-blue-400" />
+              <span>Supplier Division</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   const handleRelatedClick = (relProd) => {
     if (onSelectProduct) {

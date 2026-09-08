@@ -3,6 +3,8 @@ import companyConfig from "../../config/company";
 import navItems from "../../data/navigation";
 import logoImage from "../../assets/logo2.png";
 import ProductMegaMenu from "../products/ProductMegaMenu";
+import IndustryMegaMenu from "../industries/IndustryMegaMenu";
+import MaterialMegaMenu from "../materials/MaterialMegaMenu";
 import {
   Phone,
   Mail,
@@ -130,7 +132,7 @@ const Navbar = () => {
       {/* MAIN NAVIGATION BAR */}
       {/* ========================================== */}
       <div
-        className={`w-full bg-white border-b border-slate-200/80 transition-shadow duration-300 ${
+        className={`w-full bg-white border-b border-slate-200/80 transition-shadow duration-300 relative ${
           scrolled ? "shadow-lg shadow-slate-900/5" : ""
         }`}
       >
@@ -157,8 +159,11 @@ const Navbar = () => {
                   href={item.href}
                   onClick={(e) => {
                     if (item.label === "Products") {
-                      // Toggle mega menu state on click
                       setActiveDropdown(activeDropdown === "Products" ? null : "Products");
+                    } else if (item.label === "Industries") {
+                      setActiveDropdown(activeDropdown === "Industries" ? null : "Industries");
+                    } else if (item.label === "Materials") {
+                      setActiveDropdown(activeDropdown === "Materials" ? null : "Materials");
                     }
                   }}
                   className={`flex items-center gap-1 px-3.5 py-2.5 rounded-lg text-sm font-semibold text-slate-800 hover:text-[#F36F21] hover:bg-slate-50 transition-all duration-200 relative ${
@@ -174,57 +179,6 @@ const Navbar = () => {
                     />
                   )}
                 </a>
-
-                {/* PRODUCT MEGA MENU OVERLAY (COMPACT & BRIDGED) */}
-                {item.label === "Products" && activeDropdown === "Products" && (
-                  <div
-                    onMouseEnter={() => handleMouseEnter("Products")}
-                    onMouseLeave={handleMouseLeave}
-                    className="absolute top-full left-0 pt-2 z-50 animate-in fade-in slide-in-from-top-2 duration-200"
-                  >
-                    <ProductMegaMenu onClose={() => setActiveDropdown(null)} />
-                  </div>
-                )}
-
-                {/* Standard Dropdown Menu (For Materials / Industries) */}
-                {item.label !== "Products" && item.dropdown && activeDropdown === item.label && (
-                  <div
-                    onMouseEnter={() => handleMouseEnter(item.label)}
-                    onMouseLeave={handleMouseLeave}
-                    className="absolute top-full left-0 pt-2 w-[340px] xl:w-[380px] z-50 animate-in fade-in slide-in-from-top-2 duration-200"
-                  >
-                    <div className="bg-white rounded-2xl shadow-xl border border-slate-200/80 p-3 overflow-hidden">
-                      <div className="h-1 w-full bg-gradient-to-r from-[#F36F21] via-[#D92B20] to-[#0F2942] rounded-full mb-2"></div>
-                      <div className="flex flex-col gap-1">
-                        {item.dropdown.map((subItem) => {
-                          const IconComponent = subItem.icon;
-                          return (
-                            <a
-                              key={subItem.title}
-                              href={subItem.href}
-                              className="group/sub flex items-start gap-3 p-2.5 rounded-xl hover:bg-slate-50 transition-all duration-200"
-                            >
-                              <div className="p-2 rounded-lg bg-[#0F2942]/5 text-[#0F2942] group-hover/sub:bg-[#F36F21] group-hover/sub:text-white transition-colors shrink-0">
-                                <IconComponent className="w-4 h-4" />
-                              </div>
-                              <div className="flex-1 min-w-0">
-                                <div className="flex items-center justify-between">
-                                  <span className="text-sm font-bold text-slate-800 group-hover/sub:text-[#F36F21] transition-colors">
-                                    {subItem.title}
-                                  </span>
-                                  <ArrowRight className="w-3.5 h-3.5 opacity-0 -translate-x-2 text-[#F36F21] group-hover/sub:opacity-100 group-hover/sub:translate-x-0 transition-all" />
-                                </div>
-                                <p className="text-xs text-slate-500 truncate mt-0.5 font-normal">
-                                  {subItem.desc}
-                                </p>
-                              </div>
-                            </a>
-                          );
-                        })}
-                      </div>
-                    </div>
-                  </div>
-                )}
               </div>
             ))}
           </nav>
@@ -233,7 +187,7 @@ const Navbar = () => {
           <div className="flex items-center gap-3">
             {/* CTA Button */}
             <a
-              href="#contact"
+              href="#contact#quote"
               className="hidden sm:inline-flex items-center gap-2 bg-gradient-to-r from-[#F36F21] to-[#D92B20] hover:from-[#D92B20] hover:to-[#B91F17] text-white px-5 py-2.5 rounded-xl text-xs xl:text-sm font-bold tracking-wide transition-all duration-300 shadow-md shadow-[#F36F21]/20 hover:shadow-lg hover:shadow-[#D92B20]/30 hover:-translate-y-0.5"
             >
               <Send className="w-4 h-4" />
@@ -250,6 +204,40 @@ const Navbar = () => {
             </button>
           </div>
         </div>
+
+        {/* ========================================================================= */}
+        {/* CENTERED MEGA MENU OVERLAYS (PRODUCTS, MATERIALS & INDUSTRIES) */}
+        {/* Horizontally centered relative to the viewport/navigation container */}
+        {/* ========================================================================= */}
+        {activeDropdown === "Products" && (
+          <div
+            onMouseEnter={() => handleMouseEnter("Products")}
+            onMouseLeave={handleMouseLeave}
+            className="hidden lg:block absolute top-full left-1/2 -translate-x-1/2 pt-2 z-50 animate-in fade-in slide-in-from-top-2 duration-200 pointer-events-auto"
+          >
+            <ProductMegaMenu onClose={() => setActiveDropdown(null)} />
+          </div>
+        )}
+
+        {activeDropdown === "Materials" && (
+          <div
+            onMouseEnter={() => handleMouseEnter("Materials")}
+            onMouseLeave={handleMouseLeave}
+            className="hidden lg:block absolute top-full left-1/2 -translate-x-1/2 pt-2 z-50 animate-in fade-in slide-in-from-top-2 duration-200 pointer-events-auto"
+          >
+            <MaterialMegaMenu onClose={() => setActiveDropdown(null)} />
+          </div>
+        )}
+
+        {activeDropdown === "Industries" && (
+          <div
+            onMouseEnter={() => handleMouseEnter("Industries")}
+            onMouseLeave={handleMouseLeave}
+            className="hidden lg:block absolute top-full left-1/2 -translate-x-1/2 pt-2 z-50 animate-in fade-in slide-in-from-top-2 duration-200 pointer-events-auto"
+          >
+            <IndustryMegaMenu onClose={() => setActiveDropdown(null)} />
+          </div>
+        )}
       </div>
 
       {/* ========================================== */}
@@ -310,6 +298,15 @@ const Navbar = () => {
                     </button>
                     {mobileDropdown === item.label && (
                       <div className="pl-4 py-2 space-y-2 bg-slate-50 rounded-xl mt-1">
+                        {item.label === "Industries" && (
+                          <a
+                            href="#industries"
+                            onClick={() => setMobileOpen(false)}
+                            className="block py-1 text-xs font-bold text-[#F36F21] hover:underline font-mono"
+                          >
+                            ★ EXPLORE ALL 6 STRATEGIC SECTORS →
+                          </a>
+                        )}
                         {item.dropdown.map((sub) => (
                           <a
                             key={sub.title}
@@ -338,7 +335,7 @@ const Navbar = () => {
             {/* Mobile CTA */}
             <div className="pt-4 space-y-3">
               <a
-                href="#contact"
+                href="#contact#quote"
                 onClick={() => setMobileOpen(false)}
                 className="w-full flex items-center justify-center gap-2 bg-gradient-to-r from-[#F36F21] to-[#D92B20] text-white py-3 rounded-xl font-bold text-sm shadow-md"
               >

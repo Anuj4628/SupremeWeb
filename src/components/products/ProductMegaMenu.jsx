@@ -45,49 +45,51 @@ export default function ProductMegaMenu({ onClose, onItemClick }) {
 
   return (
     <div
-      className="w-[840px] max-w-[94vw] bg-[#0E2A3A] text-white rounded-2xl shadow-[0_20px_60px_-15px_rgba(0,0,0,0.5)] border border-slate-700/90 overflow-hidden font-sans p-4 sm:p-5 animate-in fade-in slide-in-from-top-2 duration-200"
+      className="w-[800px] max-w-[calc(100vw-2rem)] bg-white text-slate-800 rounded-2xl shadow-2xl border border-slate-200/90 overflow-hidden font-sans p-3 sm:p-4 animate-in fade-in slide-in-from-top-2 duration-200"
       onClick={(e) => e.stopPropagation()}
     >
-      {/* Top Accent Strip */}
-      <div className="h-1 w-full bg-gradient-to-r from-[#F36F21] via-amber-400 to-blue-500 rounded-full mb-3" />
+      {/* Top Accent Strip matching Materials & Industries */}
+      <div className="h-1 w-full bg-gradient-to-r from-[#F36F21] via-[#D92B20] to-[#0F2942] rounded-full mb-2.5" />
 
-      {/* Header Bar - Minimal & Compact */}
-      <div className="flex items-center justify-between gap-3 pb-3 border-b border-slate-700/70 mb-3">
+      {/* Header Bar - Light & Clean */}
+      <div className="flex items-center justify-between gap-2 pb-2 border-b border-slate-100 mb-2.5">
         <div className="flex items-center gap-2">
-          <span className="text-[#F36F21] font-mono text-[10px] font-bold uppercase tracking-widest bg-[#F36F21]/15 px-2 py-0.5 rounded border border-[#F36F21]/30">
+          <span className="text-[#F36F21] font-mono text-[10px] font-bold uppercase tracking-widest bg-[#F36F21]/10 px-2 py-0.5 rounded border border-[#F36F21]/20">
             CATALOGUE DISCOVERY
           </span>
-          <span className="text-slate-400 text-xs font-medium hidden sm:inline">• Select a division or category</span>
+          <span className="text-slate-500 text-xs font-medium hidden sm:inline">
+            • Select a division or category
+          </span>
         </div>
 
         {/* Division Filter Tabs */}
-        <div className="flex items-center gap-1 bg-slate-900/90 p-1 rounded-lg border border-slate-700">
+        <div className="flex items-center gap-1 bg-slate-100 p-0.5 rounded-lg border border-slate-200/80">
           <button
             onClick={() => setActiveDivisionTab("all")}
-            className={`px-2.5 py-1 rounded text-[11px] font-mono font-bold uppercase transition-all ${
+            className={`px-2 py-0.5 rounded text-[10px] font-mono font-bold uppercase transition-all cursor-pointer ${
               activeDivisionTab === "all"
                 ? "bg-[#F36F21] text-white shadow-xs"
-                : "text-slate-400 hover:text-white"
+                : "text-slate-600 hover:text-slate-900"
             }`}
           >
             Both
           </button>
           <button
             onClick={() => setActiveDivisionTab("MANUFACTURER")}
-            className={`px-2.5 py-1 rounded text-[11px] font-mono font-bold uppercase transition-all ${
+            className={`px-2 py-0.5 rounded text-[10px] font-mono font-bold uppercase transition-all cursor-pointer ${
               activeDivisionTab === "MANUFACTURER"
                 ? "bg-[#F36F21] text-white shadow-xs"
-                : "text-slate-400 hover:text-white"
+                : "text-slate-600 hover:text-slate-900"
             }`}
           >
             Manufacturer
           </button>
           <button
             onClick={() => setActiveDivisionTab("SUPPLIER")}
-            className={`px-2.5 py-1 rounded text-[11px] font-mono font-bold uppercase transition-all ${
+            className={`px-2 py-0.5 rounded text-[10px] font-mono font-bold uppercase transition-all cursor-pointer ${
               activeDivisionTab === "SUPPLIER"
-                ? "bg-blue-600 text-white shadow-xs"
-                : "text-slate-400 hover:text-white"
+                ? "bg-[#0F2942] text-white shadow-xs"
+                : "text-slate-600 hover:text-slate-900"
             }`}
           >
             Supplier
@@ -96,30 +98,30 @@ export default function ProductMegaMenu({ onClose, onItemClick }) {
       </div>
 
       {/* Side-by-Side Division Columns (Compact & Sleek Grid) */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-h-[72vh] overflow-y-auto pr-1">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-3 max-h-[380px] overflow-y-auto pr-1">
         
         {/* ========================================================================= */}
         {/* MANUFACTURER DIVISION */}
         {/* ========================================================================= */}
         {(activeDivisionTab === "all" || activeDivisionTab === "MANUFACTURER") && (
-          <div className="space-y-2">
-            <div className="flex items-center justify-between px-2 py-1.5 bg-slate-900/60 rounded-lg border border-amber-500/20">
-              <div className="flex items-center gap-2">
-                <Factory className="w-4 h-4 text-[#F36F21]" />
-                <span className="text-xs font-mono font-extrabold uppercase text-amber-400 tracking-wider">
+          <div className="space-y-1.5">
+            <div className="flex items-center justify-between px-2 py-1 bg-amber-50/80 rounded-lg border border-amber-200/80">
+              <div className="flex items-center gap-1.5">
+                <Factory className="w-3.5 h-3.5 text-[#F36F21]" />
+                <span className="text-[11px] font-mono font-extrabold uppercase text-[#D94A1F] tracking-wider">
                   MANUFACTURER DIVISION
                 </span>
               </div>
               <a
                 href="#products/manufacturer"
                 onClick={() => handleLinkClick("#products/manufacturer")}
-                className="text-[10px] font-mono font-bold text-[#F36F21] hover:underline flex items-center"
+                className="text-[9.5px] font-mono font-bold text-[#F36F21] hover:underline flex items-center"
               >
                 All Mfg <ChevronRight className="w-3 h-3" />
               </a>
             </div>
 
-            <div className="grid grid-cols-1 gap-1.5">
+            <div className="grid grid-cols-1 gap-1">
               {mfgCategories.map((cat) => {
                 const IconComponent = iconMap[cat.iconName] || Factory;
                 const catUrl = getCategoryUrl(cat.slug);
@@ -128,22 +130,22 @@ export default function ProductMegaMenu({ onClose, onItemClick }) {
                     key={cat.id}
                     href={catUrl}
                     onClick={() => handleLinkClick(catUrl)}
-                    className="group flex items-center justify-between p-2 rounded-lg bg-slate-800/50 hover:bg-[#F36F21]/20 border border-slate-700/50 hover:border-[#F36F21]/40 transition-all"
+                    className="group flex items-center justify-between px-2 py-1 rounded-lg bg-white hover:bg-slate-50 border border-slate-100 hover:border-slate-200/80 transition-all duration-150 shadow-2xs"
                   >
-                    <div className="flex items-center gap-2.5 min-w-0">
-                      <div className="p-1.5 rounded bg-[#0E2A3A] text-[#F36F21] group-hover:bg-[#F36F21] group-hover:text-white transition-colors shrink-0">
-                        <IconComponent className="w-3.5 h-3.5" />
+                    <div className="flex items-center gap-2 min-w-0">
+                      <div className="p-1 rounded bg-[#0F2942]/5 text-[#0F2942] group-hover:bg-[#F36F21] group-hover:text-white transition-colors shrink-0">
+                        <IconComponent className="w-3 h-3" />
                       </div>
                       <div className="truncate">
-                        <div className="text-xs font-bold text-slate-100 group-hover:text-[#F36F21] transition-colors truncate">
+                        <div className="text-[11.5px] font-bold text-slate-800 group-hover:text-[#F36F21] transition-colors truncate leading-tight">
                           {cat.name}
                         </div>
-                        <div className="text-[10px] text-slate-400 font-normal truncate">
+                        <div className="text-[9.5px] text-slate-500 font-normal truncate mt-0.5 leading-none">
                           {cat.shortDesc}
                         </div>
                       </div>
                     </div>
-                    <ArrowRight className="w-3.5 h-3.5 text-[#F36F21] opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all shrink-0 ml-2" />
+                    <ArrowRight className="w-3 h-3 text-[#F36F21] opacity-0 -translate-x-1.5 group-hover:opacity-100 group-hover:translate-x-0 transition-all shrink-0 ml-1.5" />
                   </a>
                 );
               })}
@@ -155,24 +157,24 @@ export default function ProductMegaMenu({ onClose, onItemClick }) {
         {/* SUPPLIER DIVISION */}
         {/* ========================================================================= */}
         {(activeDivisionTab === "all" || activeDivisionTab === "SUPPLIER") && (
-          <div className="space-y-2">
-            <div className="flex items-center justify-between px-2 py-1.5 bg-slate-900/60 rounded-lg border border-blue-500/20">
-              <div className="flex items-center gap-2">
-                <Globe className="w-4 h-4 text-blue-400" />
-                <span className="text-xs font-mono font-extrabold uppercase text-blue-400 tracking-wider">
+          <div className="space-y-1.5">
+            <div className="flex items-center justify-between px-2 py-1 bg-slate-100 rounded-lg border border-slate-200/80">
+              <div className="flex items-center gap-1.5">
+                <Globe className="w-3.5 h-3.5 text-[#0F2942]" />
+                <span className="text-[11px] font-mono font-extrabold uppercase text-[#0F2942] tracking-wider">
                   SUPPLIER DIVISION
                 </span>
               </div>
               <a
                 href="#products/supplier"
                 onClick={() => handleLinkClick("#products/supplier")}
-                className="text-[10px] font-mono font-bold text-blue-400 hover:underline flex items-center"
+                className="text-[9.5px] font-mono font-bold text-[#0F2942] hover:underline flex items-center"
               >
                 All Sup <ChevronRight className="w-3 h-3" />
               </a>
             </div>
 
-            <div className="grid grid-cols-1 gap-1.5">
+            <div className="grid grid-cols-1 gap-1">
               {supCategories.map((cat) => {
                 const IconComponent = iconMap[cat.iconName] || Globe;
                 return (
@@ -180,22 +182,22 @@ export default function ProductMegaMenu({ onClose, onItemClick }) {
                     key={cat.id}
                     href={`#products/category/${cat.slug}`}
                     onClick={() => handleLinkClick(`#products/category/${cat.slug}`)}
-                    className="group flex items-center justify-between p-2 rounded-lg bg-slate-800/50 hover:bg-blue-500/20 border border-slate-700/50 hover:border-blue-400/40 transition-all"
+                    className="group flex items-center justify-between px-2 py-1 rounded-lg bg-white hover:bg-slate-50 border border-slate-100 hover:border-slate-200/80 transition-all duration-150 shadow-2xs"
                   >
-                    <div className="flex items-center gap-2.5 min-w-0">
-                      <div className="p-1.5 rounded bg-[#0E2A3A] text-blue-400 group-hover:bg-blue-500 group-hover:text-white transition-colors shrink-0">
-                        <IconComponent className="w-3.5 h-3.5" />
+                    <div className="flex items-center gap-2 min-w-0">
+                      <div className="p-1 rounded bg-[#0F2942]/5 text-[#0F2942] group-hover:bg-[#0F2942] group-hover:text-white transition-colors shrink-0">
+                        <IconComponent className="w-3 h-3" />
                       </div>
                       <div className="truncate">
-                        <div className="text-xs font-bold text-slate-100 group-hover:text-blue-400 transition-colors truncate">
+                        <div className="text-[11.5px] font-bold text-slate-800 group-hover:text-[#0F2942] transition-colors truncate leading-tight">
                           {cat.name}
                         </div>
-                        <div className="text-[10px] text-slate-400 font-normal truncate">
+                        <div className="text-[9.5px] text-slate-500 font-normal truncate mt-0.5 leading-none">
                           {cat.shortDesc}
                         </div>
                       </div>
                     </div>
-                    <ArrowRight className="w-3.5 h-3.5 text-blue-400 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all shrink-0 ml-2" />
+                    <ArrowRight className="w-3 h-3 text-[#0F2942] opacity-0 -translate-x-1.5 group-hover:opacity-100 group-hover:translate-x-0 transition-all shrink-0 ml-1.5" />
                   </a>
                 );
               })}
@@ -205,16 +207,16 @@ export default function ProductMegaMenu({ onClose, onItemClick }) {
 
       </div>
 
-      {/* Sleek Minimal Footer */}
-      <div className="mt-3 pt-2.5 border-t border-slate-700/70 flex items-center justify-between text-[11px] font-mono">
-        <div className="flex items-center gap-1.5 text-slate-400">
-          <span className="font-bold text-white uppercase">Popular:</span>
+      {/* Sleek Minimal Footer matching Materials & Industries */}
+      <div className="mt-2.5 pt-2 border-t border-slate-100 flex items-center justify-between text-[11px] font-mono">
+        <div className="flex items-center gap-1.5 text-slate-500">
+          <span className="font-bold text-slate-800 uppercase">Popular:</span>
           {MATERIALS.slice(0, 3).map((m) => (
             <a
               key={m.id}
               href={`#products/material/${m.slug}`}
               onClick={() => handleLinkClick(`#products/material/${m.slug}`)}
-              className="text-slate-300 hover:text-[#F36F21] underline"
+              className="text-slate-600 hover:text-[#F36F21] underline transition-colors"
             >
               {m.name}
             </a>
@@ -224,10 +226,10 @@ export default function ProductMegaMenu({ onClose, onItemClick }) {
         <a
           href="#products"
           onClick={() => handleLinkClick("#products")}
-          className="px-3 py-1 bg-[#F36F21] hover:bg-[#d94a1f] text-white rounded font-bold uppercase tracking-wider flex items-center gap-1 transition-colors"
+          className="px-2.5 py-1 bg-[#F36F21] hover:bg-[#d94a1f] text-white rounded-lg text-[11px] font-bold uppercase tracking-wider flex items-center gap-1 transition-colors shadow-xs"
         >
           <span>All Products</span>
-          <ArrowRight className="w-3.5 h-3.5" />
+          <ArrowRight className="w-3 h-3" />
         </a>
       </div>
 

@@ -44,6 +44,12 @@ export const normalizeCategorySlug = (catSlug = "") => {
   const clean = cleanMfgSlug(catSlug).toLowerCase();
   if (clean === "butt-weld-fittings" || clean === "buttweld-fittings") return "buttweld-fittings";
   if (clean === "dairy-pharma-fittings" || clean === "dairy-sanitary-fittings") return "dairy-sanitary-fittings";
+  if (clean === "wire" || clean === "wires") return "wires";
+  if (clean === "circle" || clean === "circles") return "circle";
+  if (clean === "flat" || clean === "flats" || clean === "flat-bar" || clean === "flat-bars") return "flat";
+  if (clean === "patapatti" || clean === "patta-patti" || clean === "patti") return "patapatti";
+  if (clean === "coil" || clean === "coils" || clean === "quile" || clean === "quiles") return "coil";
+  if (clean === "ring" || clean === "rings") return "ring";
   return clean;
 };
 
@@ -61,8 +67,20 @@ export const isMfgProductSlugPattern = (slug = "") => {
     s.includes("slitted-coil") ||
     s.includes("patta-patti") ||
     s.includes("chequered-plate") ||
+    s.startsWith("pipes-tubes-") ||
+    s.startsWith("sheets-plates-") ||
+    s.startsWith("rods-bars-") ||
     s.startsWith("wires-") ||
-    (s.startsWith("wire-") && !s.startsWith("wire-mesh"))
+    (s.startsWith("wire-") && !s.startsWith("wire-mesh")) ||
+    s.startsWith("circle-") ||
+    s.startsWith("circles-") ||
+    s.startsWith("flat-") ||
+    s.startsWith("flats-") ||
+    s.startsWith("patapatti-") ||
+    s.startsWith("coil-") ||
+    s.startsWith("coils-") ||
+    s.startsWith("ring-") ||
+    s.startsWith("rings-")
   ) {
     return false;
   }
