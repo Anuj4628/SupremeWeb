@@ -1,18 +1,18 @@
 // Isolated Data Layer — Dairy & Pharma Fittings (Manufacturing Division)
 // Source of Truth: src/assets/All Products/Manufacture Division/Dairy & Pharma Fittings/
 
-import ssDairyImg from "../assets/All Products/Manufacture Division/Dairy & Pharma Fittings/stainless steel.png";
-import csDairyImg from "../assets/All Products/Manufacture Division/Dairy & Pharma Fittings/carbon.png";
-import asDairyImg from "../assets/All Products/Manufacture Division/Dairy & Pharma Fittings/alloy steel.png";
-import nickelDairyImg from "../assets/All Products/Manufacture Division/Dairy & Pharma Fittings/nikle.png";
-import highAlloyDairyImg from "../assets/All Products/Manufacture Division/Dairy & Pharma Fittings/High Alloy.png";
-import duplexDairyImg from "../assets/All Products/Manufacture Division/Dairy & Pharma Fittings/duplex.png";
-import superDuplexDairyImg from "../assets/All Products/Manufacture Division/Dairy & Pharma Fittings/Super Duplex.png";
-import titaniumDairyImg from "../assets/All Products/Manufacture Division/Dairy & Pharma Fittings/titanium.png";
-import exoticDairyImg from "../assets/All Products/Manufacture Division/Dairy & Pharma Fittings/Exotic.png";
+import ssDairyImg from "../assets/All Products/Dairy & Pharma Fittings/stainless steel.jpg";
+import csDairyImg from "../assets/All Products/Dairy & Pharma Fittings/carbon.webp";
+import asDairyImg from "../assets/All Products/Dairy & Pharma Fittings/alloy steel.jpeg";
+import nickelDairyImg from "../assets/All Products/Dairy & Pharma Fittings/nikle.webp";
+import highAlloyDairyImg from "../assets/All Products/Dairy & Pharma Fittings/high alloy.jpeg";
+import duplexDairyImg from "../assets/All Products/Dairy & Pharma Fittings/duplex.jpeg";
+import superDuplexDairyImg from "../assets/All Products/Dairy & Pharma Fittings/super duplex.webp";
+import titaniumDairyImg from "../assets/All Products/Dairy & Pharma Fittings/titainium.jpg";
+import exoticDairyImg from "../assets/All Products/Dairy & Pharma Fittings/exotic.jpeg";
 
 // Collateral assets for gallery
-import dairyCollageImg from "../assets/All Products/Dairy & Pharma Fittings/dairy_pharma_collage.png";
+import dairyCollageImg from "../assets/All Products/dairy and sanitary tube fittings.png";
 import tcFittingsImg from "../assets/All Products/TC fittings.png";
 import ferruleFittingsImg from "../assets/All Products/ferrule fittings.png";
 

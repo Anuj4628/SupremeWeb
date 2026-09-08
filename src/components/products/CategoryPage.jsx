@@ -26,17 +26,20 @@ import {
   getProductsByCategory,
   matchProductToCanonicalMaterial
 } from "../../data/productCatalog";
-import buttWeldFitImg from "../../assets/All Products/Butt Weld fit.png";
-import forgedCollageImg from "../../assets/All Products/Forged Fittings/forged_fittings_collage.png";
-import flangesCollageImg from "../../assets/All Products/Flanges/flanges_collage.png";
-import fastenersCollageImg from "../../assets/All Products/Fasteners/fasteners_collage.png";
-import { ssDairyImg } from "../../data/dairyPharmaData";
 
 import HosePipesSection from "./HosePipesSection";
 import WireMeshSection from "./WireMeshSection";
 import SupplierFamilySection from "../supplier/SupplierFamilySection";
 import ProductHeroSection from "./ProductHeroSection";
 import { cleanMfgSlug } from "../../utils/mfgRoutes";
+
+// Category hero fallback images
+import fastenersImg from "../../assets/All Products/Fasteners/stainless-steel.webp";
+import flangesCollageImg from "../../assets/All Products/Flanges/stainless steel.avif";
+import forgedCollageImg from "../../assets/All Products/Forged Fittings/stainles steel.jpg";
+import buttWeldFitImg from "../../assets/All Products/Butt weld fit/stainless steel.jpg";
+import { ssDairyImg } from "../../data/dairyPharmaData";
+const fastenersCollageImg = fastenersImg;
 
 // Sleek Industrial SVG Placeholder Component for products pending client asset photos
 const IndustrialSvgPlaceholder = ({ title, category, division }) => (

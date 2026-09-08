@@ -35,8 +35,8 @@ import corrosionMetalsImg from "../../assets/Product images/CORROSION-RESISTANT 
 import forgedFlangesImg from "../../assets/FORGED INDUSTRIAL FLANGES & PIPELINE FITTINGS.png";
 
 import angleChannelFlatImg from "../../assets/All Products/Angle,Channel,flat bar.png";
-import buttWeldFitImg from "../../assets/All Products/Butt Weld fit.png";
-import fastenersImg from "../../assets/All Products/Fasteners.png";
+import buttWeldFitImg from "../../assets/All Products/Butt weld fit/stainless steel.jpg";
+import fastenersImg from "../../assets/All Products/Fasteners/stainless-steel.webp";
 import tcFittingsImg from "../../assets/All Products/TC fittings.png";
 import dairySanitaryImg from "../../assets/All Products/dairy and sanitary tube fittings.png";
 

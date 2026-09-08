@@ -4,9 +4,9 @@ import { ArrowRight } from "lucide-react";
 import { useGsapReveal } from "../../utils/useGsapReveal";
 
 // ─── 4 Manufacturer Division Dedicated Assets (Single Source of Truth) ───
-import ssButtWeldImg from "../../assets/All Products/Butt weld fit/Stainless Steel Butt Weld Fittings.png";
-import flangeSsImg from "../../assets/All Products/Flanges/flange_ss.png";
-import forgedSsImg from "../../assets/All Products/Forged Fittings/forged_ss.png";
+import ssButtWeldImg from "../../assets/All Products/Butt weld fit/stainless steel.jpg";
+import flangeSsImg from "../../assets/All Products/Flanges/stainless steel.avif";
+import forgedSsImg from "../../assets/All Products/Forged Fittings/stainles steel.jpg";
 import ferruleFittingsImg from "../../assets/All Products/ferrule fittings.png";
 
 // ─── 4 Supplier Division Dedicated Assets (Single Source of Truth) ────────

@@ -14,57 +14,59 @@ import precisionPipesJpg from "../assets/precision_pipes_tubes.jpg";
 import precisionPipesPng from "../assets/Product images/PRECISION PIPES, TUBES & HIGH-PERFORMANCE ALLOYS.png";
 import angleChannelFlatImg from "../assets/All Products/Angle,Channel,flat bar.png";
 import forgedFlangesImg from "../assets/FORGED INDUSTRIAL FLANGES & PIPELINE FITTINGS.png";
-import fastenersImg from "../assets/All Products/Fasteners.png";
-import buttWeldFitImg from "../assets/All Products/Butt Weld fit.png";
 import forgedFittingPng from "../assets/All Products/fordege fitting.png";
 import forgedFittingsAsset from "../assets/forged_fittings.png";
 import dairySanitaryImg from "../assets/All Products/dairy and sanitary tube fittings.png";
 import tcFittingsImg from "../assets/All Products/TC fittings.png";
 import ferruleFittingsImg from "../assets/All Products/ferrule fittings.png";
 
-// Butt Weld Fittings Dedicated Assets
-import ssButtWeldImg from "../assets/All Products/Butt weld fit/Stainless Steel Butt Weld Fittings.png";
-import nickelExoticButtWeldImg from "../assets/All Products/Butt weld fit/High Nickel & Exotic Metal Butt Weld Fittings.png";
-import duplexSuperDuplexButtWeldImg from "../assets/All Products/Butt weld fit/Duplex & Super Duplex Steel Butt Weld Fittings.png";
-import carbonSteelButtWeldImg from "../assets/All Products/Butt weld fit/Carbon Steel Butt Weld Fittings.png";
-import alloySteelButtWeldImg from "../assets/All Products/Butt weld fit/Alloy Steel Butt Weld Fittings.png";
-import buttWeldShowcaseImg from "../assets/All Products/Butt weld fit/Gemini_Generated_Image_ahig4tahig4tahig (4).png";
+// Butt Weld Fittings Dedicated Assets (Source of Truth: All Products/Butt weld fit)
+import ssButtWeldImg from "../assets/All Products/Butt weld fit/stainless steel.jpg";
+import carbonSteelButtWeldImg from "../assets/All Products/Butt weld fit/carbon.jpg";
+import alloySteelButtWeldImg from "../assets/All Products/Butt weld fit/alloy steel.jpg";
+import nickelButtWeldImg from "../assets/All Products/Butt weld fit/nikle.jpg";
+import highAlloyButtWeldImg from "../assets/All Products/Butt weld fit/high alloy.jpg";
+import duplexButtWeldImg from "../assets/All Products/Butt weld fit/duplex.jpeg";
+import superDuplexButtWeldImg from "../assets/All Products/Butt weld fit/super duplex.jpeg";
+import titaniumButtWeldImg from "../assets/All Products/Butt weld fit/titainium.webp";
+import exoticButtWeldImg from "../assets/All Products/Butt weld fit/exotic.jpg";
+const buttWeldShowcaseImg = ssButtWeldImg;
 
-// Forged Fittings Dedicated Assets (Extracted from Collage)
-import forgedCollageImg from "../assets/All Products/Forged Fittings/forged_fittings_collage.png";
-import forgedSsImg from "../assets/All Products/Forged Fittings/forged_ss.png";
-import forgedCsImg from "../assets/All Products/Forged Fittings/forged_cs.png";
-import forgedAsImg from "../assets/All Products/Forged Fittings/forged_as.png";
-import forgedNickelImg from "../assets/All Products/Forged Fittings/forged_nickel.png";
-import forgedHighAlloyImg from "../assets/All Products/Forged Fittings/forged_high_alloy.png";
-import forgedDuplexImg from "../assets/All Products/Forged Fittings/forged_duplex.png";
-import forgedSuperDuplexImg from "../assets/All Products/Forged Fittings/forged_super_duplex.png";
-import forgedTitaniumImg from "../assets/All Products/Forged Fittings/forged_titanium.png";
-import forgedExoticImg from "../assets/All Products/Forged Fittings/forged_exotic.png";
+// Forged Fittings Dedicated Assets (Source of Truth: All Products/Forged Fittings)
+const forgedCollageImg = forgedFittingPng;
+import forgedSsImg from "../assets/All Products/Forged Fittings/stainles steel.jpg";
+import forgedCsImg from "../assets/All Products/Forged Fittings/carbon.avif";
+import forgedAsImg from "../assets/All Products/Forged Fittings/alloy steel.jpg";
+import forgedNickelImg from "../assets/All Products/Forged Fittings/nikle.jpeg";
+import forgedHighAlloyImg from "../assets/All Products/Forged Fittings/high alloys.jpeg";
+import forgedDuplexImg from "../assets/All Products/Forged Fittings/duplex.jpg";
+import forgedSuperDuplexImg from "../assets/All Products/Forged Fittings/super duplex.jpeg";
+import forgedTitaniumImg from "../assets/All Products/Forged Fittings/titainium.jpg";
+import forgedExoticImg from "../assets/All Products/Forged Fittings/exotic.jpg";
 
-// Flanges Dedicated Assets (Extracted from Collage - Visual Only, No Embedded Text)
-import flangesCollageImg from "../assets/All Products/Flanges/flanges_collage.png";
-import flangeSsImg from "../assets/All Products/Flanges/flange_ss.png";
-import flangeCsImg from "../assets/All Products/Flanges/flange_cs.png";
-import flangeAsImg from "../assets/All Products/Flanges/flange_as.png";
-import flangeNickelImg from "../assets/All Products/Flanges/flange_nickel.png";
-import flangeHighAlloyImg from "../assets/All Products/Flanges/flange_high_alloy.png";
-import flangeDuplexImg from "../assets/All Products/Flanges/flange_duplex.png";
-import flangeSuperDuplexImg from "../assets/All Products/Flanges/flange_super_duplex.png";
-import flangeTitaniumImg from "../assets/All Products/Flanges/flange_titanium.png";
-import flangeExoticImg from "../assets/All Products/Flanges/flange_exotic.png";
+// Flanges Dedicated Assets (Source of Truth: All Products/Flanges)
+const flangesCollageImg = forgedFlangesImg;
+import flangeSsImg from "../assets/All Products/Flanges/stainless steel.avif";
+import flangeCsImg from "../assets/All Products/Flanges/carbon.png";
+import flangeAsImg from "../assets/All Products/Flanges/alloy steel.jpg";
+import flangeNickelImg from "../assets/All Products/Flanges/nikle.jpg";
+import flangeHighAlloyImg from "../assets/All Products/Flanges/high alloy.jpeg";
+import flangeDuplexImg from "../assets/All Products/Flanges/duplex.jpg";
+import flangeSuperDuplexImg from "../assets/All Products/Flanges/super duplex.jpg";
+import flangeTitaniumImg from "../assets/All Products/Flanges/titainium.avif";
+import flangeExoticImg from "../assets/All Products/Flanges/exotic alloy.png";
 
-// Fasteners Dedicated Assets (Extracted from Collage - Visual Only, No Embedded Text)
-import fastenersCollageImg from "../assets/All Products/Fasteners/fasteners_collage.png";
-import fastenerSsImg from "../assets/All Products/Fasteners/fastener_ss.png";
-import fastenerAlloySteelImg from "../assets/All Products/Fasteners/fastener_alloy_steel.png";
-import fastenerGalvanizedImg from "../assets/All Products/Fasteners/fastener_galvanized.png";
-import fastenerTitaniumImg from "../assets/All Products/Fasteners/fastener_titanium.png";
-import fastenerOxidizedImg from "../assets/All Products/Fasteners/fastener_oxidized.png";
-import fastenerPlatedImg from "../assets/All Products/Fasteners/fastener_plated.png";
-import fastenerBrassImg from "../assets/All Products/Fasteners/fastener_brass.png";
-import fastenerBronzeImg from "../assets/All Products/Fasteners/fastener_bronze.png";
-import fastenerAluminumImg from "../assets/All Products/Fasteners/fastener_aluminum.png";
+// Fasteners Dedicated Assets (Source of Truth: All Products/Fasteners)
+import fastenerSsImg from "../assets/All Products/Fasteners/stainless-steel.webp";
+import fastenerCsImg from "../assets/All Products/Fasteners/carbon.jpeg";
+import fastenerAlloySteelImg from "../assets/All Products/Fasteners/alloy steel.avif";
+import fastenerNickelImg from "../assets/All Products/Fasteners/nikle.jpeg";
+import fastenerHighAlloyImg from "../assets/All Products/Fasteners/high alloy.webp";
+import fastenerDuplexImg from "../assets/All Products/Fasteners/duplex.jpg";
+import fastenerSuperDuplexImg from "../assets/All Products/Fasteners/super duplex.jpeg";
+import fastenerTitaniumImg from "../assets/All Products/Fasteners/titainium.jpeg";
+import fastenerExoticImg from "../assets/All Products/Fasteners/exotic alloys.jpeg";
+const fastenersCollageImg = fastenerSsImg;
 
 // Dairy & Pharma Fittings Dedicated Assets (Source of Truth: Manufacture Division/Dairy & Pharma Fittings)
 import {
@@ -715,7 +717,7 @@ export const PRODUCTS = [
     gradeSlug: "316l",
     productType: "90° Long Radius Elbow",
     heroImage: ssButtWeldImg,
-    gallery: [buttWeldFitImg, buttWeldShowcaseImg],
+    gallery: [ssButtWeldImg, carbonSteelButtWeldImg],
     shortDescription: "ASME B16.9 seamless and welded 90-degree long radius butt weld elbows in stainless steel 316L for refinery and chemical piping.",
     overview: "Supreme Metal & Alloys manufactures ASME B16.9 hot formed and cold pressed SS 316L long radius elbows with uniform wall thickness and 37.5° bevelled welding ends.",
     specifications: {
@@ -748,7 +750,7 @@ export const PRODUCTS = [
     grade: "Nickel 200",
     gradeSlug: "nickel-200",
     productType: "90° Long Radius Elbow",
-    heroImage: nickelExoticButtWeldImg,
+    heroImage: nickelButtWeldImg,
     gallery: [buttWeldShowcaseImg],
     shortDescription: "Commercially pure Nickel 200 seamless butt weld elbows for caustic soda evaporators and severe alkaline chemical handling.",
     overview: "Precision hot formed Nickel 200 elbows offering total immunity to caustic alkalis up to molten temperatures.",
@@ -782,7 +784,7 @@ export const PRODUCTS = [
     grade: "Hastelloy C22",
     gradeSlug: "hastelloy-c22",
     productType: "90° Long Radius Elbow",
-    heroImage: nickelExoticButtWeldImg,
+    heroImage: highAlloyButtWeldImg,
     gallery: [buttWeldShowcaseImg],
     shortDescription: "Superior resistance to pitting, crevice corrosion, and stress corrosion cracking in aggressive acidic media.",
     overview: "Hastelloy C22 fittings provide better overall corrosion resistance than C276 in oxidizing acid environments.",
@@ -816,8 +818,8 @@ export const PRODUCTS = [
     grade: "UNS S31803 (2205)",
     gradeSlug: "duplex-2205",
     productType: "90° Long Radius Elbow",
-    heroImage: duplexSuperDuplexButtWeldImg,
-    gallery: [buttWeldFitImg, buttWeldShowcaseImg],
+    heroImage: duplexButtWeldImg,
+    gallery: [duplexButtWeldImg, superDuplexButtWeldImg],
     shortDescription: "High-yield dual-phase Duplex 2205 elbows offering twice the strength of SS 316 with immunity to chloride stress cracking.",
     overview: "Forged and hydraulically pressed Duplex 2205 pipe fittings providing superior mechanical yield strength and chloride corrosion resistance.",
     specifications: {
@@ -850,7 +852,7 @@ export const PRODUCTS = [
     grade: "UNS S32750 (2507)",
     gradeSlug: "super-duplex-2507",
     productType: "90° Long Radius Elbow",
-    heroImage: duplexSuperDuplexButtWeldImg,
+    heroImage: superDuplexButtWeldImg,
     gallery: [buttWeldShowcaseImg],
     shortDescription: "Extreme performance PREN > 42 Super Duplex 2507 elbows for deep subsea risers, sour gas wells, and aggressive marine environments.",
     overview: "Super Duplex 2507 offers exceptional mechanical yield strength and resistance to pitting and crevice corrosion in high chloride sea water.",
@@ -884,7 +886,7 @@ export const PRODUCTS = [
     grade: "Grade 2 (UNS R50400)",
     gradeSlug: "grade-2",
     productType: "90° Long Radius Elbow",
-    heroImage: nickelExoticButtWeldImg,
+    heroImage: titaniumButtWeldImg,
     gallery: [buttWeldShowcaseImg],
     shortDescription: "Ultra lightweight, high strength-to-weight ratio Titanium Grade 2 seamless elbows for chlor-alkali and marine defense.",
     overview: "Immune to sea-water corrosion, wet chlorine gas, and organic acids across temperatures up to 300°C.",
@@ -918,7 +920,7 @@ export const PRODUCTS = [
     grade: "Zirconium 702",
     gradeSlug: "zirconium-702",
     productType: "90° Long Radius Elbow",
-    heroImage: nickelExoticButtWeldImg,
+    heroImage: exoticButtWeldImg,
     gallery: [buttWeldShowcaseImg],
     shortDescription: "Reactor-grade Zirconium 702 elbows offering total immunity to hydrochloric, sulfuric, and nitric mineral acids.",
     overview: "Designed for severe chemical process equipment where stainless steel and nickel alloys fail due to mineral acid corrosion.",
@@ -953,7 +955,7 @@ export const PRODUCTS = [
     gradeSlug: "a234-wpb",
     productType: "90° LR Seamless Elbow",
     heroImage: carbonSteelButtWeldImg,
-    gallery: [buttWeldFitImg],
+    gallery: [carbonSteelButtWeldImg, ssButtWeldImg],
     shortDescription: "High-pressure carbon steel ASTM A234 WPB seamless 90° LR elbows for steam lines, oil refineries, and gas pipelines.",
     overview: "Manufactured from ASTM A106 Grade B seamless pipes per ASME B16.9 with black rust-preventive varnish coating.",
     specifications: {
@@ -1619,7 +1621,7 @@ export const PRODUCTS = [
     gradeSlug: "316l",
     productType: "Hex Head Bolts & Nut Assembly",
     heroImage: fastenerSsImg,
-    gallery: [fastenerSsImg, fastenersCollageImg, fastenersImg],
+    gallery: [fastenerSsImg, fastenerCsImg, fastenerAsImg],
     shortDescription: "Corrosion-resistant SS 316L hex head bolts, heavy hex nuts, flat washers & lock washers per ASME B18.2.1.",
     overview: "Supreme Metal & Alloys manufactures precision thread-rolled stainless steel 304/316 fasteners for marine, chemical processing, and sanitary piping assembly.",
     specifications: {
@@ -1651,8 +1653,8 @@ export const PRODUCTS = [
     grade: "ASTM A307 Gr A/B | ASTM A325 Structural",
     gradeSlug: "a307-galvanized",
     productType: "Galvanized Structural Bolting",
-    heroImage: fastenerGalvanizedImg,
-    gallery: [fastenerGalvanizedImg, fastenersCollageImg],
+    heroImage: fastenerCsImg,
+    gallery: [fastenerCsImg, fastenersCollageImg],
     shortDescription: "Hot-dip galvanized & electro-zinc plated carbon steel hex bolts and heavy hex nuts for structural steel construction.",
     overview: "Heavy-duty corrosion protected galvanized carbon steel bolting designed for outdoor structural frames, transmission towers, and infrastructure projects.",
     specifications: {
@@ -1716,8 +1718,8 @@ export const PRODUCTS = [
     grade: "Inconel 625 (UNS N06625 / Alloy 625)",
     gradeSlug: "inconel-625",
     productType: "Nickel Alloy Stud Bolts",
-    heroImage: fastenerPlatedImg,
-    gallery: [fastenerPlatedImg, fastenersCollageImg],
+    heroImage: fastenerNickelImg,
+    gallery: [fastenerNickelImg, fastenersCollageImg],
     shortDescription: "Nickel-chromium-molybdenum alloy 625 stud bolts with exceptional resistance to pitting, crevice corrosion, and extreme sea water stress.",
     overview: "Supreme Metal & Alloys manufactures Inconel 625 studs for offshore marine manifolds, subsea wellheads, and sour gas processing plants.",
     specifications: {
@@ -1747,8 +1749,8 @@ export const PRODUCTS = [
     grade: "Hastelloy C276 (UNS N10276 / Alloy C276)",
     gradeSlug: "hastelloy-c276",
     productType: "Socket Head Cap Screws",
-    heroImage: fastenerOxidizedImg,
-    gallery: [fastenerOxidizedImg, fastenersCollageImg],
+    heroImage: fastenerHighAlloyImg,
+    gallery: [fastenerHighAlloyImg, fastenersCollageImg],
     shortDescription: "Ni-Mo-Cr alloy C276 socket head cap screws engineered for wet chlorine gas, ferric chlorides, and severe acidic media.",
     overview: "Ultra corrosion-resistant Hastelloy C276 cap screws maintaining structural integrity in aggressive oxidizing and reducing acid reactors.",
     specifications: {
@@ -1778,8 +1780,8 @@ export const PRODUCTS = [
     grade: "Duplex 2205 (UNS S31803 / S32205 / F51)",
     gradeSlug: "duplex-2205",
     productType: "Duplex Hex Bolts",
-    heroImage: fastenerBronzeImg,
-    gallery: [fastenerBronzeImg, fastenersCollageImg],
+    heroImage: fastenerDuplexImg,
+    gallery: [fastenerDuplexImg, fastenersCollageImg],
     shortDescription: "Dual-phase austenitic-ferritic Duplex 2205 hex head bolts offering twice the mechanical yield strength of SS 316.",
     overview: "High strength Duplex 2205 hex bolts designed for subsea offshore oilfield manifolds and chloride stress corrosion cracking resistance.",
     specifications: {
@@ -1809,8 +1811,8 @@ export const PRODUCTS = [
     grade: "Super Duplex 2507 (UNS S32750 / F53)",
     gradeSlug: "super-duplex-2507",
     productType: "Super Duplex Heavy Stud Bolts",
-    heroImage: fastenerTitaniumImg,
-    gallery: [fastenerTitaniumImg, fastenersCollageImg],
+    heroImage: fastenerSuperDuplexImg,
+    gallery: [fastenerSuperDuplexImg, fastenersCollageImg],
     shortDescription: "PREN > 42 Super Duplex 2507 stud bolts engineered for high-pressure deepwater subsea oilfield manifolds.",
     overview: "Maximum pitting and crevice corrosion immunity in aggressive offshore environments up to 10,000 PSI subsea pressure.",
     specifications: {
@@ -1871,8 +1873,8 @@ export const PRODUCTS = [
     grade: "Cupro Nickel 70/30 (UNS C71500 / CuNi 70/30)",
     gradeSlug: "cuni-70-30",
     productType: "CuNi Marine Hex Bolts",
-    heroImage: fastenerBrassImg,
-    gallery: [fastenerBrassImg, fastenersCollageImg],
+    heroImage: fastenerExoticImg,
+    gallery: [fastenerExoticImg, fastenersCollageImg],
     shortDescription: "Solid Cupro Nickel 70/30 bolts providing natural biofouling immunity in seawater cooling systems.",
     overview: "Exotic copper-nickel alloy fasteners preventing marine macro-fouling without sacrificial coatings in naval heat exchangers.",
     specifications: {
