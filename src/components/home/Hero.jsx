@@ -187,6 +187,8 @@ export const Hero = () => {
             alt={slide.title}
             className="absolute inset-0 w-full h-full object-cover object-center filter brightness-[1.02] contrast-[1.04]"
             loading="eager"
+            fetchpriority="high"
+            decoding="async"
           />
         </AnimatePresence>
       </div>

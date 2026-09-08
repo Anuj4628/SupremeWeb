@@ -320,21 +320,22 @@ export default function SupplierFamilySection({
 
                 <div className="p-5 flex flex-col flex-1">
                   {/* Hero Image Showcase */}
-                  <div className="relative h-56 rounded-xl bg-slate-50 border border-slate-100 p-4 mb-4 flex items-center justify-center overflow-hidden group-hover:bg-slate-100/60 transition-colors">
+                  <div className="relative h-60 sm:h-64 rounded-xl bg-slate-50 border border-slate-100 mb-4 overflow-hidden group-hover:bg-slate-100/60 transition-colors">
                     <img
                       src={product.image}
                       alt={`${product.name} - Supreme Metal & Alloys`}
                       loading="lazy"
-                      className="max-h-full max-w-full w-auto h-auto object-contain filter contrast-[1.03] drop-shadow-sm transition-transform duration-500 group-hover:scale-105"
+                      decoding="async"
+                      className="w-full h-full object-cover filter contrast-[1.03] drop-shadow-sm transition-transform duration-500 group-hover:scale-105"
                     />
                     
                     {/* Division Tag */}
-                    <span className="absolute top-3 left-3 text-[9px] font-mono font-extrabold uppercase tracking-wider px-2.5 py-1 rounded-md shadow-xs z-20 bg-[#0E2A3A] text-blue-400 border border-blue-500/30">
+                    <span className="absolute top-3 left-3 text-[9px] font-mono font-extrabold uppercase tracking-wider px-2.5 py-1 rounded-md shadow-xs z-20 bg-[#0E2A3A]/90 backdrop-blur-xs text-blue-400 border border-blue-500/30">
                       SUPPLIER DIVISION
                     </span>
 
                     {/* Material Tag */}
-                    <span className="absolute bottom-3 right-3 text-[9px] font-mono font-bold uppercase bg-slate-900/90 text-white px-2.5 py-1 rounded border border-slate-700">
+                    <span className="absolute bottom-3 right-3 text-[9px] font-mono font-bold uppercase bg-slate-900/90 backdrop-blur-xs text-white px-2.5 py-1 rounded border border-slate-700 z-20">
                       {product.materialName}
                     </span>
                   </div>

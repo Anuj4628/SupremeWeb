@@ -598,15 +598,15 @@ export default function ContactPage({
                 </div>
 
                 <div className="space-y-2.5 mb-5">
+                  {/* Group 1: Mr. M. M. Desai */}
                   <div className="bg-slate-50/80 rounded-xl p-3.5 border border-slate-200/70">
-                    <span className="text-[10px] font-mono font-bold text-slate-400 uppercase tracking-wider block mb-1.5">
-                      MOBILE SALES GROUP (CLICK TO CALL):
+                    <span className="text-[11px] font-bold text-slate-700 uppercase tracking-wider block mb-2 font-mono">
+                      Mr. M. M. Desai
                     </span>
-                    <div className="space-y-1.5">
+                    <div className="space-y-2">
                       {[
-                        { number: "+91 98696 10976", label: "Primary Sales" },
-                        { number: "+91 98206 10976", label: "Commercial Desk" },
-                        { number: "+91 90047 11792", label: "Supply Logistics" }
+                        { number: "+91 98696 10976" },
+                        { number: "+91 98206 10976" }
                       ].map((item, idx) => (
                         <div key={idx} className="flex items-center justify-between">
                           <a
@@ -630,6 +630,34 @@ export default function ContactPage({
                           </button>
                         </div>
                       ))}
+                    </div>
+                  </div>
+
+                  {/* Group 2: Mr. Mahesh */}
+                  <div className="bg-slate-50/80 rounded-xl p-3.5 border border-slate-200/70">
+                    <span className="text-[11px] font-bold text-slate-700 uppercase tracking-wider block mb-2 font-mono">
+                      Mr. Mahesh
+                    </span>
+                    <div className="flex items-center justify-between">
+                      <a
+                        href="tel:+919004711792"
+                        className="text-sm font-bold text-slate-800 hover:text-[#F36F21] transition-colors flex items-center gap-2"
+                      >
+                        <PhoneCall className="w-3.5 h-3.5 text-[#F36F21]" />
+                        <span>+91 90047 11792</span>
+                      </a>
+                      <button
+                        type="button"
+                        onClick={() => copyToClipboard("+91 90047 11792", "phone")}
+                        className="text-slate-400 hover:text-[#F36F21] p-1 rounded transition-colors text-[10px] font-mono"
+                        title="Copy number"
+                      >
+                        {copiedPhone === "+91 90047 11792" ? (
+                          <Check className="w-3.5 h-3.5 text-emerald-600" />
+                        ) : (
+                          <Copy className="w-3.5 h-3.5" />
+                        )}
+                      </button>
                     </div>
                   </div>
 

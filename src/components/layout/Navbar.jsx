@@ -141,7 +141,7 @@ const Navbar = () => {
           scrolled ? "shadow-lg shadow-slate-900/5" : ""
         }`}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 h-16 sm:h-20 lg:h-24 flex items-center justify-between py-1.5">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 h-20 sm:h-20 lg:h-24 flex items-center justify-between py-1.5">
           {/* Logo Section */}
           <a href="#home" className="flex items-center shrink-0 group h-full py-0.5">
             {/* Desktop / Tablet Logo Image */}
@@ -154,7 +154,7 @@ const Navbar = () => {
             <img
               src={logoImage}
               alt="Supreme Metal and Alloys"
-              className="block sm:hidden h-12 w-auto max-w-[260px] xs:max-w-[300px] object-contain"
+              className="block sm:hidden h-16 w-auto max-w-[300px] object-contain"
             />
           </a>
 

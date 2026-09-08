@@ -479,10 +479,11 @@ export default function IndustryDetailPage({
                   onClick={() => handleProductClick(prod.slug)}
                   className="group bg-white rounded-2xl border border-slate-200/90 overflow-hidden shadow-xs hover:border-[#F36F21] hover:shadow-xl transition-all duration-300 cursor-pointer flex flex-col justify-between"
                 >
-                  <div className="relative h-48 w-full bg-slate-100 overflow-hidden">
+                  <div className="relative h-52 sm:h-56 w-full bg-slate-100 overflow-hidden">
                     <img
                       src={prod.heroImage}
                       alt={prod.name}
+                      decoding="async"
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                       loading="lazy"
                     />

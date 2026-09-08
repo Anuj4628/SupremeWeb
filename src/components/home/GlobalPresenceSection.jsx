@@ -179,7 +179,7 @@ export default function GlobalPresenceSection() {
         {/* SECTION HEADER */}
         <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-14">
           <div className="export-anim-header inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-slate-200 text-[#D94A1F] font-mono text-xs font-bold uppercase tracking-widest mb-4 shadow-xs">
-            <Globe2 className="w-4 h-4 text-[#D94A1F] animate-spin" style={{ animationDuration: "20s" }} />
+            <Globe2 className="w-4 h-4 text-[#D94A1F]" style={{ animation: "spin 20s linear infinite" }} />
             <span>GLOBAL EXPORT NETWORK</span>
             <Sparkles className="w-3.5 h-3.5 text-amber-500" />
           </div>
@@ -264,6 +264,7 @@ export default function GlobalPresenceSection() {
                     alt={country.name}
                     className="w-full h-full object-cover"
                     loading="lazy"
+                    decoding="async"
                     width="56"
                     height="56"
                   />

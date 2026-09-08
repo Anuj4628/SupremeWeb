@@ -284,12 +284,13 @@ export default function CategoryPage({ categorySlug, initialMaterialSlug = "all"
                   }`}
                 >
                   {/* Material Thumbnail Image Box */}
-                  <div className="relative h-28 rounded-xl bg-white border border-slate-200/80 p-2 mb-3 flex items-center justify-center overflow-hidden group-hover:bg-slate-50 transition-colors">
+                  <div className="relative h-32 rounded-xl bg-white border border-slate-200/80 mb-3 overflow-hidden group-hover:bg-slate-50 transition-colors">
                     {(mat.categoryImage || mat.image) ? (
                       <img
                         src={mat.categoryImage || mat.image}
                         alt={`${mat.name} ${category.name}`}
-                        className="max-h-full max-w-full object-contain filter contrast-[1.02] group-hover:scale-110 transition-transform duration-500"
+                        decoding="async"
+                        className="w-full h-full object-cover filter contrast-[1.02] group-hover:scale-110 transition-transform duration-500"
                       />
                     ) : (
                       <Package className="w-8 h-8 text-slate-300" />
@@ -413,13 +414,14 @@ export default function CategoryPage({ categorySlug, initialMaterialSlug = "all"
 
                 <div className="p-5 flex flex-col flex-1">
                   {/* Hero Image Box */}
-                  <div className="relative h-56 rounded-xl bg-slate-50 border border-slate-100 p-4 mb-5 flex items-center justify-center overflow-hidden group-hover:bg-slate-100/60 transition-colors">
+                  <div className="relative h-64 rounded-xl bg-slate-50 border border-slate-100 mb-5 overflow-hidden group-hover:bg-slate-100/60 transition-colors">
                     {product.heroImage ? (
                       <img
                         src={product.heroImage}
                         alt={`${product.name} - Supreme Metal & Alloys`}
                         loading="lazy"
-                        className={`max-h-full max-w-full w-auto h-auto object-contain filter contrast-[1.02] drop-shadow-sm transition-transform duration-500 ${
+                        decoding="async"
+                        className={`w-full h-full object-cover filter contrast-[1.02] transition-transform duration-500 ${
                           isReducedMotion ? "" : "group-hover:scale-105"
                         }`}
                       />

@@ -156,12 +156,13 @@ export default function MaterialPage({ materialSlug, categorySlug, onSelectProdu
               >
                 <div className="h-1 bg-[#F36F21]" />
                 <div className="p-5 flex flex-col flex-1">
-                  <div className="relative h-52 rounded-xl bg-slate-50 border border-slate-100 p-4 mb-4 flex items-center justify-center overflow-hidden">
+                  <div className="relative h-60 sm:h-64 rounded-xl bg-slate-50 border border-slate-100 mb-4 overflow-hidden">
                     {product.heroImage ? (
                       <img
                         src={product.heroImage}
                         alt={product.name}
-                        className="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform"
+                        decoding="async"
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform"
                       />
                     ) : (
                       <Package className="w-12 h-12 text-slate-300" />

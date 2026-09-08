@@ -283,13 +283,14 @@ export default function ProductsSection() {
               {/* Top Accent Gradient Border Strip */}
               <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#0E2A3A]/40 to-transparent group-hover:via-[#D94A1F] transition-all duration-500 rounded-t-xl z-10" />
 
-              {/* Image Showcase Header Container - Compact */}
-              <div className="relative h-36 sm:h-40 rounded-lg overflow-hidden bg-gradient-to-b from-slate-50 via-white to-slate-100/50 border border-slate-200/60 mb-3 flex items-center justify-center p-2.5 shadow-[inset_0_1px_3px_rgba(0,0,0,0.03)]">
+              {/* Image Showcase Header Container */}
+              <div className="relative h-44 sm:h-52 rounded-lg overflow-hidden bg-gradient-to-b from-slate-50 via-white to-slate-100/50 border border-slate-200/60 mb-3 shadow-[inset_0_1px_3px_rgba(0,0,0,0.03)]">
                 <img
                   src={product.image}
                   alt={product.title}
-                  className="max-h-full max-w-full w-auto h-auto object-contain filter brightness-[1.02] contrast-[1.04] drop-shadow-xs transition-transform duration-500 group-hover:scale-105"
+                  className="w-full h-full object-cover filter brightness-[1.02] contrast-[1.04] transition-transform duration-500 group-hover:scale-105"
                   loading="lazy"
+                  decoding="async"
                 />
               </div>
 

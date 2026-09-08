@@ -159,11 +159,12 @@ export default function WireMeshSection({ onSelectMaterial, onBackToProducts }) 
                   }`}
                 >
                   {/* Thumbnail Box */}
-                  <div className="relative h-28 rounded-xl bg-white border border-slate-200/80 p-2 mb-3 flex items-center justify-center overflow-hidden group-hover:bg-slate-50 transition-colors">
+                  <div className="relative h-32 rounded-xl bg-white border border-slate-200/80 mb-3 overflow-hidden group-hover:bg-slate-50 transition-colors">
                     <img
                       src={mat.image}
                       alt={`${mat.materialName} Wire Mesh`}
-                      className="max-h-full max-w-full object-contain filter contrast-[1.02] group-hover:scale-110 transition-transform duration-500"
+                      decoding="async"
+                      className="w-full h-full object-cover filter contrast-[1.02] group-hover:scale-110 transition-transform duration-500"
                     />
                     <span className="absolute top-1.5 left-1.5 text-[8px] font-mono font-bold bg-[#0E2A3A] text-white px-1.5 py-0.5 rounded">
                       {mat.materialName}
@@ -277,12 +278,13 @@ export default function WireMeshSection({ onSelectMaterial, onBackToProducts }) 
 
                 <div className="p-5 flex flex-col flex-1">
                   {/* Hero Image Box */}
-                  <div className="relative h-56 rounded-xl bg-slate-50 border border-slate-100 p-4 mb-5 flex items-center justify-center overflow-hidden group-hover:bg-slate-100/60 transition-colors">
+                  <div className="relative h-64 rounded-xl bg-slate-50 border border-slate-100 mb-5 overflow-hidden group-hover:bg-slate-100/60 transition-colors">
                     <img
                       src={product.image}
                       alt={`${product.name} - Supreme Metal & Alloys`}
                       loading="lazy"
-                      className={`max-h-full max-w-full w-auto h-auto object-contain filter contrast-[1.02] drop-shadow-sm transition-transform duration-500 ${
+                      decoding="async"
+                      className={`w-full h-full object-cover filter contrast-[1.02] transition-transform duration-500 ${
                         isReducedMotion ? "" : "group-hover:scale-105"
                       }`}
                     />

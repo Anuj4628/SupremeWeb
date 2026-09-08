@@ -218,13 +218,14 @@ export default function MaterialsLandingPage({ onSelectMaterial, onBackToHome })
                   </div>
 
                   {/* Material Representative Showcase Image */}
-                  <div className="relative h-48 rounded-xl bg-gradient-to-b from-slate-50 via-white to-slate-100/50 border border-slate-200/70 p-4 mb-4 flex items-center justify-center overflow-hidden shadow-inner">
+                  <div className="relative h-56 sm:h-60 rounded-xl bg-gradient-to-b from-slate-50 via-white to-slate-100/50 border border-slate-200/70 mb-4 overflow-hidden shadow-inner">
                     {material.image ? (
                       <img
                         src={material.image}
                         alt={`${material.name} Alloy Showcase`}
-                        className="max-h-full max-w-full object-contain filter drop-shadow-md group-hover:scale-105 transition-transform duration-500"
+                        className="w-full h-full object-cover filter drop-shadow-md group-hover:scale-105 transition-transform duration-500"
                         loading="lazy"
+                        decoding="async"
                       />
                     ) : (
                       <Package className="w-16 h-16 text-slate-300" />

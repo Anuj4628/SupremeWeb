@@ -152,12 +152,13 @@ export default function WireMeshDetailPage({ materialSlug, onBackToCategory, onS
           {/* Left Column: Image Showcase (5 Cols) */}
           <div className="lg:col-span-5 gsap-detail-anim">
             <div className="bg-white rounded-2xl p-4 sm:p-6 border border-slate-200 shadow-md">
-              <div className="relative h-72 sm:h-96 rounded-xl bg-slate-50 border border-slate-100 p-6 flex items-center justify-center overflow-hidden mb-4 group">
+              <div className="relative h-72 sm:h-96 rounded-xl bg-slate-50 border border-slate-100 overflow-hidden mb-4 group">
                 <img
                   src={material.image}
                   alt={`${material.name} - Supreme Metal & Alloys`}
-                  className="max-h-full max-w-full object-contain filter contrast-[1.05] drop-shadow-md cursor-pointer transition-transform group-hover:scale-105"
+                  className="w-full h-full object-cover filter contrast-[1.05] drop-shadow-md cursor-pointer transition-transform duration-500 group-hover:scale-105"
                   onClick={() => setLightboxOpen(true)}
+                  decoding="async"
                 />
                 <button
                   onClick={() => setLightboxOpen(true)}
@@ -428,11 +429,12 @@ export default function WireMeshDetailPage({ materialSlug, onBackToCategory, onS
                 >
                   <div className="h-1.5 bg-[#F36F21]" />
                   <div className="p-4 flex flex-col flex-1">
-                    <div className="relative h-40 bg-slate-50 rounded-xl border border-slate-100 p-3 mb-3 flex items-center justify-center overflow-hidden group-hover:bg-slate-100/60 transition-colors">
+                    <div className="relative h-48 bg-slate-50 rounded-xl border border-slate-100 mb-3 overflow-hidden group-hover:bg-slate-100/60 transition-colors">
                       <img
                         src={relMat.image}
                         alt={relMat.name}
-                        className="max-h-full max-w-full object-contain filter contrast-[1.03] group-hover:scale-105 transition-transform duration-300"
+                        decoding="async"
+                        className="w-full h-full object-cover filter contrast-[1.03] group-hover:scale-105 transition-transform duration-300"
                       />
                       <span className="absolute top-2 left-2 text-[8px] font-mono font-bold bg-[#F36F21] text-white px-2 py-0.5 rounded">
                         MANUFACTURER

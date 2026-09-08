@@ -275,12 +275,13 @@ export default function GradePage({ gradeSlug, onSelectProduct, onBackToProducts
                 <div className={`h-1.5 ${product.division === "MANUFACTURER" ? "bg-[#F36F21]" : "bg-blue-600"}`} />
 
                 <div className="p-5 flex flex-col flex-1">
-                  <div className="relative h-56 rounded-xl bg-slate-50 border border-slate-100 p-4 mb-5 flex items-center justify-center overflow-hidden">
+                  <div className="relative h-60 sm:h-64 rounded-xl bg-slate-50 border border-slate-100 mb-5 overflow-hidden">
                     {product.heroImage ? (
                       <img
                         src={product.heroImage}
                         alt={product.name}
-                        className="max-h-full max-w-full w-auto h-auto object-contain group-hover:scale-105 transition-transform"
+                        decoding="async"
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform"
                       />
                     ) : (
                       <Package className="w-12 h-12 text-slate-300" />

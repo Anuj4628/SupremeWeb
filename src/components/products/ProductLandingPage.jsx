@@ -396,13 +396,14 @@ export default function ProductLandingPage({ onSelectProduct, filterState }) {
 
                 <div className="p-4 flex flex-col flex-1">
                   {/* Hero Image Box */}
-                  <div className="relative h-48 rounded-lg bg-slate-50 border border-slate-100 p-3 mb-4 flex items-center justify-center overflow-hidden group-hover:bg-slate-100/60 transition-colors">
+                  <div className="relative h-60 sm:h-64 rounded-xl bg-slate-50 border border-slate-100 mb-4 overflow-hidden group-hover:bg-slate-100/60 transition-colors">
                     {product.heroImage ? (
                       <img
                         src={product.heroImage}
                         alt={`${product.name} - Supreme Metal & Alloys`}
                         loading="lazy"
-                        className={`max-h-full max-w-full w-auto h-auto object-contain filter contrast-[1.02] drop-shadow-sm transition-transform duration-500 ${
+                        decoding="async"
+                        className={`w-full h-full object-cover filter contrast-[1.02] drop-shadow-sm transition-transform duration-500 ${
                           isReducedMotion ? "" : "group-hover:scale-105"
                         }`}
                       />

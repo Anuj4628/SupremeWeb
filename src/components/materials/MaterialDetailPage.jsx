@@ -464,13 +464,14 @@ export default function MaterialDetailPage({
                     </div>
 
                     {/* Exact Product Image Showcase */}
-                    <div className="relative h-48 rounded-xl bg-gradient-to-b from-slate-50 via-white to-slate-100/50 border border-slate-200/60 p-3 mb-4 flex items-center justify-center overflow-hidden shadow-inner">
+                    <div className="relative h-56 sm:h-60 rounded-xl bg-gradient-to-b from-slate-50 via-white to-slate-100/50 border border-slate-200/60 mb-4 overflow-hidden shadow-inner">
                       {productImage ? (
                         <img
                           src={productImage}
                           alt={product.name || product.title}
-                          className="max-h-full max-w-full object-contain filter drop-shadow-md group-hover:scale-105 transition-transform duration-500"
+                          className="w-full h-full object-cover filter drop-shadow-md group-hover:scale-105 transition-transform duration-500"
                           loading="lazy"
+                          decoding="async"
                         />
                       ) : (
                         <Package className="w-12 h-12 text-slate-300" />

@@ -304,13 +304,14 @@ export default function ProductDetailPage({ slug, onBackToProducts, onNavigateTo
             <div className="bg-white rounded-2xl p-4 sm:p-6 border border-slate-200 shadow-md">
               
               {/* Main Image Box */}
-              <div className="relative h-72 sm:h-96 rounded-xl bg-slate-50 border border-slate-100 p-6 flex items-center justify-center overflow-hidden mb-4 group">
+              <div className="relative h-80 sm:h-[420px] rounded-xl bg-slate-50 border border-slate-100 overflow-hidden mb-4 group">
                 {selectedImage ? (
                   <>
                     <img
                       src={selectedImage}
                       alt={`${product.name} Technical Product Showcase`}
-                      className="max-h-full max-w-full w-auto h-auto object-contain filter contrast-[1.03] drop-shadow-md cursor-pointer transition-transform group-hover:scale-105"
+                      decoding="async"
+                      className="w-full h-full object-cover filter contrast-[1.03] drop-shadow-md cursor-pointer transition-transform duration-500 group-hover:scale-105"
                       onClick={() => setLightboxOpen(true)}
                     />
                     <button
@@ -360,7 +361,7 @@ export default function ProductDetailPage({ slug, onBackToProducts, onNavigateTo
                         <img
                           src={img}
                           alt={`Thumbnail ${idx + 1}`}
-                          className="w-full h-full object-contain"
+                          className="w-full h-full object-cover rounded"
                         />
                       </button>
                     ))}
@@ -572,12 +573,12 @@ export default function ProductDetailPage({ slug, onBackToProducts, onNavigateTo
                   onClick={() => onNavigateToProduct(rel.slug || rel.id)}
                   className="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md hover:border-[#F36F21]/60 transition-all cursor-pointer group"
                 >
-                  <div className="h-40 rounded-xl bg-slate-50 border border-slate-100 p-3 mb-3 flex items-center justify-center overflow-hidden">
+                  <div className="h-48 rounded-xl bg-slate-50 border border-slate-100 mb-3 overflow-hidden">
                     {rel.heroImage ? (
                       <img
                         src={rel.heroImage}
                         alt={rel.name}
-                        className="max-h-full max-w-full w-auto h-auto object-contain group-hover:scale-105 transition-transform"
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform"
                       />
                     ) : (
                       <Package className="w-10 h-10 text-slate-300" />

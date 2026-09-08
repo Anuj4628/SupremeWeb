@@ -266,14 +266,15 @@ export default function ProductListingPage({ onSelectProduct, activeCategoryFilt
                 {/* Card Header Container with Image */}
                 <div className="p-5 flex flex-col flex-1">
                   
-                  {/* Hero Image Box - Proportions Preserved with contain or SVG Placeholder */}
-                  <div className="relative h-56 rounded-xl bg-slate-50 border border-slate-100 p-4 mb-5 flex items-center justify-center overflow-hidden group-hover:bg-slate-100/60 transition-colors">
+                  {/* Hero Image Box */}
+                  <div className="relative h-64 rounded-xl bg-slate-50 border border-slate-100 mb-5 overflow-hidden group-hover:bg-slate-100/60 transition-colors">
                     {product.heroImage ? (
                       <img
                         src={product.heroImage}
                         alt={`${product.name} - Supreme Metal & Alloys Catalogue`}
                         loading="lazy"
-                        className={`max-h-full max-w-full w-auto h-auto object-contain filter contrast-[1.02] drop-shadow-sm transition-transform duration-500 ${
+                        decoding="async"
+                        className={`w-full h-full object-cover filter contrast-[1.02] transition-transform duration-500 ${
                           isReducedMotion ? "" : "group-hover:scale-105"
                         }`}
                       />
