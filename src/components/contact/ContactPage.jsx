@@ -348,7 +348,7 @@ export default function ContactPage({
           <img
             src={heroImage}
             alt="Supreme Metal and Alloys Customer Support Representative"
-            className="w-full h-full object-cover object-[right_center] sm:object-[left_center] md:object-[25%_center] select-none pointer-events-none filter brightness-100 contrast-100"
+            className="w-full h-full object-cover object-[18%_center] sm:object-[left_center] md:object-[25%_center] select-none pointer-events-none filter brightness-100 contrast-100"
           />
           {/* Directional scrim: completely transparent on the left where the specialist is, gently dark on the right for crisp text contrast */}
           <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#07131F]/50 to-[#07131F]/90 hidden md:block" />
@@ -460,8 +460,6 @@ export default function ContactPage({
 
         {/* Marquee Track Container with Side Fade Masks */}
         <div className="relative w-full">
-          <div className="pointer-events-none absolute inset-y-0 left-0 w-16 sm:w-28 bg-gradient-to-r from-[#0E2A3A] to-transparent z-10" />
-          <div className="pointer-events-none absolute inset-y-0 right-0 w-16 sm:w-28 bg-gradient-to-l from-[#0E2A3A] to-transparent z-10" />
 
           <MarqueeComponent
             speed={30}

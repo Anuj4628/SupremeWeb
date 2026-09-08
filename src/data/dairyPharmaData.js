@@ -42,9 +42,6 @@ export const DAIRY_PHARMA_MATERIALS = [
 ];
 
 export const DAIRY_PHARMA_PRODUCTS = [
-  // =========================================================================
-  // 1. STAINLESS STEEL DAIRY & PHARMA FITTINGS
-  // =========================================================================
   {
     id: "dairy-ss-316l-tc-ferrule",
     slug: "ss-316l-electro-polished-tc-ferrule",
@@ -100,118 +97,8 @@ export const DAIRY_PHARMA_PRODUCTS = [
       tolerance: "ASME BPE Table DT-3",
       certifications: "EN 10204 3.1 MTC, 3-A Certificate, Surface Roughness Report"
     },
-    relatedProductIds: ["dairy-ss-304-sanitary-bend", "dairy-ss-sms-1145-union", "dairy-nickel-hastelloy-ferrule"]
+    relatedProductIds: ["dairy-ss-316l-tc-ferrule", "dairy-duplex-2205-ferrule", "dairy-super-duplex-2507-ferrule"]
   },
-  {
-    id: "dairy-ss-304-sanitary-bend",
-    slug: "ss-304-316l-90-hygienic-sanitary-bend",
-    name: "Stainless Steel 304/316L 90° Hygienic Sanitary Process Bend",
-    title: "Stainless Steel 304/316L 90° Hygienic Sanitary Process Bend",
-    division: "MANUFACTURER",
-    category: "Dairy & Pharma Fittings",
-    categorySlug: "dairy-sanitary-fittings",
-    material: "STAINLESS STEEL",
-    materialName: "Stainless Steel",
-    materialSlug: "stainless-steel",
-    grade: "304L / 316L",
-    gradeSlug: "ss-316l",
-    grades: ["AISI 316L", "AISI 304L", "DIN 1.4404", "DIN 1.4307"],
-    productType: "90° Long Radius Sanitary Bend",
-    image: ssDairyImg,
-    heroImage: ssDairyImg,
-    gallery: [ssDairyImg, dairyCollageImg],
-    shortDescription: "Full radius mandrel-bent 90° sanitary elbows with uniform wall thickness, extended orbital tangents, and electro-polished bore.",
-    overview: "Formed using automated orbital mandrel tube bending techniques ensuring internal ovality < 1%. Engineered with extended tangent straight lengths to accommodate automatic orbital weld heads in sterile pharmaceutical cleanrooms.",
-    forms: ["90° Elbow", "45° Elbow", "180° Return Bend", "Short & Long Radius"],
-    sizeRange: "1/2\" O.D. to 4\" O.D.",
-    wallThickness: "1.65 mm to 2.11 mm (16-14 Gauge)",
-    length: "Standard ASME BPE Tangents (38.1mm to 76.2mm straight ends)",
-    endConnections: "Butt Weld Orbital Tangents / Tri-Clamp Ends",
-    specifications: {
-      governingStandard: "ASME BPE Table DT-4.1.1-1, 3-A Sanitary, DIN 11852",
-      size: "1/2\" O.D. to 4\" O.D.",
-      thickness: "1.65 mm to 2.11 mm (16-14 Gauge)",
-      surfaceFinish: "Internal Ra ≤ 0.38 µm Mechanical / Electro-Polished, External 320 Grit (Ra ≤ 0.8 µm)",
-      bendRadius: "1.5D Centerline Radius (Uniform wall thinning < 10%)",
-      cleaningCompatibility: "Full Clean-In-Place (CIP) & Steam-In-Place (SIP) at 145°C"
-    },
-    standards: [
-      "ASME BPE - BioProcessing Equipment Standards",
-      "3-A Sanitary Standard #63-04",
-      "DIN 11852 - Stainless Steel Fittings for the Food Industry (Bends)",
-      "SMS 1145 - Swedish Sanitary Tube Bends"
-    ],
-    applications: [
-      "Dairy Milk Receiving & Pasteurization skids",
-      "Beverage Bottling and Craft Brewery transfer loops",
-      "Pharmaceutical cleanroom purified fluid manifolds",
-      "Sterile API ingredient transfer lines"
-    ],
-    technicalDetails: {
-      manufacturingType: "Mandrel Bent from ASTM A270 Sanitary Welded/Seamless Tube",
-      pressureRating: "150 PSI @ 150°C",
-      tolerance: "ASME BPE Table DT-3",
-      certifications: "EN 10204 3.1 MTC, 3-A Compliance"
-    },
-    relatedProductIds: ["dairy-ss-316l-tc-ferrule", "dairy-ss-sms-1145-union", "dairy-high-alloy-al6xn-clamp"]
-  },
-  {
-    id: "dairy-ss-sms-1145-union",
-    slug: "ss-sms-1145-sanitary-hygienic-union",
-    name: "Stainless Steel SMS 1145 Sanitary Hygienic Union Assembly",
-    title: "Stainless Steel SMS 1145 Sanitary Hygienic Union Assembly",
-    division: "MANUFACTURER",
-    category: "Dairy & Pharma Fittings",
-    categorySlug: "dairy-sanitary-fittings",
-    material: "STAINLESS STEEL",
-    materialName: "Stainless Steel",
-    materialSlug: "stainless-steel",
-    grade: "304 / 316L",
-    gradeSlug: "ss-316l",
-    grades: ["AISI 316L (Contact Parts)", "AISI 304 (Round Nut)"],
-    productType: "SMS 1145 Hygienic Union Assembly",
-    image: ssDairyImg,
-    heroImage: ssDairyImg,
-    gallery: [ssDairyImg, dairyCollageImg],
-    shortDescription: "Complete Swedish standard SMS 1145 union assembly including weld liner, male part, round slotted nut & food-grade EPDM/PTFE seal.",
-    overview: "Provides rapid dismountable connections in dairy and food processing equipment. Features flat face sealing with zero dead-leg crevices, ensuring total drainability and complete CIP/SIP cleanability under continuous thermal cycling.",
-    forms: ["Complete Union Set", "Welding Liner", "Threaded Male Part", "Round Slotted Nut", "L-Profile Gasket"],
-    sizeRange: "SMS 25 (1\") to SMS 104 (4\")",
-    wallThickness: "1.25 mm to 2.0 mm",
-    length: "Compact Coupler Dimensions per SMS 1145",
-    endConnections: "Butt Weld to Sanitary Tube",
-    specifications: {
-      governingStandard: "SMS 1145, DIN 11851, ISO 2853, BS 4825 Part 4",
-      unionComponents: "Weld Liner (316L) + Male Threaded Part (316L) + Slotted Nut (304) + Gasket",
-      size: "SMS 25 (1\") to SMS 104 (4\")",
-      thickness: "1.25 mm to 2.0 mm",
-      gasketSealMaterial: "FDA Compliant EPDM (Black/White), Silicone, PTFE, Viton / FKM",
-      pressureRating: "PN16 (16 Bar for SMS 25-51) / PN10 (10 Bar for SMS 63.5-104)"
-    },
-    standards: [
-      "SMS 1145 - Swedish Standard for Sanitary Unions",
-      "ISO 2853 - Stainless Steel Screwed Couplings for the Food Industry",
-      "DIN 11851 - Hygienic Screwed Pipe Connections",
-      "FDA 21 CFR 177.2600 Food Contact Compliance"
-    ],
-    applications: [
-      "Dairy Pasteurizer Inlet & Outlet Headers",
-      "Food & Beverage Tank Dismountable Connections",
-      "Sanitary Centrifugal Pump Connections",
-      "Mobile Cleanroom Transfer Skid Manifolds"
-    ],
-    technicalDetails: {
-      manufacturingType: "Forged Bar Stock Precision CNC Turned",
-      pressureRating: "Up to 16 Bar (232 PSI)",
-      tolerance: "SMS 1145 Precision Class",
-      certifications: "EN 10204 3.1 MTC, FDA Certificate for Elastomers"
-    },
-    relatedProductIds: ["dairy-ss-316l-tc-ferrule", "dairy-ss-304-sanitary-bend"]
-  },
-
-  // =========================================================================
-  // 2. CARBON STEEL DAIRY & PHARMA FITTINGS
-  // =========================================================================
   {
     id: "dairy-cs-sanitary-adapter",
     slug: "carbon-steel-sanitary-process-adapter",
@@ -261,61 +148,8 @@ export const DAIRY_PHARMA_PRODUCTS = [
       tolerance: "ASME B16.11 Standard Tolerances",
       certifications: "EN 10204 3.1 MTC"
     },
-    relatedProductIds: ["dairy-cs-sanitary-reducer", "dairy-as-sanitary-tee", "dairy-ss-316l-tc-ferrule"]
+    relatedProductIds: ["dairy-ss-316l-tc-ferrule", "dairy-duplex-2205-ferrule", "dairy-super-duplex-2507-ferrule"]
   },
-  {
-    id: "dairy-cs-sanitary-reducer",
-    slug: "carbon-steel-sanitary-concentric-reducer",
-    name: "Carbon Steel Heavy-Duty Sanitary Process Concentric Reducer",
-    title: "Carbon Steel Heavy-Duty Sanitary Process Concentric Reducer",
-    division: "MANUFACTURER",
-    category: "Dairy & Pharma Fittings",
-    categorySlug: "dairy-sanitary-fittings",
-    material: "CARBON STEEL",
-    materialName: "Carbon Steel",
-    materialSlug: "carbon-steel",
-    grade: "ASTM A234 WPB",
-    gradeSlug: "a234-wpb",
-    grades: ["ASTM A234 WPB", "ASTM A106 Gr. B"],
-    productType: "Sanitary Process Reducer",
-    image: csDairyImg,
-    heroImage: csDairyImg,
-    gallery: [csDairyImg, dairyCollageImg],
-    shortDescription: "Concentric transition reducers engineered for utility fluid flow stabilization in pharmaceutical support facilities.",
-    overview: "Hot formed carbon steel process reducers designed with gradual taper slopes preventing turbulence and cavitation in pump suction manifolds feeding pharmaceutical HVAC and clean steam utilities.",
-    forms: ["Concentric Reducer", "Eccentric Reducer"],
-    sizeRange: "1.5\" x 1\" to 6\" x 4\"",
-    wallThickness: "Sch 40 STD / Sch 80 XS",
-    length: "76 mm to 140 mm",
-    endConnections: "Butt Weld Beveled Ends / Clamp Adapters",
-    specifications: {
-      governingStandard: "ASME B16.9, ASTM A234 WPB, DIN 11850 Custom Taper",
-      size: "1.5\" x 1\" to 6\" x 4\"",
-      thickness: "Sch 40 STD / Sch 80 XS",
-      taperAngle: "Gradual 15°–20° Slope for Laminar Flow",
-      surfaceFinish: "Shot Blasted Smooth + Rust Preventative Varnish"
-    },
-    standards: [
-      "ASME B16.9 - Factory-Made Wrought Buttwelding Fittings",
-      "ASTM A234 / A234M - Piping Fittings of Wrought Carbon Steel"
-    ],
-    applications: [
-      "HVAC Chilled Water Distribution Skids",
-      "High-Pressure Boiler Feedwater Pumps",
-      "Secondary Utility Manifolds in Pharma Complexes"
-    ],
-    technicalDetails: {
-      manufacturingType: "Seamless Hot Pressed & Sized",
-      pressureRating: "Matched to Connecting Pipe Schedule",
-      tolerance: "ASME B16.9",
-      certifications: "EN 10204 3.1 MTC"
-    },
-    relatedProductIds: ["dairy-cs-sanitary-adapter", "dairy-as-sanitary-tee"]
-  },
-
-  // =========================================================================
-  // 3. ALLOY STEEL DAIRY & PHARMA FITTINGS
-  // =========================================================================
   {
     id: "dairy-as-sanitary-tee",
     slug: "alloy-steel-sanitary-process-equal-tee",
@@ -362,12 +196,8 @@ export const DAIRY_PHARMA_PRODUCTS = [
       tolerance: "ASME B16.9 Tolerances",
       certifications: "EN 10204 3.1 MTC with High Temp Tensile Data"
     },
-    relatedProductIds: ["dairy-cs-sanitary-adapter", "dairy-nickel-hastelloy-ferrule"]
+    relatedProductIds: ["dairy-ss-316l-tc-ferrule", "dairy-duplex-2205-ferrule", "dairy-super-duplex-2507-ferrule"]
   },
-
-  // =========================================================================
-  // 4. NICKEL ALLOY DAIRY & PHARMA FITTINGS
-  // =========================================================================
   {
     id: "dairy-nickel-hastelloy-ferrule",
     slug: "hastelloy-c22-sanitary-tc-ferrule",
@@ -417,62 +247,8 @@ export const DAIRY_PHARMA_PRODUCTS = [
       tolerance: "ASME BPE Table DT-3",
       certifications: "EN 10204 3.1 & 3.2 Inspection Certificate with Chemical Lot Traceability"
     },
-    relatedProductIds: ["dairy-nickel-monel-sanitary-bend", "dairy-high-alloy-al6xn-clamp", "dairy-ss-316l-tc-ferrule"]
+    relatedProductIds: ["dairy-ss-316l-tc-ferrule", "dairy-duplex-2205-ferrule", "dairy-super-duplex-2507-ferrule"]
   },
-  {
-    id: "dairy-nickel-monel-sanitary-bend",
-    slug: "monel-400-electro-polished-sanitary-bend",
-    name: "Monel 400 Electro-Polished Sanitary 90° Process Bend",
-    title: "Monel 400 Electro-Polished Sanitary 90° Process Bend",
-    division: "MANUFACTURER",
-    category: "Dairy & Pharma Fittings",
-    categorySlug: "dairy-sanitary-fittings",
-    material: "NICKEL ALLOYS",
-    materialName: "Nickel Alloys",
-    materialSlug: "nickel-alloys",
-    grade: "Monel 400 (UNS N04400)",
-    gradeSlug: "monel-400",
-    grades: ["Monel 400 (UNS N04400)", "Nickel 200 / 201"],
-    productType: "90° Electro-Polished Bend",
-    image: nickelDairyImg,
-    heroImage: nickelDairyImg,
-    gallery: [nickelDairyImg, dairyCollageImg],
-    shortDescription: "Monel 400 hygienic 90° elbows for saline pharma processing, marine biotech & halogenated media.",
-    overview: "Nickel-Copper Monel 400 sanitary bends providing exceptional resistance to hydrofluoric acid, salt spray, and concentrated saline solutions in marine biotech facilities and pharmaceutical salt formulation skids.",
-    forms: ["90° Elbow", "45° Elbow"],
-    sizeRange: "1\" O.D. to 4\" O.D.",
-    wallThickness: "1.65 mm to 2.11 mm",
-    length: "1.5D Centerline Radius",
-    endConnections: "Orbital Butt Weld Ends / Sanitary Clamp Ends",
-    specifications: {
-      governingStandard: "ASTM B164, ASTM B366, ASME BPE Custom Specifications",
-      size: "1\" to 4\" O.D.",
-      thickness: "Sch 40 / Sch 80 / Sch 160",
-      surfaceFinish: "Internal Ra ≤ 0.38 µm Electro-Polished",
-      corrosionImmunity: "Immune to Deaerated Hydrofluoric Acid and Brackish Seawater"
-    },
-    standards: [
-      "ASTM B164 - Nickel-Copper Alloy Rod, Bar, and Wire",
-      "ASTM B366 - Factory-Made Wrought Nickel and Nickel Alloy Fittings",
-      "3-A Sanitary Guidelines"
-    ],
-    applications: [
-      "Saline Pharmaceutical Formulations and IV Fluid Mixing",
-      "Marine Biotechnology & Algae Culture Laboratories",
-      "Fluorinated Chemical Processing Loops"
-    ],
-    technicalDetails: {
-      manufacturingType: "Mandrel Bent Seamless Nickel-Copper Tube",
-      pressureRating: "150 PSI @ 150°C",
-      tolerance: "ASME BPE",
-      certifications: "EN 10204 3.1 MTC"
-    },
-    relatedProductIds: ["dairy-nickel-hastelloy-ferrule", "dairy-ss-316l-tc-ferrule"]
-  },
-
-  // =========================================================================
-  // 5. HIGH ALLOY DAIRY & PHARMA FITTINGS
-  // =========================================================================
   {
     id: "dairy-high-alloy-al6xn-clamp",
     slug: "al6xn-high-alloy-tri-clamp-assembly",
@@ -520,60 +296,8 @@ export const DAIRY_PHARMA_PRODUCTS = [
       tolerance: "ASME BPE Table DT-3",
       certifications: "EN 10204 3.1 MTC with PREN & Microstructure Certification"
     },
-    relatedProductIds: ["dairy-high-alloy-sanitary-tee", "dairy-duplex-2205-ferrule", "dairy-ss-316l-tc-ferrule"]
+    relatedProductIds: ["dairy-ss-316l-tc-ferrule", "dairy-duplex-2205-ferrule", "dairy-super-duplex-2507-ferrule"]
   },
-  {
-    id: "dairy-high-alloy-sanitary-tee",
-    slug: "al6xn-high-alloy-sanitary-equal-tee",
-    name: "AL-6XN High Alloy Sanitary Equal & Reducing Tee",
-    title: "AL-6XN High Alloy Sanitary Equal & Reducing Tee",
-    division: "MANUFACTURER",
-    category: "Dairy & Pharma Fittings",
-    categorySlug: "dairy-sanitary-fittings",
-    material: "HIGH ALLOYS",
-    materialName: "High Alloys",
-    materialSlug: "high-alloys",
-    grade: "AL-6XN (UNS N08367)",
-    gradeSlug: "al-6xn",
-    grades: ["AL-6XN (UNS N08367)", "254 SMO (UNS S31254)"],
-    productType: "Sanitary Equal & Reducing Tee",
-    image: highAlloyDairyImg,
-    heroImage: highAlloyDairyImg,
-    gallery: [highAlloyDairyImg, dairyCollageImg],
-    shortDescription: "High alloy 6% Moly sanitary tees with orbital weld tangents for sterile biopharmaceutical manufacturing.",
-    overview: "Seamless formed AL-6XN sanitary tees with extended tangent ends allowing automated orbital welding in cleanroom piping installations exposed to acidic SIP steam.",
-    forms: ["Equal Tee", "Reducing Tee", "Short Outlet Tee"],
-    sizeRange: "1\" to 4\" O.D.",
-    wallThickness: "1.65 mm to 2.11 mm",
-    length: "Standard ASME BPE Tangents",
-    endConnections: "Butt Weld Orbital Tangents / Tri-Clamp Ends",
-    specifications: {
-      governingStandard: "ASME BPE Table DT-4.1.2-1, 3-A Sanitary, ASTM B688",
-      surfaceFinish: "Internal Ra ≤ 0.38 µm Electro-Polished, External Ra ≤ 0.8 µm",
-      size: "1\\"
-    },
-    standards: [
-      "ASME BPE - BioProcessing Equipment Standards",
-      "3-A Sanitary Standards",
-      "ASTM B688 / ASTM A182"
-    ],
-    applications: [
-      "Oncology Injectable Drug Manufacturing",
-      "Biotech Cleanroom Sterile Utility Loops",
-      "Concentrated Acidic Buffer Media Lines"
-    ],
-    technicalDetails: {
-      manufacturingType: "Hydraulic Pressed Seamless Body & Orbital Welded Tangents",
-      pressureRating: "150 PSI @ 150°C",
-      tolerance: "ASME BPE Table DT-3",
-      certifications: "EN 10204 3.1 MTC"
-    },
-    relatedProductIds: ["dairy-high-alloy-al6xn-clamp", "dairy-super-duplex-2507-ferrule"]
-  },
-
-  // =========================================================================
-  // 6. DUPLEX DAIRY & PHARMA FITTINGS
-  // =========================================================================
   {
     id: "dairy-duplex-2205-ferrule",
     slug: "duplex-2205-sanitary-tc-ferrule",
@@ -621,60 +345,8 @@ export const DAIRY_PHARMA_PRODUCTS = [
       tolerance: "ASME BPE Table DT-3",
       certifications: "EN 10204 3.1 MTC, Ferrite Phase Count (40-60%)"
     },
-    relatedProductIds: ["dairy-duplex-2205-sanitary-bend", "dairy-super-duplex-2507-ferrule", "dairy-ss-316l-tc-ferrule"]
+    relatedProductIds: ["dairy-ss-316l-tc-ferrule", "dairy-duplex-2205-ferrule", "dairy-super-duplex-2507-ferrule"]
   },
-  {
-    id: "dairy-duplex-2205-sanitary-bend",
-    slug: "duplex-2205-hygienic-sanitary-90-bend",
-    name: "Duplex 2205 Hygienic Sanitary 90° Electro-Polished Bend",
-    title: "Duplex 2205 Hygienic Sanitary 90° Electro-Polished Bend",
-    division: "MANUFACTURER",
-    category: "Dairy & Pharma Fittings",
-    categorySlug: "dairy-sanitary-fittings",
-    material: "DUPLEX",
-    materialName: "Duplex Steel",
-    materialSlug: "duplex",
-    grade: "UNS S31803 (2205)",
-    gradeSlug: "duplex-2205",
-    grades: ["UNS S31803 / S32205", "EN 1.4462"],
-    productType: "90° Hygienic Process Bend",
-    image: duplexDairyImg,
-    heroImage: duplexDairyImg,
-    gallery: [duplexDairyImg, dairyCollageImg],
-    shortDescription: "Duplex 2205 electro-polished sanitary 90° bends engineered for high pressure beverage carbonation and dairy skids.",
-    overview: "Mandrel-bent Duplex 2205 elbows tested under pulsating pressure loads. Prevents fatigue cracking and chloride pitting in high-vibration dairy separator and homogenization pumps.",
-    forms: ["90° Elbow", "45° Elbow"],
-    sizeRange: "1\" to 4\" O.D.",
-    wallThickness: "1.65 mm to 2.77 mm",
-    length: "1.5D Centerline Radius",
-    endConnections: "Orbital Butt Weld Tangents",
-    specifications: {
-      governingStandard: "ASTM A182 F51, ASTM A789/A790, 3-A Sanitary, DIN 11852",
-      surfaceFinish: "Internal Ra ≤ 0.38 µm Electro-Polished",
-      fatigueResistance: "Exceeds 10 Million Pressure Cycles without Crack Initiation"
-    },
-    standards: [
-      "ASTM A182 F51 - Duplex Steel Piping Fittings",
-      "3-A Sanitary Standards #63-04",
-      "DIN 11852 - Food Industry Bends"
-    ],
-    applications: [
-      "Carbonated Soft Drink & Beer Canning Manifolds",
-      "High-Pressure Dairy Separator Discharge Loops",
-      "Food Grade Acid & CIP Neutralization Lines"
-    ],
-    technicalDetails: {
-      manufacturingType: "Mandrel Bent Seamless Duplex Tube & Solution Annealed",
-      pressureRating: "250 PSI @ 150°C",
-      tolerance: "ASME BPE",
-      certifications: "EN 10204 3.1 MTC"
-    },
-    relatedProductIds: ["dairy-duplex-2205-ferrule", "dairy-ss-316l-tc-ferrule"]
-  },
-
-  // =========================================================================
-  // 7. SUPER DUPLEX DAIRY & PHARMA FITTINGS
-  // =========================================================================
   {
     id: "dairy-super-duplex-2507-ferrule",
     slug: "super-duplex-2507-electro-polished-sanitary-ferrule",
@@ -723,60 +395,8 @@ export const DAIRY_PHARMA_PRODUCTS = [
       tolerance: "ASME BPE Table DT-3",
       certifications: "EN 10204 3.1 & 3.2 MTC, ASTM A923 Method C Corrosion Test"
     },
-    relatedProductIds: ["dairy-super-duplex-2507-tee", "dairy-duplex-2205-ferrule", "dairy-titanium-gr2-ferrule"]
+    relatedProductIds: ["dairy-ss-316l-tc-ferrule", "dairy-duplex-2205-ferrule", "dairy-super-duplex-2507-ferrule"]
   },
-  {
-    id: "dairy-super-duplex-2507-tee",
-    slug: "super-duplex-2507-sanitary-concentric-reducer-tee",
-    name: "Super Duplex 2507 Sanitary Concentric Reducer & Process Tee",
-    title: "Super Duplex 2507 Sanitary Concentric Reducer & Process Tee",
-    division: "MANUFACTURER",
-    category: "Dairy & Pharma Fittings",
-    categorySlug: "dairy-sanitary-fittings",
-    material: "SUPER DUPLEX",
-    materialName: "Super Duplex Steel",
-    materialSlug: "super-duplex",
-    grade: "UNS S32750 (2507)",
-    gradeSlug: "super-duplex-2507",
-    grades: ["UNS S32750", "EN 1.4410"],
-    productType: "Sanitary Concentric Reducer & Tee",
-    image: superDuplexDairyImg,
-    heroImage: superDuplexDairyImg,
-    gallery: [superDuplexDairyImg, dairyCollageImg],
-    shortDescription: "High-strength Super Duplex 2507 sanitary tees and concentric reducers for severe bioprocess conditions.",
-    overview: "Precision cold-formed Super Duplex tees and reducers with electro-polished internal surfaces to prevent biofilm adherence under high flow velocities in hyper-saline cleanrooms.",
-    forms: ["Equal Tee", "Concentric Reducer", "Reducing Tee"],
-    sizeRange: "1\" to 4\" O.D.",
-    wallThickness: "1.65 mm to 3.0 mm",
-    length: "Standard ASME BPE Tangents",
-    endConnections: "Butt Weld Orbital Tangents / Tri-Clamp Ends",
-    specifications: {
-      governingStandard: "ASTM A182 F53, ASTM A815, ASME BPE, 3-A",
-      surfaceFinish: "Internal Ra ≤ 0.38 µm Electro-Polished",
-      prenRating: "PREN ≥ 42"
-    },
-    standards: [
-      "ASTM A182 F53 - Super Duplex Stainless Steel Fittings",
-      "ASME BPE BioProcessing Standards",
-      "3-A Sanitary Guidelines"
-    ],
-    applications: [
-      "Biotech Sterile Filtration Manifolds",
-      "High-Chloride Buffer Preparation Skids",
-      "Desalinated Water for Injection (WFI) Plants"
-    ],
-    technicalDetails: {
-      manufacturingType: "Formed Seamless Body with Ultrasonic Testing",
-      pressureRating: "300 PSI @ 150°C",
-      tolerance: "ASME BPE Table DT-3",
-      certifications: "EN 10204 3.1 MTC"
-    },
-    relatedProductIds: ["dairy-super-duplex-2507-ferrule", "dairy-duplex-2205-ferrule"]
-  },
-
-  // =========================================================================
-  // 8. TITANIUM DAIRY & PHARMA FITTINGS
-  // =========================================================================
   {
     id: "dairy-titanium-gr2-ferrule",
     slug: "titanium-grade-2-ultra-pure-sanitary-tc-ferrule",
@@ -825,60 +445,8 @@ export const DAIRY_PHARMA_PRODUCTS = [
       tolerance: "ASME BPE Precision Class",
       certifications: "EN 10204 3.1 MTC, USP Class VI Certificate"
     },
-    relatedProductIds: ["dairy-titanium-gr2-bend", "dairy-exotic-c276-ferrule", "dairy-ss-316l-tc-ferrule"]
+    relatedProductIds: ["dairy-ss-316l-tc-ferrule", "dairy-duplex-2205-ferrule", "dairy-super-duplex-2507-ferrule"]
   },
-  {
-    id: "dairy-titanium-gr2-bend",
-    slug: "titanium-grade-2-high-purity-sanitary-90-bend",
-    name: "Titanium Grade 2 High-Purity Sanitary 90° Process Bend",
-    title: "Titanium Grade 2 High-Purity Sanitary 90° Process Bend",
-    division: "MANUFACTURER",
-    category: "Dairy & Pharma Fittings",
-    categorySlug: "dairy-sanitary-fittings",
-    material: "TITANIUM",
-    materialName: "Titanium Alloys",
-    materialSlug: "titanium",
-    grade: "Titanium Grade 2 (UNS R50400)",
-    gradeSlug: "titanium-gr2",
-    grades: ["Titanium Grade 2 (UNS R50400)", "Titanium Grade 7 (Ti-0.2Pd)"],
-    productType: "90° Titanium Process Bend",
-    image: titaniumDairyImg,
-    heroImage: titaniumDairyImg,
-    gallery: [titaniumDairyImg, dairyCollageImg],
-    shortDescription: "Titanium Grade 2 seamless sanitary 90° elbows engineered for weight-sensitive sterile bioprocess skids.",
-    overview: "Ultra-lightweight Titanium Gr2 sanitary bends offering 45% weight reduction compared to stainless steel while delivering immune resistance to bio-corrosion, chlorine dioxide sanitization, and physiological saline.",
-    forms: ["90° Long Radius Bend", "45° Bend"],
-    sizeRange: "1\" to 4\" O.D.",
-    wallThickness: "1.25 mm to 1.65 mm",
-    length: "1.5D Centerline Radius",
-    endConnections: "Orbital Butt Weld Tangents",
-    specifications: {
-      governingStandard: "ASTM B363, ASTM B348, ASME BPE, 3-A",
-      surfaceFinish: "Internal Ra ≤ 0.25 µm Electro-Polished",
-      densityAdvantage: "4.51 g/cm³ (High Strength-to-Weight Ratio)"
-    },
-    standards: [
-      "ASTM B363 - Titanium Piping Fittings",
-      "ASTM B338 - Titanium Tubes for Condensers and Heat Exchangers",
-      "3-A Sanitary Guidelines"
-    ],
-    applications: [
-      "Vaccine Production Facilities & Cleanroom Skids",
-      "Mobile Sterile Bioreactor Transfer Assemblies",
-      "Ultra-Pure Saline and Halide Chemical Processing Loops"
-    ],
-    technicalDetails: {
-      manufacturingType: "Cold Mandrel Bent Seamless Titanium Tube in Inert Gas Atmosphere",
-      pressureRating: "150 PSI @ 150°C",
-      tolerance: "ASME BPE Table DT-3",
-      certifications: "EN 10204 3.1 MTC"
-    },
-    relatedProductIds: ["dairy-titanium-gr2-ferrule", "dairy-ss-316l-tc-ferrule"]
-  },
-
-  // =========================================================================
-  // 9. EXOTIC ALLOY DAIRY & PHARMA FITTINGS
-  // =========================================================================
   {
     id: "dairy-exotic-c276-ferrule",
     slug: "hastelloy-c276-exotic-sanitary-ferrule-union",
@@ -927,60 +495,10 @@ export const DAIRY_PHARMA_PRODUCTS = [
       tolerance: "ASME BPE Table DT-3",
       certifications: "EN 10204 3.1 & 3.2 Inspection Certificate with Radiographic Test"
     },
-    relatedProductIds: ["dairy-exotic-sanitary-valve-body", "dairy-titanium-gr2-ferrule", "dairy-nickel-hastelloy-ferrule"]
-  },
-  {
-    id: "dairy-exotic-sanitary-valve-body",
-    slug: "exotic-alloy-c276-sanitary-diaphragm-valve-body",
-    name: "Exotic Alloy C276 Sanitary Process Diaphragm Valve Body",
-    title: "Exotic Alloy C276 Sanitary Process Diaphragm Valve Body",
-    division: "MANUFACTURER",
-    category: "Dairy & Pharma Fittings",
-    categorySlug: "dairy-sanitary-fittings",
-    material: "EXOTIC ALLOYS",
-    materialName: "Exotic Alloys",
-    materialSlug: "exotic-alloys",
-    grade: "Hastelloy C276 / Inconel 686",
-    gradeSlug: "c276",
-    grades: ["Hastelloy C276", "Inconel 686", "Alloy 59"],
-    productType: "Sanitary Diaphragm Valve Body",
-    image: exoticDairyImg,
-    heroImage: exoticDairyImg,
-    gallery: [exoticDairyImg, dairyCollageImg],
-    shortDescription: "Precision forged Hastelloy C276 sanitary two-way weir diaphragm valve bodies for sterile aggressive acid shut-off.",
-    overview: "Two-way weir-type sanitary diaphragm valve bodies forged from solid Hastelloy C276 with self-draining cavity design. Guarantees zero hold-up volume and complete sterility in severe pharmaceutical synthesis loops.",
-    forms: ["Two-Way Weir Body", "T-Pattern Zero Static Valve Body"],
-    sizeRange: "1/2\" to 3\" O.D. ASME BPE",
-    wallThickness: "Heavy Forged Body",
-    length: "Standard ASME BPE Port-to-Port",
-    endConnections: "Orbital Weld Tangents / Tri-Clamp Ends",
-    specifications: {
-      governingStandard: "ASME BPE Part SG, 3-A Sanitary, ASTM B574",
-      internalCavityFinish: "Ra ≤ 0.20 µm Electro-Polished (Zero Dead Leg / Fully Drainable)",
-      diaphragmCompatibility: "PTFE / EPDM Two-Piece Backed Diaphragms",
-      pressureRating: "10 Bar (150 PSI) Maximum Working Pressure"
-    },
-    standards: [
-      "ASME BPE Part SG - Sealing Components and Valve Bodies",
-      "3-A Sanitary Standards for Valves",
-      "ASTM B574 - Low-Carbon Nickel Alloys"
-    ],
-    applications: [
-      "Sterile API Acid Dosing & Metering",
-      "Radioactive Tracer Sterile Sampling Lines",
-      "Ultra-Pure Specialty Pharmaceutical Reaction Tanks"
-    ],
-    technicalDetails: {
-      manufacturingType: "Forged Billet CNC Machined with Micro-Profilometer Verification",
-      pressureRating: "150 PSI @ 150°C",
-      tolerance: "ASME BPE Table DT-3",
-      certifications: "EN 10204 3.1 MTC, Hydrostatic & Dye Penetrant Test"
-    },
-    relatedProductIds: ["dairy-exotic-c276-ferrule", "dairy-titanium-gr2-ferrule"]
+    relatedProductIds: ["dairy-ss-316l-tc-ferrule", "dairy-duplex-2205-ferrule", "dairy-super-duplex-2507-ferrule"]
   }
 ];
 
-// Strictly get product by slug (with or without mfg suffix)
 export const getDairyPharmaProductBySlug = (slug = "") => {
   const clean = String(slug).toLowerCase().trim().replace(/-manufactured-in-mumbai$/, "");
   return DAIRY_PHARMA_PRODUCTS.find((p) => p.slug === clean || p.id === clean) || null;

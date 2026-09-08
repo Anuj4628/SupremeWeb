@@ -153,10 +153,6 @@ export default function PartnershipsSection() {
         {/* DUAL-ROW CONTINUOUS INFINITE LOGO MARQUEE */}
         {/* ========================================================================= */}
         <div className="partner-reveal-marquee relative space-y-6 sm:space-y-8">
-          
-          {/* Left & Right Gradient Masked Edges */}
-          <div className="absolute top-0 bottom-0 left-0 w-16 sm:w-32 lg:w-48 bg-gradient-to-r from-[#0B1E2B] via-[#0B1E2B]/80 to-transparent z-20 pointer-events-none" />
-          <div className="absolute top-0 bottom-0 right-0 w-16 sm:w-32 lg:w-48 bg-gradient-to-l from-[#0B1E2B] via-[#0B1E2B]/80 to-transparent z-20 pointer-events-none" />
 
           {/* ROW 1: RIGHT TO LEFT */}
           <div className="overflow-hidden group py-2">

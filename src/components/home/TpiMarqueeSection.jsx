@@ -78,9 +78,6 @@ export default function TpiMarqueeSection() {
           className="relative bg-white/90 rounded-2xl p-4 sm:p-6 border border-slate-200/90 shadow-sm space-y-4"
           data-gsap="scale"
         >
-          {/* Left & Right Edge Gradient Fade Masks */}
-          <div className="pointer-events-none absolute inset-y-0 left-0 w-16 sm:w-28 bg-gradient-to-r from-white via-white/90 to-transparent z-10 rounded-l-2xl" />
-          <div className="pointer-events-none absolute inset-y-0 right-0 w-16 sm:w-28 bg-gradient-to-l from-white via-white/90 to-transparent z-10 rounded-r-2xl" />
 
           {/* TOP MARQUEE ROW: RIGHT -> LEFT */}
           <MarqueeComponent

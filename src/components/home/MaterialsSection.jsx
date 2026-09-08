@@ -129,10 +129,6 @@ export default function MaterialsSection() {
 
       {/* MULTI-ROW KINETIC SCROLLING MATERIAL SHOWCASE */}
       <div ref={rowsContainerRef} className="relative z-10 space-y-4 sm:space-y-6">
-        
-        {/* Elegant Gradient Masked Edges (Left & Right Edge Fades) */}
-        <div className="absolute top-0 bottom-0 left-0 w-16 sm:w-32 lg:w-48 bg-gradient-to-r from-white via-white/80 to-transparent z-20 pointer-events-none" />
-        <div className="absolute top-0 bottom-0 right-0 w-16 sm:w-32 lg:w-48 bg-gradient-to-l from-white via-white/80 to-transparent z-20 pointer-events-none" />
 
         {/* ==========================================
             ROW 1: RIGHT TO LEFT (PROMINENT BOLD MATERIAL CARDS)
