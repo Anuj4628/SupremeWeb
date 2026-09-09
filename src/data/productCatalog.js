@@ -32,17 +32,37 @@ import titaniumButtWeldImg from "../assets/All Products/Butt weld fit/titainium.
 import exoticButtWeldImg from "../assets/All Products/Butt weld fit/exotic.jpg";
 const buttWeldShowcaseImg = ssButtWeldImg;
 
-// Forged Fittings Dedicated Assets (Source of Truth: All Products/Forged Fittings)
+// Forged Fittings Dedicated Assets (Source of Truth: Manufacture Division/Forged Fittings)
 const forgedCollageImg = forgedFittingPng;
-import forgedSsImg from "../assets/All Products/Forged Fittings/stainles steel.jpg";
-import forgedCsImg from "../assets/All Products/Forged Fittings/carbon.avif";
-import forgedAsImg from "../assets/All Products/Forged Fittings/alloy steel.jpg";
-import forgedNickelImg from "../assets/All Products/Forged Fittings/nikle.jpeg";
-import forgedHighAlloyImg from "../assets/All Products/Forged Fittings/high alloys.jpeg";
-import forgedDuplexImg from "../assets/All Products/Forged Fittings/duplex.jpg";
-import forgedSuperDuplexImg from "../assets/All Products/Forged Fittings/super duplex.jpeg";
-import forgedTitaniumImg from "../assets/All Products/Forged Fittings/titainium.jpg";
-import forgedExoticImg from "../assets/All Products/Forged Fittings/exotic.jpg";
+import forgedSsImg from "../assets/All Products/Manufacture Division/Forged Fittings/forged_ss.png";
+import forgedCsImg from "../assets/All Products/Manufacture Division/Forged Fittings/forged_cs.png";
+import forgedAsImg from "../assets/All Products/Manufacture Division/Forged Fittings/forged_as.png";
+import forgedNickelImg from "../assets/All Products/Manufacture Division/Forged Fittings/forged_nickel.png";
+import forgedHighAlloyImg from "../assets/All Products/Manufacture Division/Forged Fittings/forged_high_alloy.png";
+import forgedDuplexImg from "../assets/All Products/Manufacture Division/Forged Fittings/forged_duplex.png";
+import forgedSuperDuplexImg from "../assets/All Products/Manufacture Division/Forged Fittings/forged_super_duplex.png";
+import forgedTitaniumImg from "../assets/All Products/Manufacture Division/Forged Fittings/forged_titanium.png";
+import forgedExoticImg from "../assets/All Products/Manufacture Division/Forged Fittings/forged_exotic.png";
+
+// Material Card Images (Source of Truth: All Products/Material Imges)
+import ssMatImg from "../assets/All Products/Material Imges/stainless steel.jpg";
+import nickelMatImg from "../assets/All Products/Material Imges/nikle alloy.png";
+import highAlloyMatImg from "../assets/All Products/Material Imges/high Alloy.webp";
+import duplexMatImg from "../assets/All Products/Material Imges/duplex.jpg";
+import superDuplexMatImg from "../assets/All Products/Material Imges/super duplex.webp";
+import titaniumMatImg from "../assets/All Products/Material Imges/titanium.png";
+import carbonMatImg from "../assets/All Products/Material Imges/carbon.png";
+
+// Ferrule Fittings Dedicated Assets (Source of Truth: Manufacture Division/Ferrule Fitting)
+import ferruleSsImg from "../assets/All Products/Manufacture Division/Ferrule Fitting/stainless steel.jpg";
+import ferruleCsImg from "../assets/All Products/Manufacture Division/Ferrule Fitting/Carbon.jpg";
+import ferruleAsImg from "../assets/All Products/Manufacture Division/Ferrule Fitting/alloy steel.jpg";
+import ferruleNickelImg from "../assets/All Products/Manufacture Division/Ferrule Fitting/nikle.jpeg";
+import ferruleHighAlloyImg from "../assets/All Products/Manufacture Division/Ferrule Fitting/high Alloy.webp";
+import ferruleDuplexImg from "../assets/All Products/Manufacture Division/Ferrule Fitting/duplex.jpeg";
+import ferruleSuperDuplexImg from "../assets/All Products/Manufacture Division/Ferrule Fitting/super duplex.jpeg";
+import ferruleTitaniumImg from "../assets/All Products/Manufacture Division/Ferrule Fitting/titanium.jpg";
+import ferruleExoticImg from "../assets/All Products/Manufacture Division/Ferrule Fitting/exotic.webp";
 
 // Flanges Dedicated Assets (Source of Truth: All Products/Flanges)
 const flangesCollageImg = forgedFlangesImg;
@@ -303,7 +323,7 @@ export const MATERIALS = [
     applications: ["Chemical Processing", "Oil & Gas Refineries", "Food & Dairy Processing", "Pharmaceutical Piping", "Marine Equipment"],
     density: "7.93 g/cm³",
     yieldStrength: "205 - 310 MPa",
-    image: ssButtWeldImg,
+    image: ssMatImg,
     accentColor: "#F36F21"
   },
   {
@@ -320,7 +340,7 @@ export const MATERIALS = [
     applications: ["Caustic Evaporators", "Chlorination Systems", "Nuclear Steam Generators", "Offshore Flare Stacks", "Acid Scrubbers"],
     density: "8.44 - 8.89 g/cm³",
     yieldStrength: "240 - 550 MPa",
-    image: wireMeshNickelImg,
+    image: nickelMatImg,
     accentColor: "#3B82F6"
   },
   {
@@ -337,7 +357,7 @@ export const MATERIALS = [
     applications: ["Sulfuric Acid Handling", "Flue Gas Desulfurization (FGD)", "Phosphoric Acid Evaporators", "Bleach Plant Scrubbers", "Seawater Heat Exchangers"],
     density: "8.00 - 8.69 g/cm³",
     yieldStrength: "300 - 450 MPa",
-    image: wireMeshHighAlloyImg,
+    image: highAlloyMatImg,
     accentColor: "#8B5CF6"
   },
   {
@@ -354,7 +374,7 @@ export const MATERIALS = [
     applications: ["Cargo Tanks & Chemical Tankers", "Pulp & Paper Digesters", "Desalination Piping", "Flue Gas Scrubber Ducts", "Offshore Process Piping"],
     density: "7.80 g/cm³",
     yieldStrength: "≥ 450 MPa",
-    image: wireMeshDuplexImg,
+    image: duplexMatImg,
     accentColor: "#0EA5E9"
   },
   {
@@ -371,7 +391,7 @@ export const MATERIALS = [
     applications: ["Subsea Umbilicals & Flowlines", "Seawater Reverse Osmosis (SWRO)", "Offshore Firewater Deluge", "Subsea Manifolds", "Sour Gas Scrubbers"],
     density: "7.80 g/cm³",
     yieldStrength: "≥ 550 MPa",
-    image: wireMeshSuperDuplexImg,
+    image: superDuplexMatImg,
     accentColor: "#06B6D4"
   },
   {
@@ -379,8 +399,8 @@ export const MATERIALS = [
     slug: "titanium",
     aliases: ["titanium-alloys"],
     number: "06",
-    name: "Titanium",
-    shortName: "Titanium",
+    name: "Titanium Alloys",
+    shortName: "Titanium Alloys",
     tagline: "Commercial Purity & Aerospace Strength-to-Weight",
     description: "Commercially pure and alpha-beta titanium alloys delivering complete immunity to seawater and wet chlorine with an extraordinary 45% weight advantage over steel.",
     grades: ["Grade 1 (CP4)", "Grade 2 (CP3)", "Grade 5 (Ti-6Al-4V)", "Grade 7 (Ti-0.15Pd)", "Grade 9 (Ti-3Al-2.5V)", "Grade 12"],
@@ -388,7 +408,7 @@ export const MATERIALS = [
     applications: ["Chlor-Alkali Electrolyzers", "Plate Heat Exchangers", "Aerospace Structural Airframes", "Marine Propeller Shafts", "Medical & Surgical Implants"],
     density: "4.51 g/cm³",
     yieldStrength: "275 - 880 MPa",
-    image: wireMeshTitaniumImg,
+    image: titaniumMatImg,
     accentColor: "#10B981"
   },
   {
@@ -413,8 +433,8 @@ export const MATERIALS = [
     slug: "carbon",
     aliases: ["carbon-steel"],
     number: "08",
-    name: "Carbon",
-    shortName: "Carbon",
+    name: "Carbon & High Alloys",
+    shortName: "Carbon & High Alloys",
     tagline: "High-Yield Pressure Vessel & Structural Carbon Steel",
     description: "High-integrity, fine-grain killed carbon steel and low-temperature carbon steel (LTCS) engineered for critical high-pressure steam, oil, and gas line service.",
     grades: ["ASTM A106 Gr B / C", "ASTM A105", "ASTM A333 Gr 6 (LTCS)", "ASTM A234 WPB / WPC", "ASTM A516 Gr 60 / 70", "IS 2062"],
@@ -422,7 +442,7 @@ export const MATERIALS = [
     applications: ["Cross-Country Hydrocarbon Transmission", "High-Pressure Steam Pipelines", "Boiler Mud Drums & Shells", "Heavy Industrial Framing", "Cryogenic Storage"],
     density: "7.85 g/cm³",
     yieldStrength: "240 - 415 MPa",
-    image: wireMeshCsImg,
+    image: carbonMatImg,
     accentColor: "#F59E0B"
   },
   {
@@ -469,7 +489,7 @@ export const PRODUCTS = [
     grade: "316 / 316L",
     gradeSlug: "316l",
     productType: "Double Ferrule Compression Fitting",
-    heroImage: ferruleFittingsImg,
+    heroImage: ferruleSsImg,
     gallery: [tcFittingsImg, dairySanitaryImg],
     shortDescription: "High-pressure double ferrule instrumentation compression tube fittings (up to 10,000 PSI) for leak-proof impulse lines and gas networks.",
     overview: "Supreme Metal & Alloys manufactures double ferrule compression tube fittings conforming to ASME B31.3. Featuring burnished tube bore entry, silver-plated nut threads to prevent galling, and 100% helium leak test compliance.",
@@ -496,7 +516,7 @@ export const PRODUCTS = [
     grade: "ASTM A105 / LF2",
     gradeSlug: "a105",
     productType: "Double Ferrule Compression Fitting",
-    heroImage: ferruleFittingsImg,
+    heroImage: ferruleCsImg,
     gallery: [tcFittingsImg, dairySanitaryImg],
     shortDescription: "High-pressure carbon steel double ferrule instrumentation compression tube fittings (up to 6,000 PSI) for industrial hydraulic lines and utility manifolds.",
     overview: "Supreme Metal & Alloys manufactures heavy-duty carbon steel double ferrule tube fittings designed for rigorous hydraulic and compressed air distribution networks. Zinc-nickel plated for enhanced atmospheric corrosion resistance.",
@@ -523,7 +543,7 @@ export const PRODUCTS = [
     grade: "ASTM A182 F11 / F22",
     gradeSlug: "f11",
     productType: "Double Ferrule Compression Fitting",
-    heroImage: ferruleFittingsImg,
+    heroImage: ferruleAsImg,
     gallery: [tcFittingsImg, dairySanitaryImg],
     shortDescription: "Elevated temperature chrome-moly alloy steel double ferrule tube fittings for superheated steam tracing and power generation impulse loops.",
     overview: "Manufactured from ASTM A182 F11/F22 alloy steel, these double ferrule tube fittings withstand continuous elevated temperatures and thermal cycling in utility boilers and power plant instrumentation.",
@@ -550,7 +570,7 @@ export const PRODUCTS = [
     grade: "Inconel 625 / Monel 400",
     gradeSlug: "inconel-625",
     productType: "Double Ferrule Compression Fitting",
-    heroImage: ferruleFittingsImg,
+    heroImage: ferruleNickelImg,
     gallery: [tcFittingsImg, dairySanitaryImg],
     shortDescription: "Ultra-corrosion resistant Nickel Alloy (Inconel 625 / Monel 400) compression tube fittings for marine, subsea, and sour gas service.",
     overview: "Engineered from solid forged Inconel 625 and Monel 400 bars per ASTM B564/B164, delivering zero pitting, crevice corrosion, or chloride stress corrosion cracking in extreme marine and sour gas (NACE MR0175) environments.",
@@ -577,7 +597,7 @@ export const PRODUCTS = [
     grade: "Hastelloy C276 / Alloy 20",
     gradeSlug: "hastelloy-c276",
     productType: "Double Ferrule Compression Fitting",
-    heroImage: ferruleFittingsImg,
+    heroImage: ferruleHighAlloyImg,
     gallery: [tcFittingsImg, dairySanitaryImg],
     shortDescription: "Premium nickel-molybdenum-chromium Hastelloy C-276 and Alloy 20 compression tube fittings for aggressive acids and wet chlorine service.",
     overview: "Manufactured from genuine Hastelloy C-276 and Alloy 20 for absolute resistance to hot contaminated mineral acids, solvents, wet chlorine, and sulfuric acid injection systems.",
@@ -604,7 +624,7 @@ export const PRODUCTS = [
     grade: "Duplex 2205 (UNS S31803 / S32205)",
     gradeSlug: "duplex-2205",
     productType: "Double Ferrule Compression Fitting",
-    heroImage: ferruleFittingsImg,
+    heroImage: ferruleDuplexImg,
     gallery: [tcFittingsImg, dairySanitaryImg],
     shortDescription: "High-yield austenitic-ferritic Duplex 2205 double ferrule tube fittings for offshore seawater instrumentation and desalination systems.",
     overview: "Precision machined from UNS S31803 / S32205 bar stock, offering double the mechanical yield strength of 316L combined with exceptional resistance to seawater pitting (PREN ≥ 35).",
@@ -631,7 +651,7 @@ export const PRODUCTS = [
     grade: "Super Duplex 2507 (UNS S32750)",
     gradeSlug: "super-duplex-2507",
     productType: "Double Ferrule Compression Fitting",
-    heroImage: ferruleFittingsImg,
+    heroImage: ferruleSuperDuplexImg,
     gallery: [tcFittingsImg, dairySanitaryImg],
     shortDescription: "Extreme service Super Duplex 2507 compression tube fittings with PREN ≥ 42 for ultra-deepwater oil & gas subsea manifolds.",
     overview: "Manufactured from certified UNS S32750 Super Duplex bar stock per NORSOK M-650 / MDS D57. Engineered to guarantee leak-free integrity under ultra-high pressure subsea immersion and corrosive sour brine.",
@@ -658,7 +678,7 @@ export const PRODUCTS = [
     grade: "Titanium Grade 2 / Grade 5",
     gradeSlug: "titanium-grade-2",
     productType: "Double Ferrule Compression Fitting",
-    heroImage: ferruleFittingsImg,
+    heroImage: ferruleTitaniumImg,
     gallery: [tcFittingsImg, dairySanitaryImg],
     shortDescription: "Ultra-lightweight and completely immune to seawater and chlorine corrosion Titanium double ferrule tube fittings for aerospace and military naval systems.",
     overview: "Precision CNC turned from ASTM B348 Grade 2 and Grade 5 (Ti-6Al-4V) titanium bar stock. Delivers exceptional strength-to-weight ratio and total immunity to wet chlorine, hypochlorite, and marine immersion.",
@@ -685,7 +705,7 @@ export const PRODUCTS = [
     grade: "Zirconium 702 / Tantalum",
     gradeSlug: "zirconium-702",
     productType: "Double Ferrule Compression Fitting",
-    heroImage: ferruleFittingsImg,
+    heroImage: ferruleExoticImg,
     gallery: [tcFittingsImg, dairySanitaryImg],
     shortDescription: "Specialty nuclear reactor and ultra-severe nitric/hydrochloric chemical process Zirconium 702 and Tantalum double ferrule fittings.",
     overview: "Engineered from reactor-grade Zirconium 702 (UNS R60702) and vacuum melted Tantalum for absolute resistance to boiling hydrochloric acid, concentrated nitric acid, and nuclear core coolant loops.",

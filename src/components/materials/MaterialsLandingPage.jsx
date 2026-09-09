@@ -156,9 +156,11 @@ export default function MaterialsLandingPage({ onSelectMaterial }) {
           </div>
         </div>
 
-        {/* 9 Material Cards (3x3 Grid) - Compact with Images */}
+        {/* 7 Material Cards (3-column Grid) - Compact with Images */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-6">
-          {MATERIALS.map((material) => (
+          {MATERIALS.filter((material) =>
+            ["stainless-steel", "nickel", "high-alloys", "duplex", "super-duplex", "titanium", "carbon"].includes(material.slug)
+          ).map((material) => (
             <div
               key={material.id}
               role="button"
