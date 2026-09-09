@@ -250,9 +250,11 @@ export default function RfqFooterSection() {
         {/* ========================================================================= */}
         {/* BOTTOM COPYRIGHT & COMPLIANCE BAR */}
         {/* ========================================================================= */}
-        <div className="py-4 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-slate-400">
-          <div>
-            © 2026 <strong className="text-slate-200">Supreme Metal and Alloys</strong>. All Rights Reserved. Design &amp; SEO by <span className="text-slate-300">Sunmarg India</span>.
+        <div className="py-4 flex flex-col items-center gap-2 sm:flex-row sm:justify-between sm:gap-3 text-xs text-slate-400">
+          <div className="flex flex-col items-center gap-1 sm:flex-row sm:items-center sm:gap-2 text-center sm:text-left">
+            <span>© 2026 <strong className="text-slate-200">Supreme Metal and Alloys</strong>. All Rights Reserved.</span>
+            <span className="hidden sm:inline text-slate-600">|</span>
+            <span>Design &amp; SEO by <span className="text-slate-300">Sunmarg India</span>.</span>
           </div>
           <div className="flex flex-wrap items-center justify-center gap-3 text-slate-400 font-mono text-[11px]">
             <span>ISO 9001:2015 CERTIFIED</span>
