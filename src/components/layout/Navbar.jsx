@@ -6,6 +6,8 @@ import logoMark from "../../assets/logo1.png";
 import ProductMegaMenu from "../products/ProductMegaMenu";
 import IndustryMegaMenu from "../industries/IndustryMegaMenu";
 import MaterialMegaMenu from "../materials/MaterialMegaMenu";
+import CertificateDropdown from "../certificates/CertificateDropdown";
+import { CERTIFICATES } from "../../data/certificatesData";
 import {
   Phone,
   Mail,
@@ -176,6 +178,8 @@ const Navbar = () => {
                       setActiveDropdown(activeDropdown === "Industries" ? null : "Industries");
                     } else if (item.label === "Materials") {
                       setActiveDropdown(activeDropdown === "Materials" ? null : "Materials");
+                    } else if (item.label === "Certificates") {
+                      setActiveDropdown(activeDropdown === "Certificates" ? null : "Certificates");
                     }
                   }}
                   className={`flex items-center gap-1 px-3.5 py-2.5 rounded-lg text-sm font-semibold text-slate-800 hover:text-[#F36F21] hover:bg-slate-50 transition-all duration-200 relative ${
@@ -183,7 +187,7 @@ const Navbar = () => {
                   }`}
                 >
                   <span>{item.label}</span>
-                  {(item.dropdown || item.label === "Products") && (
+                  {(item.dropdown || item.hasDropdown || item.label === "Products" || item.label === "Certificates") && (
                     <ChevronDown
                       className={`w-4 h-4 transition-transform duration-300 ${
                         activeDropdown === item.label ? "rotate-180 text-[#F36F21]" : "text-slate-400"
@@ -191,6 +195,17 @@ const Navbar = () => {
                     />
                   )}
                 </a>
+
+                {/* Compact Dropdown directly below Certificates item */}
+                {item.label === "Certificates" && activeDropdown === "Certificates" && (
+                  <div
+                    className="absolute top-full left-0 pt-2 z-50 animate-in fade-in slide-in-from-top-1 duration-150 pointer-events-auto"
+                    onMouseEnter={() => handleMouseEnter("Certificates")}
+                    onMouseLeave={handleMouseLeave}
+                  >
+                    <CertificateDropdown onClose={() => setActiveDropdown(null)} />
+                  </div>
+                )}
               </div>
             ))}
           </nav>
@@ -350,6 +365,40 @@ const Navbar = () => {
                             ))}
                           </div>
                         </div>
+                      </div>
+                    )}
+                  </div>
+                ) : item.label === "Certificates" ? (
+                  <div>
+                    <button
+                      onClick={() => toggleMobileDropdown("Certificates")}
+                      className="w-full flex items-center justify-between py-2 text-left font-bold text-slate-800 hover:text-[#F36F21]"
+                    >
+                      <span className="text-base font-bold text-slate-900 flex items-center gap-2">
+                        <Award className="w-4 h-4 text-[#F36F21]" />
+                        Certificates
+                      </span>
+                      <ChevronDown
+                        className={`w-4 h-4 transition-transform duration-300 ${
+                          mobileDropdown === "Certificates" ? "rotate-180 text-[#F36F21]" : "text-slate-400"
+                        }`}
+                      />
+                    </button>
+                    {mobileDropdown === "Certificates" && (
+                      <div className="pl-4 py-2 space-y-1.5 bg-slate-50 rounded-xl mt-1">
+                        {CERTIFICATES.map((cert) => (
+                          <a
+                            key={cert.id}
+                            href={cert.fileUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            onClick={() => setMobileOpen(false)}
+                            className="flex items-center justify-between py-2 text-xs font-semibold text-slate-700 hover:text-[#F36F21] transition-colors"
+                          >
+                            <span>• {cert.title}</span>
+                            <span className="text-[10px] text-[#F36F21] font-mono shrink-0 ml-2">↗</span>
+                          </a>
+                        ))}
                       </div>
                     )}
                   </div>

@@ -167,6 +167,11 @@ export const navItems = [
       },
     ],
   },
+  {
+    label: "Certificates",
+    href: "#certificates",
+    hasDropdown: true,
+  },
   { label: "Contact", href: "#contact" },
 ];
 
